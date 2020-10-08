@@ -46,6 +46,9 @@
 		26D12334252F3E5E002028D3 /* VenderOfferTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26D12332252F3E5E002028D3 /* VenderOfferTableViewCell.xib */; };
 		26D12336252F3FE9002028D3 /* XIBVendorOffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D12335252F3FE9002028D3 /* XIBVendorOffer.swift */; };
 		26D12338252F4415002028D3 /* OfferViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D12337252F4415002028D3 /* OfferViewController.swift */; };
+		26D1233A252F47A9002028D3 /* OfferValidateDoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D12339252F47A9002028D3 /* OfferValidateDoneViewController.swift */; };
+		26D1233C252F47C2002028D3 /* OfferValidateErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D1233B252F47C2002028D3 /* OfferValidateErrorViewController.swift */; };
+		26D1233E252F47D9002028D3 /* OfferValidateQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D1233D252F47D9002028D3 /* OfferValidateQuestionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +114,9 @@
 		26D12332252F3E5E002028D3 /* VenderOfferTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VenderOfferTableViewCell.xib; sourceTree = "<group>"; };
 		26D12335252F3FE9002028D3 /* XIBVendorOffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XIBVendorOffer.swift; sourceTree = "<group>"; };
 		26D12337252F4415002028D3 /* OfferViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferViewController.swift; sourceTree = "<group>"; };
+		26D12339252F47A9002028D3 /* OfferValidateDoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferValidateDoneViewController.swift; sourceTree = "<group>"; };
+		26D1233B252F47C2002028D3 /* OfferValidateErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferValidateErrorViewController.swift; sourceTree = "<group>"; };
+		26D1233D252F47D9002028D3 /* OfferValidateQuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferValidateQuestionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,6 +216,9 @@
 				26D1231F252F1A03002028D3 /* HomeViewController.swift */,
 				26D1232F252F3C5F002028D3 /* VendorViewController.swift */,
 				26D12337252F4415002028D3 /* OfferViewController.swift */,
+				26D12339252F47A9002028D3 /* OfferValidateDoneViewController.swift */,
+				26D1233B252F47C2002028D3 /* OfferValidateErrorViewController.swift */,
+				26D1233D252F47D9002028D3 /* OfferValidateQuestionViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -408,7 +417,9 @@
 				26D1231E252F14C8002028D3 /* XIBPromotion.swift in Sources */,
 				2663E3DE252E153B004C8B13 /* RoundedView.swift in Sources */,
 				26D12320252F1A03002028D3 /* HomeViewController.swift in Sources */,
+				26D1233A252F47A9002028D3 /* OfferValidateDoneViewController.swift in Sources */,
 				26D12305252EC621002028D3 /* SignUpTwoViewController.swift in Sources */,
+				26D1233C252F47C2002028D3 /* OfferValidateErrorViewController.swift in Sources */,
 				26D12338252F4415002028D3 /* OfferViewController.swift in Sources */,
 				26D12333252F3E5E002028D3 /* VenderOfferTableViewCell.swift in Sources */,
 				2663E3D8252E1045004C8B13 /* RoundedTextField.swift in Sources */,
@@ -418,6 +429,7 @@
 				2663E3A2252E03CC004C8B13 /* SceneDelegate.swift in Sources */,
 				26D12307252EC88C002028D3 /* RoundedImageView.swift in Sources */,
 				26D1231B252F149E002028D3 /* PromotionTableViewCell.swift in Sources */,
+				26D1233E252F47D9002028D3 /* OfferValidateQuestionViewController.swift in Sources */,
 				26D1230B252EE3D9002028D3 /* ResetPasswordViewController.swift in Sources */,
 				26D12318252F12CA002028D3 /* SearchViewController.swift in Sources */,
 				26D12326252F22F4002028D3 /* XIBFeatured.swift in Sources */,

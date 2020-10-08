@@ -1,5 +1,5 @@
 //
-//  OfferTableViewCell.swift
+//  VenderOfferTableViewCell.swift
 //  Loyalty
 //
 //  Created by treCoops on 10/8/20.
@@ -8,28 +8,23 @@
 
 import UIKit
 
-class OfferTableViewCell: UITableViewCell {
-
-    @IBOutlet weak var imgBanner: UIImageView!
-
+class VenderOfferTableViewCell: UITableViewCell {
     @IBOutlet weak var viewParent: UIView!
-    //    @IBOutlet weak var txtCategory: UILabel!
-//    @IBOutlet weak var txtTitle: UILabel!
-    @IBOutlet weak var imgLogo: UIImageView!
-    
+    @IBOutlet weak var imgBanner: UIImageView!
+    @IBOutlet weak var txtTitle: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-       
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        
+       
     }
     
-    func configXIB(data: XIBOffer){
+    func configXIB(data: XIBVendorOffer){
            
         viewParent.layer.shadowColor = UIColor.lightGray.cgColor
         viewParent.layer.shadowOpacity = 0.3
@@ -37,9 +32,8 @@ class OfferTableViewCell: UITableViewCell {
         viewParent.layer.shadowRadius = 10
         viewParent.layer.cornerRadius = 10
         imgBanner.layer.cornerRadius = 10
-        imgLogo.layer.cornerRadius = 10
+//        imgLogo.layer.cornerRadius = 10
        
     }
-    
     
 }

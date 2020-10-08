@@ -11,8 +11,8 @@ import UIKit
 extension UIImageView {
 
    func squareImageView(){
-        self.layer.cornerRadius = 20
-        self.layer.masksToBounds = false
-    }
+    self.layer.cornerRadius = self.frame.height / 8
+    self.clipsToBounds = true
+   }
 
 }

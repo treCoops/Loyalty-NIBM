@@ -10,7 +10,7 @@ import UIKit
 
 class SearchViewController: UIViewController {
     
-     var Promotions : [XIBPromotion] = []
+    var Promotions : [XIBPromotion] = []
     
     @IBOutlet weak var searchView: UIView!
     @IBOutlet weak var tblPromotions: UITableView!
@@ -19,7 +19,7 @@ class SearchViewController: UIViewController {
         super.viewDidLoad()
         searchView.roundView()
         
-         tblPromotions.register(UINib(nibName: XIBIdentifier.XIB_PROMOTION, bundle: nil), forCellReuseIdentifier: XIBIdentifier.XIB_PROMOTION_CELL)
+        tblPromotions.register(UINib(nibName: XIBIdentifier.XIB_PROMOTION, bundle: nil), forCellReuseIdentifier: XIBIdentifier.XIB_PROMOTION_CELL)
         
         Promotions.append(XIBPromotion(logoUrl: "" , title: "", category: ""))
         Promotions.append(XIBPromotion(logoUrl: "" , title: "", category: ""))

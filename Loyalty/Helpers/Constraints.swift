@@ -19,5 +19,13 @@ struct XIBIdentifier {
     
     static var XIB_PROMOTION_CELL = "ReuseableCellPromotion"
     static var XIB_PROMOTION = "PromotionTableViewCell"
+    
+    static var FeaturedCollectionViewCell = "LogoCell"
+    static var FeaturedCellReuseable = "FeaturedCellReuseable"
+    
+    
+    static var XIB_OFFER_CELL = "ReuseableCellOffer"
+    static var XIB_OFFER = "OfferTableViewCell"
+    
 }
 

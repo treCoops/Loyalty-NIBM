@@ -34,6 +34,13 @@
 		26D1231B252F149E002028D3 /* PromotionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D12319252F149E002028D3 /* PromotionTableViewCell.swift */; };
 		26D1231C252F149E002028D3 /* PromotionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26D1231A252F149E002028D3 /* PromotionTableViewCell.xib */; };
 		26D1231E252F14C8002028D3 /* XIBPromotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D1231D252F14C8002028D3 /* XIBPromotion.swift */; };
+		26D12320252F1A03002028D3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D1231F252F1A03002028D3 /* HomeViewController.swift */; };
+		26D12323252F20F6002028D3 /* FeaturedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D12321252F20F6002028D3 /* FeaturedCollectionViewCell.swift */; };
+		26D12324252F20F6002028D3 /* FeaturedCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26D12322252F20F6002028D3 /* FeaturedCollectionViewCell.xib */; };
+		26D12326252F22F4002028D3 /* XIBFeatured.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D12325252F22F4002028D3 /* XIBFeatured.swift */; };
+		26D1232B252F2A43002028D3 /* OfferTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D12329252F2A43002028D3 /* OfferTableViewCell.swift */; };
+		26D1232C252F2A43002028D3 /* OfferTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26D1232A252F2A43002028D3 /* OfferTableViewCell.xib */; };
+		26D1232E252F2ED0002028D3 /* XIBOffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D1232D252F2ED0002028D3 /* XIBOffer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +94,13 @@
 		26D12319252F149E002028D3 /* PromotionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionTableViewCell.swift; sourceTree = "<group>"; };
 		26D1231A252F149E002028D3 /* PromotionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PromotionTableViewCell.xib; sourceTree = "<group>"; };
 		26D1231D252F14C8002028D3 /* XIBPromotion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XIBPromotion.swift; sourceTree = "<group>"; };
+		26D1231F252F1A03002028D3 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		26D12321252F20F6002028D3 /* FeaturedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedCollectionViewCell.swift; sourceTree = "<group>"; };
+		26D12322252F20F6002028D3 /* FeaturedCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeaturedCollectionViewCell.xib; sourceTree = "<group>"; };
+		26D12325252F22F4002028D3 /* XIBFeatured.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XIBFeatured.swift; sourceTree = "<group>"; };
+		26D12329252F2A43002028D3 /* OfferTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferTableViewCell.swift; sourceTree = "<group>"; };
+		26D1232A252F2A43002028D3 /* OfferTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OfferTableViewCell.xib; sourceTree = "<group>"; };
+		26D1232D252F2ED0002028D3 /* XIBOffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XIBOffer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +185,8 @@
 		2663E3CF252E0698004C8B13 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				26D12329252F2A43002028D3 /* OfferTableViewCell.swift */,
+				26D12321252F20F6002028D3 /* FeaturedCollectionViewCell.swift */,
 				26D12319252F149E002028D3 /* PromotionTableViewCell.swift */,
 				2663E3A3252E03CC004C8B13 /* SignInViewController.swift */,
 				2663E3D0252E070B004C8B13 /* LunchScreenViewController.swift */,
@@ -180,6 +196,7 @@
 				26D1230C252EFC80002028D3 /* HistoryTableViewCell.swift */,
 				26D12315252F05F0002028D3 /* HistoryViewController.swift */,
 				26D12317252F12CA002028D3 /* SearchViewController.swift */,
+				26D1231F252F1A03002028D3 /* HomeViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -191,6 +208,8 @@
 				2663E3A5252E03CD004C8B13 /* Main.storyboard */,
 				2663E3AA252E03CD004C8B13 /* LaunchScreen.storyboard */,
 				26D1231A252F149E002028D3 /* PromotionTableViewCell.xib */,
+				26D12322252F20F6002028D3 /* FeaturedCollectionViewCell.xib */,
+				26D1232A252F2A43002028D3 /* OfferTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -221,6 +240,8 @@
 			children = (
 				26D12311252EFE19002028D3 /* XIBHistory.swift */,
 				26D1231D252F14C8002028D3 /* XIBPromotion.swift */,
+				26D12325252F22F4002028D3 /* XIBFeatured.swift */,
+				26D1232D252F2ED0002028D3 /* XIBOffer.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -331,6 +352,8 @@
 			files = (
 				26D1231C252F149E002028D3 /* PromotionTableViewCell.xib in Resources */,
 				2663E3AC252E03CD004C8B13 /* LaunchScreen.storyboard in Resources */,
+				26D12324252F20F6002028D3 /* FeaturedCollectionViewCell.xib in Resources */,
+				26D1232C252F2A43002028D3 /* OfferTableViewCell.xib in Resources */,
 				2663E3A9252E03CD004C8B13 /* Assets.xcassets in Resources */,
 				26D1230F252EFC80002028D3 /* HistoryTableViewCell.xib in Resources */,
 				2663E3A7252E03CD004C8B13 /* Main.storyboard in Resources */,
@@ -358,11 +381,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26D1232B252F2A43002028D3 /* OfferTableViewCell.swift in Sources */,
 				2663E3DA252E1153004C8B13 /* RoundedUIButton.swift in Sources */,
 				2663E3A4252E03CC004C8B13 /* SignInViewController.swift in Sources */,
+				26D12323252F20F6002028D3 /* FeaturedCollectionViewCell.swift in Sources */,
 				26D1230E252EFC80002028D3 /* HistoryTableViewCell.swift in Sources */,
+				26D1232E252F2ED0002028D3 /* XIBOffer.swift in Sources */,
 				26D1231E252F14C8002028D3 /* XIBPromotion.swift in Sources */,
 				2663E3DE252E153B004C8B13 /* RoundedView.swift in Sources */,
+				26D12320252F1A03002028D3 /* HomeViewController.swift in Sources */,
 				26D12305252EC621002028D3 /* SignUpTwoViewController.swift in Sources */,
 				2663E3D8252E1045004C8B13 /* RoundedTextField.swift in Sources */,
 				26D12312252EFE19002028D3 /* XIBHistory.swift in Sources */,
@@ -373,6 +400,7 @@
 				26D1231B252F149E002028D3 /* PromotionTableViewCell.swift in Sources */,
 				26D1230B252EE3D9002028D3 /* ResetPasswordViewController.swift in Sources */,
 				26D12318252F12CA002028D3 /* SearchViewController.swift in Sources */,
+				26D12326252F22F4002028D3 /* XIBFeatured.swift in Sources */,
 				2663E3D1252E070B004C8B13 /* LunchScreenViewController.swift in Sources */,
 				2663E3DC252E118D004C8B13 /* RoundedUIButtonWithBorder.swift in Sources */,
 				26D12303252EBD2F002028D3 /* SignUpOneViewController.swift in Sources */,

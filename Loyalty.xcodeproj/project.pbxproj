@@ -21,7 +21,15 @@
 		2663E3DA252E1153004C8B13 /* RoundedUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2663E3D9252E1153004C8B13 /* RoundedUIButton.swift */; };
 		2663E3DC252E118D004C8B13 /* RoundedUIButtonWithBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2663E3DB252E118D004C8B13 /* RoundedUIButtonWithBorder.swift */; };
 		2663E3DE252E153B004C8B13 /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2663E3DD252E153B004C8B13 /* RoundedView.swift */; };
-		2663E3E0252E1951004C8B13 /* TextFieldPadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2663E3DF252E1951004C8B13 /* TextFieldPadding.swift */; };
+		26D12303252EBD2F002028D3 /* SignUpOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D12302252EBD2F002028D3 /* SignUpOneViewController.swift */; };
+		26D12305252EC621002028D3 /* SignUpTwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D12304252EC621002028D3 /* SignUpTwoViewController.swift */; };
+		26D12307252EC88C002028D3 /* RoundedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D12306252EC88C002028D3 /* RoundedImageView.swift */; };
+		26D1230B252EE3D9002028D3 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D1230A252EE3D9002028D3 /* ResetPasswordViewController.swift */; };
+		26D1230E252EFC80002028D3 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D1230C252EFC80002028D3 /* HistoryTableViewCell.swift */; };
+		26D1230F252EFC80002028D3 /* HistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26D1230D252EFC80002028D3 /* HistoryTableViewCell.xib */; };
+		26D12312252EFE19002028D3 /* XIBHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D12311252EFE19002028D3 /* XIBHistory.swift */; };
+		26D12314252F022F002028D3 /* SquareImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D12313252F022F002028D3 /* SquareImageView.swift */; };
+		26D12316252F05F0002028D3 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D12315252F05F0002028D3 /* HistoryViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,7 +70,15 @@
 		2663E3D9252E1153004C8B13 /* RoundedUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedUIButton.swift; sourceTree = "<group>"; };
 		2663E3DB252E118D004C8B13 /* RoundedUIButtonWithBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedUIButtonWithBorder.swift; sourceTree = "<group>"; };
 		2663E3DD252E153B004C8B13 /* RoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
-		2663E3DF252E1951004C8B13 /* TextFieldPadding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldPadding.swift; sourceTree = "<group>"; };
+		26D12302252EBD2F002028D3 /* SignUpOneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpOneViewController.swift; sourceTree = "<group>"; };
+		26D12304252EC621002028D3 /* SignUpTwoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpTwoViewController.swift; sourceTree = "<group>"; };
+		26D12306252EC88C002028D3 /* RoundedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedImageView.swift; sourceTree = "<group>"; };
+		26D1230A252EE3D9002028D3 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
+		26D1230C252EFC80002028D3 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
+		26D1230D252EFC80002028D3 /* HistoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryTableViewCell.xib; sourceTree = "<group>"; };
+		26D12311252EFE19002028D3 /* XIBHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XIBHistory.swift; sourceTree = "<group>"; };
+		26D12313252F022F002028D3 /* SquareImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareImageView.swift; sourceTree = "<group>"; };
+		26D12315252F05F0002028D3 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +129,7 @@
 		2663E39E252E03CC004C8B13 /* Loyalty */ = {
 			isa = PBXGroup;
 			children = (
+				26D12310252EFDC3002028D3 /* Model */,
 				2663E3D6252E1025004C8B13 /* UIClass */,
 				2663E3D3252E0983004C8B13 /* Helpers */,
 				2663E3D2252E0787004C8B13 /* View */,
@@ -148,6 +165,11 @@
 			children = (
 				2663E3A3252E03CC004C8B13 /* SignInViewController.swift */,
 				2663E3D0252E070B004C8B13 /* LunchScreenViewController.swift */,
+				26D12302252EBD2F002028D3 /* SignUpOneViewController.swift */,
+				26D12304252EC621002028D3 /* SignUpTwoViewController.swift */,
+				26D1230A252EE3D9002028D3 /* ResetPasswordViewController.swift */,
+				26D1230C252EFC80002028D3 /* HistoryTableViewCell.swift */,
+				26D12315252F05F0002028D3 /* HistoryViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -155,6 +177,7 @@
 		2663E3D2252E0787004C8B13 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				26D1230D252EFC80002028D3 /* HistoryTableViewCell.xib */,
 				2663E3A5252E03CD004C8B13 /* Main.storyboard */,
 				2663E3AA252E03CD004C8B13 /* LaunchScreen.storyboard */,
 			);
@@ -176,9 +199,18 @@
 				2663E3D9252E1153004C8B13 /* RoundedUIButton.swift */,
 				2663E3DB252E118D004C8B13 /* RoundedUIButtonWithBorder.swift */,
 				2663E3DD252E153B004C8B13 /* RoundedView.swift */,
-				2663E3DF252E1951004C8B13 /* TextFieldPadding.swift */,
+				26D12306252EC88C002028D3 /* RoundedImageView.swift */,
+				26D12313252F022F002028D3 /* SquareImageView.swift */,
 			);
 			path = UIClass;
+			sourceTree = "<group>";
+		};
+		26D12310252EFDC3002028D3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				26D12311252EFE19002028D3 /* XIBHistory.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -287,6 +319,7 @@
 			files = (
 				2663E3AC252E03CD004C8B13 /* LaunchScreen.storyboard in Resources */,
 				2663E3A9252E03CD004C8B13 /* Assets.xcassets in Resources */,
+				26D1230F252EFC80002028D3 /* HistoryTableViewCell.xib in Resources */,
 				2663E3A7252E03CD004C8B13 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -314,14 +347,21 @@
 			files = (
 				2663E3DA252E1153004C8B13 /* RoundedUIButton.swift in Sources */,
 				2663E3A4252E03CC004C8B13 /* SignInViewController.swift in Sources */,
+				26D1230E252EFC80002028D3 /* HistoryTableViewCell.swift in Sources */,
 				2663E3DE252E153B004C8B13 /* RoundedView.swift in Sources */,
+				26D12305252EC621002028D3 /* SignUpTwoViewController.swift in Sources */,
 				2663E3D8252E1045004C8B13 /* RoundedTextField.swift in Sources */,
+				26D12312252EFE19002028D3 /* XIBHistory.swift in Sources */,
 				2663E3A0252E03CC004C8B13 /* AppDelegate.swift in Sources */,
 				2663E3D5252E09E5004C8B13 /* Constraints.swift in Sources */,
 				2663E3A2252E03CC004C8B13 /* SceneDelegate.swift in Sources */,
+				26D12307252EC88C002028D3 /* RoundedImageView.swift in Sources */,
+				26D1230B252EE3D9002028D3 /* ResetPasswordViewController.swift in Sources */,
 				2663E3D1252E070B004C8B13 /* LunchScreenViewController.swift in Sources */,
 				2663E3DC252E118D004C8B13 /* RoundedUIButtonWithBorder.swift in Sources */,
-				2663E3E0252E1951004C8B13 /* TextFieldPadding.swift in Sources */,
+				26D12303252EBD2F002028D3 /* SignUpOneViewController.swift in Sources */,
+				26D12316252F05F0002028D3 /* HistoryViewController.swift in Sources */,
+				26D12314252F022F002028D3 /* SquareImageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

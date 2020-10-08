@@ -12,3 +12,9 @@ struct Seagus {
     static var lunchScreenToSignIn = "lunchScreenToSignIn"
     
 }
+
+struct XIBIdentifier {
+    static var XIB_HISTORY_CELL = "ReuseableCell"
+    static var XIB_HISTORY = "HistoryTableViewCell"
+}
+

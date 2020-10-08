@@ -25,7 +25,7 @@ class RoundedUIButtonWithBorder: UIButton {
     private func setupButton() {
         layer.cornerRadius = self.frame.height / 2
         layer.masksToBounds = true
-        layer.borderWidth = 0.1
+        layer.borderWidth = 0.2
         layer.borderColor = #colorLiteral(red: 0.4319527149, green: 0.371992439, blue: 0.9981315732, alpha: 1)
     }
 

@@ -30,6 +30,10 @@
 		26D12312252EFE19002028D3 /* XIBHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D12311252EFE19002028D3 /* XIBHistory.swift */; };
 		26D12314252F022F002028D3 /* SquareImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D12313252F022F002028D3 /* SquareImageView.swift */; };
 		26D12316252F05F0002028D3 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D12315252F05F0002028D3 /* HistoryViewController.swift */; };
+		26D12318252F12CA002028D3 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D12317252F12CA002028D3 /* SearchViewController.swift */; };
+		26D1231B252F149E002028D3 /* PromotionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D12319252F149E002028D3 /* PromotionTableViewCell.swift */; };
+		26D1231C252F149E002028D3 /* PromotionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26D1231A252F149E002028D3 /* PromotionTableViewCell.xib */; };
+		26D1231E252F14C8002028D3 /* XIBPromotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D1231D252F14C8002028D3 /* XIBPromotion.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +83,10 @@
 		26D12311252EFE19002028D3 /* XIBHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XIBHistory.swift; sourceTree = "<group>"; };
 		26D12313252F022F002028D3 /* SquareImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareImageView.swift; sourceTree = "<group>"; };
 		26D12315252F05F0002028D3 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		26D12317252F12CA002028D3 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		26D12319252F149E002028D3 /* PromotionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionTableViewCell.swift; sourceTree = "<group>"; };
+		26D1231A252F149E002028D3 /* PromotionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PromotionTableViewCell.xib; sourceTree = "<group>"; };
+		26D1231D252F14C8002028D3 /* XIBPromotion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XIBPromotion.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +171,7 @@
 		2663E3CF252E0698004C8B13 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				26D12319252F149E002028D3 /* PromotionTableViewCell.swift */,
 				2663E3A3252E03CC004C8B13 /* SignInViewController.swift */,
 				2663E3D0252E070B004C8B13 /* LunchScreenViewController.swift */,
 				26D12302252EBD2F002028D3 /* SignUpOneViewController.swift */,
@@ -170,6 +179,7 @@
 				26D1230A252EE3D9002028D3 /* ResetPasswordViewController.swift */,
 				26D1230C252EFC80002028D3 /* HistoryTableViewCell.swift */,
 				26D12315252F05F0002028D3 /* HistoryViewController.swift */,
+				26D12317252F12CA002028D3 /* SearchViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -180,6 +190,7 @@
 				26D1230D252EFC80002028D3 /* HistoryTableViewCell.xib */,
 				2663E3A5252E03CD004C8B13 /* Main.storyboard */,
 				2663E3AA252E03CD004C8B13 /* LaunchScreen.storyboard */,
+				26D1231A252F149E002028D3 /* PromotionTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -209,6 +220,7 @@
 			isa = PBXGroup;
 			children = (
 				26D12311252EFE19002028D3 /* XIBHistory.swift */,
+				26D1231D252F14C8002028D3 /* XIBPromotion.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -317,6 +329,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26D1231C252F149E002028D3 /* PromotionTableViewCell.xib in Resources */,
 				2663E3AC252E03CD004C8B13 /* LaunchScreen.storyboard in Resources */,
 				2663E3A9252E03CD004C8B13 /* Assets.xcassets in Resources */,
 				26D1230F252EFC80002028D3 /* HistoryTableViewCell.xib in Resources */,
@@ -348,6 +361,7 @@
 				2663E3DA252E1153004C8B13 /* RoundedUIButton.swift in Sources */,
 				2663E3A4252E03CC004C8B13 /* SignInViewController.swift in Sources */,
 				26D1230E252EFC80002028D3 /* HistoryTableViewCell.swift in Sources */,
+				26D1231E252F14C8002028D3 /* XIBPromotion.swift in Sources */,
 				2663E3DE252E153B004C8B13 /* RoundedView.swift in Sources */,
 				26D12305252EC621002028D3 /* SignUpTwoViewController.swift in Sources */,
 				2663E3D8252E1045004C8B13 /* RoundedTextField.swift in Sources */,
@@ -356,7 +370,9 @@
 				2663E3D5252E09E5004C8B13 /* Constraints.swift in Sources */,
 				2663E3A2252E03CC004C8B13 /* SceneDelegate.swift in Sources */,
 				26D12307252EC88C002028D3 /* RoundedImageView.swift in Sources */,
+				26D1231B252F149E002028D3 /* PromotionTableViewCell.swift in Sources */,
 				26D1230B252EE3D9002028D3 /* ResetPasswordViewController.swift in Sources */,
+				26D12318252F12CA002028D3 /* SearchViewController.swift in Sources */,
 				2663E3D1252E070B004C8B13 /* LunchScreenViewController.swift in Sources */,
 				2663E3DC252E118D004C8B13 /* RoundedUIButtonWithBorder.swift in Sources */,
 				26D12303252EBD2F002028D3 /* SignUpOneViewController.swift in Sources */,

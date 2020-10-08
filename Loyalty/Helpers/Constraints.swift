@@ -14,7 +14,10 @@ struct Seagus {
 }
 
 struct XIBIdentifier {
-    static var XIB_HISTORY_CELL = "ReuseableCell"
+    static var XIB_HISTORY_CELL = "ReuseableCellHistory"
     static var XIB_HISTORY = "HistoryTableViewCell"
+    
+    static var XIB_PROMOTION_CELL = "ReuseableCellPromotion"
+    static var XIB_PROMOTION = "PromotionTableViewCell"
 }
 

@@ -60,6 +60,8 @@
 		EFE3464D2532221C009C83C5 /* UserValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE3464C2532221C009C83C5 /* UserValidator.swift */; };
 		EFE3468225323CDF009C83C5 /* InputFieldValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE3468125323CDF009C83C5 /* InputFieldValidator.swift */; };
 		EFE3468725323E8F009C83C5 /* TextFieldUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE3468625323E8F009C83C5 /* TextFieldUtils.swift */; };
+		EFE3468C25325F5D009C83C5 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE3468B25325F5D009C83C5 /* ImagePicker.swift */; };
+		EFE346912532759F009C83C5 /* DateToMills.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE346902532759F009C83C5 /* DateToMills.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -145,6 +147,8 @@
 		EFE3464C2532221C009C83C5 /* UserValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserValidator.swift; sourceTree = "<group>"; };
 		EFE3468125323CDF009C83C5 /* InputFieldValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputFieldValidator.swift; sourceTree = "<group>"; };
 		EFE3468625323E8F009C83C5 /* TextFieldUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldUtils.swift; sourceTree = "<group>"; };
+		EFE3468B25325F5D009C83C5 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		EFE346902532759F009C83C5 /* DateToMills.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateToMills.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -346,6 +350,8 @@
 				EFE3464C2532221C009C83C5 /* UserValidator.swift */,
 				EFE3468125323CDF009C83C5 /* InputFieldValidator.swift */,
 				EFE3468625323E8F009C83C5 /* TextFieldUtils.swift */,
+				EFE3468B25325F5D009C83C5 /* ImagePicker.swift */,
+				EFE346902532759F009C83C5 /* DateToMills.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -628,10 +634,12 @@
 				26D1230B252EE3D9002028D3 /* ResetPasswordViewController.swift in Sources */,
 				EFE3468225323CDF009C83C5 /* InputFieldValidator.swift in Sources */,
 				26D12318252F12CA002028D3 /* SearchViewController.swift in Sources */,
+				EFE346912532759F009C83C5 /* DateToMills.swift in Sources */,
 				26D12326252F22F4002028D3 /* XIBFeatured.swift in Sources */,
 				2663E3D1252E070B004C8B13 /* LaunchScreenViewController.swift in Sources */,
 				2663E3DC252E118D004C8B13 /* RoundedUIButtonWithBorder.swift in Sources */,
 				26D12303252EBD2F002028D3 /* SignUpOneViewController.swift in Sources */,
+				EFE3468C25325F5D009C83C5 /* ImagePicker.swift in Sources */,
 				26D12316252F05F0002028D3 /* HistoryViewController.swift in Sources */,
 				26D12314252F022F002028D3 /* SquareImageView.swift in Sources */,
 			);

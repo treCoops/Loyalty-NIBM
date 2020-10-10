@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SKToast
 
 class SignUpOneViewController: UIViewController {
     @IBOutlet weak var viewParent: UIView!
@@ -14,11 +15,13 @@ class SignUpOneViewController: UIViewController {
     @IBOutlet weak var txtStudentID: RoundedTextField!
     @IBOutlet weak var txtNIC: RoundedTextField!
     
+    var progressHUD : ProgressHUD!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         viewParent.roundView()
-
+        progressHUD = ProgressHUD(view: view)
     }
     
 }
@@ -47,7 +50,20 @@ extension SignUpOneViewController {
             return
         }
         
-        self.performSegue(withIdentifier: Seagus.signUpOneToSignUpTwo, sender: nil)
+        progressHUD.displayProgressHUD()
+        
+        UserValidator.validateUser(txtNIC.text!, completion: {
+            result in
+            self.progressHUD.dismissProgressHUD()
+            if result == "true" {
+                NSLog("NIC matched with NIBM records")
+                self.performSegue(withIdentifier: Seagus.signUpOneToSignUpTwo, sender: nil)
+            } else {
+                NSLog("NIC not found on NIBM records")
+                SKToast.show(withMessage: "Entered NIC not registered with NIBM")
+            }
+        })
+        
     }
 }
 

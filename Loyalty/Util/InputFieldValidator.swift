@@ -12,6 +12,7 @@ class InputFieldValidator {
     static let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
     static let nameRegEx = "[A-Za-z ]{2,100}"
     static let NICRegEx = "^([0-9]{9}[x|X|v|V]|[0-9]{12})$"
+    static let mobileRegex = "^(0)?(?:7(0|1|2|5|6|7|8)\\d)\\d{6}$"
     
     static func isValidEmail(_ email: String) -> Bool {
         let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
@@ -30,6 +31,11 @@ class InputFieldValidator {
     
     static func isValidPassword(pass: String, minLength: Int, maxLength: Int) -> Bool {
         return pass.count >= minLength && pass.count <= maxLength
+    }
+    
+    static func isValidMobileNo(mobileNo: String) -> Bool{
+        let mobPred = NSPredicate(format:"SELF MATCHES %@", mobileRegex)
+        return mobPred.evaluate(with: mobileNo)
     }
     
     static func checkLength(_ text: String, _ count: Int) -> Bool{

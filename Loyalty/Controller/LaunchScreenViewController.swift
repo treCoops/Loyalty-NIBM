@@ -12,7 +12,7 @@ import SKToast
 class LaunchScreenViewController: UIViewController {
 
     var progressHUD : ProgressHUD!
-    var firebaseOP = FirebaseOP()
+    var firebaseOP = FirebaseOP.instance
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,8 +43,8 @@ extension LaunchScreenViewController {
     
     func validateWithNIBM(){
         if SessionManager.authState {
-            if let userSession = SessionManager.getUserSesion() {
-                UserValidator.validateUser(userSession.nic, completion: {
+            if let userNIC = SessionManager.getUserSesion()?.nic {
+                UserValidator.validateUser(userNIC, completion: {
                     res in
                     self.progressHUD.dismissProgressHUD()
                     if res == "true" {

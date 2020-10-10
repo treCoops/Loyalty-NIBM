@@ -10,12 +10,7 @@ import Foundation
 import Alamofire
 
 class UserValidator {
-    static func validateUser(_ nic: String?, completion: @escaping (String) -> Void){
-        
-        guard let nic = nic else {
-            NSLog("Could not find the NIC")
-            return
-        }
+    static func validateUser(_ nic: String, completion: @escaping (String) -> Void){
         
         AF.request(NIBMAuth.authUrl+nic).responseString(completionHandler: {
             response in

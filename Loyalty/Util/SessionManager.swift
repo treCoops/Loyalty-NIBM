@@ -22,6 +22,7 @@ class SessionManager {
     static func saveUserSession(_ user: User) {
         if let jsonData = try? JSONEncoder().encode(user){
             let data = String(data: jsonData, encoding: String.Encoding.utf8)
+            UserDefaults.standard.set(true, forKey: UserSession.IS_LOGGED_IN)
             UserDefaults.standard.set(data, forKey: UserSession.USER_SESSION)
         } else {
             NSLog("JSON SERIALIZATION FAILED")

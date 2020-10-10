@@ -12,6 +12,7 @@ struct Seagus {
     static var launchScreenToSignIn = "launchScreenToSignIn"
     static var launchScreenToSignUp = "launchScreenToSignUp"
     static var signUpOneToSignUpTwo = "signUpOneToSignUpTwo"
+    static var signUpTwoToHome = "signUpTwoToHome"
 }
 
 struct XIBIdentifier {
@@ -40,6 +41,9 @@ struct FieldErrorCaptions {
     static let txtContactNoErrCaption = "Enter a valid Contact no."
     static let txtPassErrCaption = "Password length should be 6-20"
     static let txtConfirmPassErrCaption = "Passwords don't match"
+    
+    static let generalizeErrCaption = "Oops! Something went wrong!"
+    static let userCreationrrCaption = "Unable to create new user!"
 }
 
 struct NIBMAuth {

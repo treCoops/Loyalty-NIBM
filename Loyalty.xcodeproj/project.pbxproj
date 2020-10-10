@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D08BBC94120E1DE175969DA /* Pods_Loyalty_LoyaltyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 931CBB42FA4ED6EE07CF16B4 /* Pods_Loyalty_LoyaltyUITests.framework */; };
 		2663E3A0252E03CC004C8B13 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2663E39F252E03CC004C8B13 /* AppDelegate.swift */; };
 		2663E3A2252E03CC004C8B13 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2663E3A1252E03CC004C8B13 /* SceneDelegate.swift */; };
 		2663E3A4252E03CC004C8B13 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2663E3A3252E03CC004C8B13 /* SignInViewController.swift */; };
@@ -15,7 +16,7 @@
 		2663E3AC252E03CD004C8B13 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2663E3AA252E03CD004C8B13 /* LaunchScreen.storyboard */; };
 		2663E3B7252E03CD004C8B13 /* LoyaltyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2663E3B6252E03CD004C8B13 /* LoyaltyTests.swift */; };
 		2663E3C2252E03CD004C8B13 /* LoyaltyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2663E3C1252E03CD004C8B13 /* LoyaltyUITests.swift */; };
-		2663E3D1252E070B004C8B13 /* LunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2663E3D0252E070B004C8B13 /* LunchScreenViewController.swift */; };
+		2663E3D1252E070B004C8B13 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2663E3D0252E070B004C8B13 /* LaunchScreenViewController.swift */; };
 		2663E3D5252E09E5004C8B13 /* Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2663E3D4252E09E5004C8B13 /* Constraints.swift */; };
 		2663E3D8252E1045004C8B13 /* RoundedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2663E3D7252E1045004C8B13 /* RoundedTextField.swift */; };
 		2663E3DA252E1153004C8B13 /* RoundedUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2663E3D9252E1153004C8B13 /* RoundedUIButton.swift */; };
@@ -49,6 +50,16 @@
 		26D1233A252F47A9002028D3 /* OfferValidateDoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D12339252F47A9002028D3 /* OfferValidateDoneViewController.swift */; };
 		26D1233C252F47C2002028D3 /* OfferValidateErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D1233B252F47C2002028D3 /* OfferValidateErrorViewController.swift */; };
 		26D1233E252F47D9002028D3 /* OfferValidateQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D1233D252F47D9002028D3 /* OfferValidateQuestionViewController.swift */; };
+		472510043E47BAD7C3C50287 /* Pods_LoyaltyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 444B0C9D2B4A9BE2A33B0574 /* Pods_LoyaltyTests.framework */; };
+		96824B512AE45C4616B3D845 /* Pods_Loyalty.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9955A6B0995F69FC2CE043E1 /* Pods_Loyalty.framework */; };
+		EF12209F2531EC9F007089DB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EF12209E2531EC9F007089DB /* GoogleService-Info.plist */; };
+		EFE3454E2531F432009C83C5 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE3454D2531F432009C83C5 /* Models.swift */; };
+		EFE3460F2532034C009C83C5 /* ProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE3460E2532034C009C83C5 /* ProgressHUD.swift */; };
+		EFE346142532037C009C83C5 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE346132532037C009C83C5 /* SessionManager.swift */; };
+		EFE3461925321346009C83C5 /* FirebaseOP.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE3461825321346009C83C5 /* FirebaseOP.swift */; };
+		EFE3464D2532221C009C83C5 /* UserValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE3464C2532221C009C83C5 /* UserValidator.swift */; };
+		EFE3468225323CDF009C83C5 /* InputFieldValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE3468125323CDF009C83C5 /* InputFieldValidator.swift */; };
+		EFE3468725323E8F009C83C5 /* TextFieldUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE3468625323E8F009C83C5 /* TextFieldUtils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +80,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		25BA06434B1030BA7FEB6A7D /* Pods-Loyalty-LoyaltyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Loyalty-LoyaltyUITests.debug.xcconfig"; path = "Target Support Files/Pods-Loyalty-LoyaltyUITests/Pods-Loyalty-LoyaltyUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		2663E39C252E03CC004C8B13 /* Loyalty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Loyalty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2663E39F252E03CC004C8B13 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2663E3A1252E03CC004C8B13 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -83,7 +95,7 @@
 		2663E3BD252E03CD004C8B13 /* LoyaltyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LoyaltyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2663E3C1252E03CD004C8B13 /* LoyaltyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoyaltyUITests.swift; sourceTree = "<group>"; };
 		2663E3C3252E03CD004C8B13 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2663E3D0252E070B004C8B13 /* LunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LunchScreenViewController.swift; sourceTree = "<group>"; };
+		2663E3D0252E070B004C8B13 /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
 		2663E3D4252E09E5004C8B13 /* Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constraints.swift; sourceTree = "<group>"; };
 		2663E3D7252E1045004C8B13 /* RoundedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedTextField.swift; sourceTree = "<group>"; };
 		2663E3D9252E1153004C8B13 /* RoundedUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedUIButton.swift; sourceTree = "<group>"; };
@@ -117,6 +129,22 @@
 		26D12339252F47A9002028D3 /* OfferValidateDoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferValidateDoneViewController.swift; sourceTree = "<group>"; };
 		26D1233B252F47C2002028D3 /* OfferValidateErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferValidateErrorViewController.swift; sourceTree = "<group>"; };
 		26D1233D252F47D9002028D3 /* OfferValidateQuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferValidateQuestionViewController.swift; sourceTree = "<group>"; };
+		444B0C9D2B4A9BE2A33B0574 /* Pods_LoyaltyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LoyaltyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		70EB264E9D4FE01B1064B610 /* Pods-Loyalty.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Loyalty.debug.xcconfig"; path = "Target Support Files/Pods-Loyalty/Pods-Loyalty.debug.xcconfig"; sourceTree = "<group>"; };
+		86A90BF8DA0074FA90559C5E /* Pods-LoyaltyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoyaltyTests.release.xcconfig"; path = "Target Support Files/Pods-LoyaltyTests/Pods-LoyaltyTests.release.xcconfig"; sourceTree = "<group>"; };
+		931CBB42FA4ED6EE07CF16B4 /* Pods_Loyalty_LoyaltyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Loyalty_LoyaltyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9955A6B0995F69FC2CE043E1 /* Pods_Loyalty.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Loyalty.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B98EC4C425D869EE45D3FB04 /* Pods-Loyalty.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Loyalty.release.xcconfig"; path = "Target Support Files/Pods-Loyalty/Pods-Loyalty.release.xcconfig"; sourceTree = "<group>"; };
+		E53449FAEBBC49104CA33637 /* Pods-LoyaltyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoyaltyTests.debug.xcconfig"; path = "Target Support Files/Pods-LoyaltyTests/Pods-LoyaltyTests.debug.xcconfig"; sourceTree = "<group>"; };
+		E7ED84179E9D8D5BABF634C4 /* Pods-Loyalty-LoyaltyUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Loyalty-LoyaltyUITests.release.xcconfig"; path = "Target Support Files/Pods-Loyalty-LoyaltyUITests/Pods-Loyalty-LoyaltyUITests.release.xcconfig"; sourceTree = "<group>"; };
+		EF12209E2531EC9F007089DB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		EFE3454D2531F432009C83C5 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		EFE3460E2532034C009C83C5 /* ProgressHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHUD.swift; sourceTree = "<group>"; };
+		EFE346132532037C009C83C5 /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
+		EFE3461825321346009C83C5 /* FirebaseOP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseOP.swift; sourceTree = "<group>"; };
+		EFE3464C2532221C009C83C5 /* UserValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserValidator.swift; sourceTree = "<group>"; };
+		EFE3468125323CDF009C83C5 /* InputFieldValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputFieldValidator.swift; sourceTree = "<group>"; };
+		EFE3468625323E8F009C83C5 /* TextFieldUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldUtils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +152,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96824B512AE45C4616B3D845 /* Pods_Loyalty.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,6 +160,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				472510043E47BAD7C3C50287 /* Pods_LoyaltyTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,6 +168,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D08BBC94120E1DE175969DA /* Pods_Loyalty_LoyaltyUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,6 +182,8 @@
 				2663E3B5252E03CD004C8B13 /* LoyaltyTests */,
 				2663E3C0252E03CD004C8B13 /* LoyaltyUITests */,
 				2663E39D252E03CC004C8B13 /* Products */,
+				2D023CD95E72EEEB24B6AC7C /* Pods */,
+				574878D159F70A3C1147B3F3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -167,6 +200,8 @@
 		2663E39E252E03CC004C8B13 /* Loyalty */ = {
 			isa = PBXGroup;
 			children = (
+				EFE3460D253202C0009C83C5 /* Util */,
+				EFE3460C25320296009C83C5 /* Constraints */,
 				26D12310252EFDC3002028D3 /* Model */,
 				2663E3D6252E1025004C8B13 /* UIClass */,
 				2663E3D3252E0983004C8B13 /* Helpers */,
@@ -176,6 +211,7 @@
 				2663E3A1252E03CC004C8B13 /* SceneDelegate.swift */,
 				2663E3A8252E03CD004C8B13 /* Assets.xcassets */,
 				2663E3AD252E03CD004C8B13 /* Info.plist */,
+				EF12209E2531EC9F007089DB /* GoogleService-Info.plist */,
 			);
 			path = Loyalty;
 			sourceTree = "<group>";
@@ -201,12 +237,17 @@
 		2663E3CF252E0698004C8B13 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				26D12311252EFE19002028D3 /* XIBHistory.swift */,
+				26D1231D252F14C8002028D3 /* XIBPromotion.swift */,
+				26D12325252F22F4002028D3 /* XIBFeatured.swift */,
+				26D1232D252F2ED0002028D3 /* XIBOffer.swift */,
+				26D12335252F3FE9002028D3 /* XIBVendorOffer.swift */,
 				26D12331252F3E5E002028D3 /* VenderOfferTableViewCell.swift */,
 				26D12329252F2A43002028D3 /* OfferTableViewCell.swift */,
 				26D12321252F20F6002028D3 /* FeaturedCollectionViewCell.swift */,
 				26D12319252F149E002028D3 /* PromotionTableViewCell.swift */,
 				2663E3A3252E03CC004C8B13 /* SignInViewController.swift */,
-				2663E3D0252E070B004C8B13 /* LunchScreenViewController.swift */,
+				2663E3D0252E070B004C8B13 /* LaunchScreenViewController.swift */,
 				26D12302252EBD2F002028D3 /* SignUpOneViewController.swift */,
 				26D12304252EC621002028D3 /* SignUpTwoViewController.swift */,
 				26D1230A252EE3D9002028D3 /* ResetPasswordViewController.swift */,
@@ -240,7 +281,6 @@
 		2663E3D3252E0983004C8B13 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				2663E3D4252E09E5004C8B13 /* Constraints.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -261,13 +301,53 @@
 		26D12310252EFDC3002028D3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				26D12311252EFE19002028D3 /* XIBHistory.swift */,
-				26D1231D252F14C8002028D3 /* XIBPromotion.swift */,
-				26D12325252F22F4002028D3 /* XIBFeatured.swift */,
-				26D1232D252F2ED0002028D3 /* XIBOffer.swift */,
-				26D12335252F3FE9002028D3 /* XIBVendorOffer.swift */,
+				EFE3454D2531F432009C83C5 /* Models.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		2D023CD95E72EEEB24B6AC7C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				70EB264E9D4FE01B1064B610 /* Pods-Loyalty.debug.xcconfig */,
+				B98EC4C425D869EE45D3FB04 /* Pods-Loyalty.release.xcconfig */,
+				25BA06434B1030BA7FEB6A7D /* Pods-Loyalty-LoyaltyUITests.debug.xcconfig */,
+				E7ED84179E9D8D5BABF634C4 /* Pods-Loyalty-LoyaltyUITests.release.xcconfig */,
+				E53449FAEBBC49104CA33637 /* Pods-LoyaltyTests.debug.xcconfig */,
+				86A90BF8DA0074FA90559C5E /* Pods-LoyaltyTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		574878D159F70A3C1147B3F3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9955A6B0995F69FC2CE043E1 /* Pods_Loyalty.framework */,
+				931CBB42FA4ED6EE07CF16B4 /* Pods_Loyalty_LoyaltyUITests.framework */,
+				444B0C9D2B4A9BE2A33B0574 /* Pods_LoyaltyTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EFE3460C25320296009C83C5 /* Constraints */ = {
+			isa = PBXGroup;
+			children = (
+				2663E3D4252E09E5004C8B13 /* Constraints.swift */,
+			);
+			path = Constraints;
+			sourceTree = "<group>";
+		};
+		EFE3460D253202C0009C83C5 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				EFE3460E2532034C009C83C5 /* ProgressHUD.swift */,
+				EFE346132532037C009C83C5 /* SessionManager.swift */,
+				EFE3461825321346009C83C5 /* FirebaseOP.swift */,
+				EFE3464C2532221C009C83C5 /* UserValidator.swift */,
+				EFE3468125323CDF009C83C5 /* InputFieldValidator.swift */,
+				EFE3468625323E8F009C83C5 /* TextFieldUtils.swift */,
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -277,9 +357,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2663E3C6252E03CD004C8B13 /* Build configuration list for PBXNativeTarget "Loyalty" */;
 			buildPhases = (
+				0C613BB51953F1BF6A8A9C4A /* [CP] Check Pods Manifest.lock */,
 				2663E398252E03CC004C8B13 /* Sources */,
 				2663E399252E03CC004C8B13 /* Frameworks */,
 				2663E39A252E03CC004C8B13 /* Resources */,
+				96687C8CC25611344C744645 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -294,6 +376,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2663E3C9252E03CD004C8B13 /* Build configuration list for PBXNativeTarget "LoyaltyTests" */;
 			buildPhases = (
+				DD3E958AB23EB1FFA5418AC1 /* [CP] Check Pods Manifest.lock */,
 				2663E3AE252E03CD004C8B13 /* Sources */,
 				2663E3AF252E03CD004C8B13 /* Frameworks */,
 				2663E3B0252E03CD004C8B13 /* Resources */,
@@ -312,9 +395,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2663E3CC252E03CD004C8B13 /* Build configuration list for PBXNativeTarget "LoyaltyUITests" */;
 			buildPhases = (
+				6101620EA8CC1B3C70DA132F /* [CP] Check Pods Manifest.lock */,
 				2663E3B9252E03CD004C8B13 /* Sources */,
 				2663E3BA252E03CD004C8B13 /* Frameworks */,
 				2663E3BB252E03CD004C8B13 /* Resources */,
+				9D5440AD3BBC1C5C71537A97 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -333,7 +418,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1160;
-				LastUpgradeCheck = 1160;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = treCoops;
 				TargetAttributes = {
 					2663E39B252E03CC004C8B13 = {
@@ -376,6 +461,7 @@
 			files = (
 				26D1231C252F149E002028D3 /* PromotionTableViewCell.xib in Resources */,
 				2663E3AC252E03CD004C8B13 /* LaunchScreen.storyboard in Resources */,
+				EF12209F2531EC9F007089DB /* GoogleService-Info.plist in Resources */,
 				26D12324252F20F6002028D3 /* FeaturedCollectionViewCell.xib in Resources */,
 				26D1232C252F2A43002028D3 /* OfferTableViewCell.xib in Resources */,
 				2663E3A9252E03CD004C8B13 /* Assets.xcassets in Resources */,
@@ -401,23 +487,131 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0C613BB51953F1BF6A8A9C4A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Loyalty-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6101620EA8CC1B3C70DA132F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Loyalty-LoyaltyUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		96687C8CC25611344C744645 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Loyalty/Pods-Loyalty-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Loyalty/Pods-Loyalty-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Loyalty/Pods-Loyalty-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9D5440AD3BBC1C5C71537A97 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Loyalty-LoyaltyUITests/Pods-Loyalty-LoyaltyUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Loyalty-LoyaltyUITests/Pods-Loyalty-LoyaltyUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Loyalty-LoyaltyUITests/Pods-Loyalty-LoyaltyUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DD3E958AB23EB1FFA5418AC1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LoyaltyTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		2663E398252E03CC004C8B13 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFE3454E2531F432009C83C5 /* Models.swift in Sources */,
 				26D1232B252F2A43002028D3 /* OfferTableViewCell.swift in Sources */,
 				2663E3DA252E1153004C8B13 /* RoundedUIButton.swift in Sources */,
+				EFE3461925321346009C83C5 /* FirebaseOP.swift in Sources */,
 				2663E3A4252E03CC004C8B13 /* SignInViewController.swift in Sources */,
 				26D12323252F20F6002028D3 /* FeaturedCollectionViewCell.swift in Sources */,
 				26D12330252F3C5F002028D3 /* VendorViewController.swift in Sources */,
+				EFE3460F2532034C009C83C5 /* ProgressHUD.swift in Sources */,
 				26D1230E252EFC80002028D3 /* HistoryTableViewCell.swift in Sources */,
 				26D12336252F3FE9002028D3 /* XIBVendorOffer.swift in Sources */,
 				26D1232E252F2ED0002028D3 /* XIBOffer.swift in Sources */,
 				26D1231E252F14C8002028D3 /* XIBPromotion.swift in Sources */,
 				2663E3DE252E153B004C8B13 /* RoundedView.swift in Sources */,
 				26D12320252F1A03002028D3 /* HomeViewController.swift in Sources */,
+				EFE346142532037C009C83C5 /* SessionManager.swift in Sources */,
 				26D1233A252F47A9002028D3 /* OfferValidateDoneViewController.swift in Sources */,
+				EFE3468725323E8F009C83C5 /* TextFieldUtils.swift in Sources */,
 				26D12305252EC621002028D3 /* SignUpTwoViewController.swift in Sources */,
 				26D1233C252F47C2002028D3 /* OfferValidateErrorViewController.swift in Sources */,
 				26D12338252F4415002028D3 /* OfferViewController.swift in Sources */,
@@ -430,10 +624,12 @@
 				26D12307252EC88C002028D3 /* RoundedImageView.swift in Sources */,
 				26D1231B252F149E002028D3 /* PromotionTableViewCell.swift in Sources */,
 				26D1233E252F47D9002028D3 /* OfferValidateQuestionViewController.swift in Sources */,
+				EFE3464D2532221C009C83C5 /* UserValidator.swift in Sources */,
 				26D1230B252EE3D9002028D3 /* ResetPasswordViewController.swift in Sources */,
+				EFE3468225323CDF009C83C5 /* InputFieldValidator.swift in Sources */,
 				26D12318252F12CA002028D3 /* SearchViewController.swift in Sources */,
 				26D12326252F22F4002028D3 /* XIBFeatured.swift in Sources */,
-				2663E3D1252E070B004C8B13 /* LunchScreenViewController.swift in Sources */,
+				2663E3D1252E070B004C8B13 /* LaunchScreenViewController.swift in Sources */,
 				2663E3DC252E118D004C8B13 /* RoundedUIButtonWithBorder.swift in Sources */,
 				26D12303252EBD2F002028D3 /* SignUpOneViewController.swift in Sources */,
 				26D12316252F05F0002028D3 /* HistoryViewController.swift in Sources */,
@@ -518,6 +714,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -578,6 +775,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -608,6 +806,7 @@
 		};
 		2663E3C7252E03CD004C8B13 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 70EB264E9D4FE01B1064B610 /* Pods-Loyalty.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -616,7 +815,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.treCoops.Loyalty;
+				PRODUCT_BUNDLE_IDENTIFIER = "digital.beebee.loyalty-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -625,6 +824,7 @@
 		};
 		2663E3C8252E03CD004C8B13 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B98EC4C425D869EE45D3FB04 /* Pods-Loyalty.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -633,7 +833,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.treCoops.Loyalty;
+				PRODUCT_BUNDLE_IDENTIFIER = "digital.beebee.loyalty-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -642,6 +842,7 @@
 		};
 		2663E3CA252E03CD004C8B13 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E53449FAEBBC49104CA33637 /* Pods-LoyaltyTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -663,6 +864,7 @@
 		};
 		2663E3CB252E03CD004C8B13 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 86A90BF8DA0074FA90559C5E /* Pods-LoyaltyTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -684,6 +886,7 @@
 		};
 		2663E3CD252E03CD004C8B13 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 25BA06434B1030BA7FEB6A7D /* Pods-Loyalty-LoyaltyUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -703,6 +906,7 @@
 		};
 		2663E3CE252E03CD004C8B13 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E7ED84179E9D8D5BABF634C4 /* Pods-Loyalty-LoyaltyUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

@@ -18,9 +18,21 @@ class SignInViewController: UIViewController {
         super.viewDidLoad()
         
         viewParent.roundView()
-    
+        setTextDelegates()
     
     }
 
+}
+
+extension SignInViewController : UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true
+    }
+    
+    func setTextDelegates(){
+        txtNIC.delegate = self
+        txtPassword.delegate = self
+    }
 }
 

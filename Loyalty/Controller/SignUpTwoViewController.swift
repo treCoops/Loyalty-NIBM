@@ -17,7 +17,7 @@ class SignUpTwoViewController: UIViewController {
     @IBOutlet weak var btnCheckTerms: UIButton!
     
     var checked : Bool = false
-    
+    var user : User!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +26,6 @@ class SignUpTwoViewController: UIViewController {
     }
     
     @IBAction func btnTermsClicked(_ sender: UIButton) {
-        
         if checked{
             checked = false
             btnCheckTerms.setImage(#imageLiteral(resourceName: "unchecked"), for: .normal)
@@ -34,10 +33,11 @@ class SignUpTwoViewController: UIViewController {
             checked = true
             btnCheckTerms.setImage(#imageLiteral(resourceName: "checked"), for: .normal)
         }
-        
-        
     }
     
     
-
+    @IBAction func loginPressed(_ sender: UIButton) {
+        self.navigationController?.popToViewController(self.navigationController?.viewControllers[1] as! SignInViewController, animated: true)
+    }
+    
 }

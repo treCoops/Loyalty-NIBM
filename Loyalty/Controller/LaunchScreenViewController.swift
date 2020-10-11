@@ -52,7 +52,7 @@ extension LaunchScreenViewController {
                         self.performSegue(withIdentifier: Seagus.launchToHome, sender: nil)
                     } else {
                         self.performSegue(withIdentifier: Seagus.launchScreenToSignUp, sender: nil)
-                        NSLog("User session validation failed")
+                        NSLog("User session validation failed [NIC rejected by NIBM]")
                     }
                 })
             } else {

@@ -36,10 +36,10 @@ class SessionManager {
             return nil
         }
         
-        if let data = try? JSONSerialization.data(withJSONObject: session) {
-            if let user = try? JSONDecoder().decode(User.self, from: data) {
-                return user
-            }
+        NSLog("Previous Sessions found")
+
+        if let user = try? JSONDecoder().decode(User.self, from: session.data(using: .utf8)!) {
+            return user
         }
     
         return nil

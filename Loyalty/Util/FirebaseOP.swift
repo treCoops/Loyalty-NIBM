@@ -38,8 +38,8 @@ class FirebaseOP {
         setupAuthenticationAccount(email: email, password: pass, completion: {
             authResult in
             if authResult {
+                var tempUser = user
                 if image == nil {
-                    var tempUser = user
                     tempUser.profileImage = ""
                     self.createUser(user: tempUser, completion: {
                         result, error, user in
@@ -54,7 +54,6 @@ class FirebaseOP {
                 
                 self.uploadProfileImage(image: image, studentID: studentID, completion: {
                     imageURL in
-                    var tempUser = user
                     tempUser.profileImage = imageURL
                     self.createUser(user: tempUser, completion: {
                         result, error, user in
@@ -72,18 +71,6 @@ class FirebaseOP {
     }
     
     //MARK: - InClass methods
-    
-    //MARK: - Retrieve the realtime database reference
-    
-    private func getDBReference() -> DatabaseReference{
-        return Database.database().reference()
-    }
-    
-    //MARK: - Retrieve the storage reference
-    
-    private func getStorageReference() -> StorageReference {
-        return Storage.storage().reference()
-    }
     
     private func setupAuthenticationAccount(email: String, password: String, completion: @escaping (Bool) -> Void){
         Auth.auth().createUser(withEmail: email, password: password, completion: {
@@ -153,6 +140,19 @@ class FirebaseOP {
             }
         }
     }
+    
+    //MARK: - Retrieve the realtime database reference
+    
+    private func getDBReference() -> DatabaseReference{
+        return Database.database().reference()
+    }
+    
+    //MARK: - Retrieve the storage reference
+    
+    private func getStorageReference() -> StorageReference {
+        return Storage.storage().reference()
+    }
+    
 
 }
 

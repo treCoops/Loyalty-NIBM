@@ -13,6 +13,7 @@ struct Seagus {
     static var launchScreenToSignUp = "launchScreenToSignUp"
     static var signUpOneToSignUpTwo = "signUpOneToSignUpTwo"
     static var signUpTwoToHome = "signUpTwoToHome"
+    static var launchToHome = "launchToHome"
 }
 
 struct XIBIdentifier {

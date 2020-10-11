@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>598042980872-pvghnfpnufug1rbcjmb52fnk0947m4id.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.598042980872-pvghnfpnufug1rbcjmb52fnk0947m4id</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>598042980872-cppc1fmgh1uncuobisj191q1p4ikju89.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyA92t5eyfqWF9i2OoFJOfd84mvndQatvBQ</string>
+	<key>GCM_SENDER_ID</key>
+	<string>598042980872</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>digital.beebee.loyalty-ios</string>
+	<key>PROJECT_ID</key>
+	<string>loyalty-manager</string>
+	<key>STORAGE_BUCKET</key>
+	<string>loyalty-manager.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:598042980872:ios:aef6952c3dea04736a57bd</string>
+	<key>DATABASE_URL</key>
+	<string>https://loyalty-manager.firebaseio.com</string>
+</dict>
+</plist>

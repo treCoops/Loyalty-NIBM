@@ -24,6 +24,7 @@ class SignUpTwoViewController: UIViewController {
     
     var termsChecked : Bool = false
     var user : User!
+    var pickedImage: UIImage?
     
     var firebaseOP = FirebaseOP.instance
     
@@ -42,6 +43,8 @@ class SignUpTwoViewController: UIViewController {
         self.imgProfilePic.addGestureRecognizer(gesture)
     }
 }
+
+//MARK: - Inclass IBActions
 
 extension SignUpTwoViewController {
     
@@ -62,7 +65,7 @@ extension SignUpTwoViewController {
     @IBAction func createAccountClicked(_ sender: UIButton) {
         if !InputFieldValidator.isValidEmail(txtEmailAddress.text ?? ""){
             txtEmailAddress.clearText()
-            txtPassword.displayInlineError(errorString: FieldErrorCaptions.txtEmailErrCaption)
+            txtEmailAddress.displayInlineError(errorString: FieldErrorCaptions.txtEmailErrCaption)
             return
         }
         if !InputFieldValidator.isValidMobileNo(mobileNo: txtMobileNumber.text ?? ""){
@@ -92,9 +95,11 @@ extension SignUpTwoViewController {
         user.password = txtPassword.text
         
         progressHUD.displayProgressHUD()
-        firebaseOP.signUpUser(user: user, image: imgProfilePic.image)
+        firebaseOP.signUpUser(user: user, image: pickedImage)
     }
 }
+
+//MARK: - TextField Delagates
 
 extension SignUpTwoViewController : UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -114,6 +119,8 @@ extension SignUpTwoViewController : UITextFieldDelegate {
     }
 }
 
+//MARK: - ImagePicker Delegate
+
 extension SignUpTwoViewController: ImagePickerDelegate {
     func didSelect(image: UIImage?) {
 //        if image == nil {
@@ -122,8 +129,11 @@ extension SignUpTwoViewController: ImagePickerDelegate {
 //        }
         
         self.imgProfilePic.image = image
+        pickedImage = image
     }
 }
+
+//MARK: - Protocol Delegates of FirebaseActions
 
 extension SignUpTwoViewController : FirebaseActions {
     func isSignUpSuccessful(user: User?) {

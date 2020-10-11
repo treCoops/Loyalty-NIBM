@@ -48,7 +48,8 @@ extension LaunchScreenViewController {
                     res in
                     self.progressHUD.dismissProgressHUD()
                     if res == "true" {
-                        NSLog("User signed in with previous session")
+                        NSLog("User signed in with previous session " + userNIC)
+                        self.performSegue(withIdentifier: Seagus.launchToHome, sender: nil)
                     } else {
                         self.performSegue(withIdentifier: Seagus.launchScreenToSignUp, sender: nil)
                         NSLog("User session validation failed")

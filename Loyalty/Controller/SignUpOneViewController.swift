@@ -26,6 +26,9 @@ class SignUpOneViewController: UIViewController {
     
 }
 
+//MARK: - Inclass IBActions
+
+
 extension SignUpOneViewController {
     
     @IBAction func loginPressed(_ sender: UIButton) {
@@ -66,6 +69,9 @@ extension SignUpOneViewController {
         
     }
 }
+
+//MARK: - TextField Delegates
+
 
 extension SignUpOneViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

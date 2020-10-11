@@ -6,8 +6,13 @@
 //  Copyright © 2020 treCoops. All rights reserved.
 //
 
+/**
+    Class which holds all constraints related to the application
+ */
+
 import Foundation
 
+//Name of the Seagues
 struct Seagus {
     static var launchScreenToSignIn = "launchScreenToSignIn"
     static var launchScreenToSignUp = "launchScreenToSignUp"
@@ -16,6 +21,7 @@ struct Seagus {
     static var launchToHome = "launchToHome"
 }
 
+//Names of the XIB Files
 struct XIBIdentifier {
     static var XIB_HISTORY_CELL = "ReuseableCellHistory"
     static var XIB_HISTORY = "HistoryTableViewCell"
@@ -34,6 +40,7 @@ struct XIBIdentifier {
     
 }
 
+//Captions for the Errors (Validation Errors, Response Errors)
 struct FieldErrorCaptions {
     static let txtNameErrCaption = "Enter a valid name"
     static let txtNICErrCaption = "Enter a valid NIC no."
@@ -48,16 +55,19 @@ struct FieldErrorCaptions {
     static let userAlreadyExists = "A user with the same NIC has already registered with the system!"
 }
 
+//NIBM API authentication credentials and URL info
 struct NIBMAuth {
     static let authKey = "4f996843b9427aa4b5c59660867f7df1f07211f7"
     static let authUrl : String = "http://api-examresults.azurewebsites.net/api/Students/IsValid?authKey=\(authKey)&NicNo="
 }
 
+//Name of the SessionVariables
 struct UserSession {
     static let USER_SESSION = "USER_SESSION"
     static let IS_LOGGED_IN = "AUTH_STATE"
 }
 
+//Default credentials for the account
 struct DefaultCredentials {
     static let defaultEmail = "appuser@gmail.com"
     static let defaultPass = "TrincoBaby"

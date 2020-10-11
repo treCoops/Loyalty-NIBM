@@ -6,9 +6,14 @@
 //  Copyright © 2020 treCoops. All rights reserved.
 //
 
+/**
+    Utility class which is used to pick an image from the gallery or camerarRoll and returns it through a delegate
+ */
+
 import Foundation
 import UIKit
 
+//Delegate method to send the selected image
 public protocol ImagePickerDelegate: class {
     func didSelect(image: UIImage?)
 }
@@ -32,6 +37,7 @@ open class ImagePicker: NSObject {
         self.pickerController.mediaTypes = ["public.image"]
     }
 
+    //Set the UIAlertAction for selection types of media
     private func action(for type: UIImagePickerController.SourceType, title: String) -> UIAlertAction? {
         guard UIImagePickerController.isSourceTypeAvailable(type) else {
             return nil
@@ -43,6 +49,7 @@ open class ImagePicker: NSObject {
         }
     }
 
+    //Set actionTypes
     public func present(from sourceView: UIView) {
 
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)

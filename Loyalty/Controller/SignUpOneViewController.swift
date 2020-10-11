@@ -28,7 +28,6 @@ class SignUpOneViewController: UIViewController {
 
 //MARK: - Inclass IBActions
 
-
 extension SignUpOneViewController {
     
     @IBAction func loginPressed(_ sender: UIButton) {
@@ -72,7 +71,6 @@ extension SignUpOneViewController {
 
 //MARK: - TextField Delegates
 
-
 extension SignUpOneViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
@@ -85,10 +83,13 @@ extension SignUpOneViewController: UITextFieldDelegate {
         txtNIC.delegate = self
     }
     
+    //Prepare to launch the next viewController with setting the user instance
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Seagus.signUpOneToSignUpTwo {
             if let vc = segue.destination as? SignUpTwoViewController {
+                //Creating a new user object with using the entered data (partial data)
                 let user = User(name: txtFullName.text, studentID: txtStudentID.text, mobile: nil, nic: txtNIC.text?.uppercased(), joinedDate: nil, email: nil, password: nil, profileImage: nil, status: nil, TIMESTAMP: nil)
+                //innitialize the user object in the SignUpTwoViewController
                 vc.user = user
             }
         }

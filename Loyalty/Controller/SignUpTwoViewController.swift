@@ -22,6 +22,8 @@ class SignUpTwoViewController: UIViewController {
     var imagePicker: ImagePicker!
     var progressHUD: ProgressHUD!
     var popupAlert: PopupAlerts!
+    
+    //holds the popup which shows when user already exists
     var duplicateUserAlert: UIAlertController!
     
     var termsChecked : Bool = false
@@ -42,6 +44,7 @@ class SignUpTwoViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         txtName.text = user.name
+        //set tap gesture for the UIImageView [UserInteraction should be enabled]
         let gesture = UITapGestureRecognizer(target: self, action:  #selector(self.onPickImageClicked))
         self.imgProfilePic.addGestureRecognizer(gesture)
     }
@@ -62,6 +65,7 @@ extension SignUpTwoViewController {
     }
     
     @IBAction func loginPressed(_ sender: UIButton) {
+        //sends back to the previous viewController
         self.navigationController?.popToViewController(self.navigationController?.viewControllers[1] as! SignInViewController, animated: true)
     }
     
@@ -93,11 +97,13 @@ extension SignUpTwoViewController {
             return
         }
         
+        //set the data for the user object
         user.email = txtEmailAddress.text
         user.mobile = txtMobileNumber.text
         user.password = txtPassword.text
         
         progressHUD.displayProgressHUD()
+        //prepare to sign up the user
         firebaseOP.signUpUser(user: user, image: pickedImage)
     }
 }
@@ -105,6 +111,8 @@ extension SignUpTwoViewController {
 //MARK: - TextField Delagates
 
 extension SignUpTwoViewController : UITextFieldDelegate {
+    
+    //dismiss the keyboard when pressed return key
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return true
@@ -117,6 +125,7 @@ extension SignUpTwoViewController : UITextFieldDelegate {
         txtConfirmPassword.delegate = self
     }
     
+    //Open imagepicker menu
     @objc func onPickImageClicked(_ sender: UIImageView){
         self.imagePicker.present(from: sender)
     }
@@ -139,6 +148,7 @@ extension SignUpTwoViewController: ImagePickerDelegate {
 //MARK: - Protocol Delegates of FirebaseActions
 
 extension SignUpTwoViewController : FirebaseActions {
+    //Successful signup
     func isSignUpSuccessful(user: User?) {
         progressHUD.dismissProgressHUD()
         if let user = user {
@@ -149,22 +159,27 @@ extension SignUpTwoViewController : FirebaseActions {
         }
     }
     
+    //Failed to signup the user
     func isSignUpFailedWithError(error: Error) {
         progressHUD.dismissProgressHUD()
         SKToast.show(withMessage: error.localizedDescription)
     }
     
+    //Failed to signup the user
     func isSignUpFailedWithError(error: String) {
         progressHUD.dismissProgressHUD()
         SKToast.show(withMessage: error)
     }
     
+    //The entered NIC exists on a different user account
     func isExisitingUser(error: String) {
         progressHUD.dismissProgressHUD()
+        //initialize the alertView if not yet initialized
         if duplicateUserAlert == nil {
             duplicateUserAlert = popupAlert.createAlert(title: "User exists", message: error).addAction(title: "OK", handler: {_ in
             }).displayAlert()
         }
+        //display alert
         self.present(duplicateUserAlert, animated: true)
     }
 }

@@ -6,9 +6,13 @@
 //  Copyright © 2020 treCoops. All rights reserved.
 //
 
+/**
+    Structures which holds the models
+ */
+
 import Foundation
 
-
+//User Model
 struct User : Codable {
     var name: String?
     var studentID: String?
@@ -34,6 +38,7 @@ struct User : Codable {
         self.TIMESTAMP = TIMESTAMP
     }
     
+    //Constructor which is used when decoding or encoding
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.name = try container.decodeIfPresent(String.self, forKey: .name)

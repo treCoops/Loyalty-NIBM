@@ -6,16 +6,27 @@
 //  Copyright © 2020 treCoops. All rights reserved.
 //
 
+/**
+    Utility class to perform the firebase operations such as
+        - RealtimeDB Operations
+        - CloudStorage Operations
+        - Firebase Authentication Operations
+ */
+
 import Foundation
 import Firebase
 
 class FirebaseOP {
     
+    //Class instance
     static var instance = FirebaseOP()
+    //Class Delegate
     var delegate: FirebaseActions?
     
-    private init() {}
+    //Make Singleton
+    fileprivate init() {}
     
+    //Authenticate the default user when launching the application
     func authenticateDefaultUser(completion: @escaping (Bool) -> Void){
         Auth.auth().signIn(withEmail: DefaultCredentials.defaultEmail, password: DefaultCredentials.defaultPass, completion: {
             result, error in
@@ -28,16 +39,23 @@ class FirebaseOP {
         })
     }
     
+    /**
+        Perform user signUp operations with including
+            - Creating an authentication for user
+            - Upload image to CloudStorage and retrieve download URL
+            - Create the new user in the Realtime Database
+     */
     func signUpUser(user: User, image: UIImage?){
         
+        //Check the provided User object contains NULL
         guard let email = user.email, let pass = user.password, let studentID = user.studentID, let nic = user.nic else {
             self.delegate?.isSignUpFailedWithError(error: FieldErrorCaptions.generalizeErrCaption)
             return
         }
         
+        //Checking for the existance of the user (Duplicate account)
         checkUserExistence(nic: nic, completion: {
             result in
-            
             //Checking whether the user exists
             if result {
                 NSLog("User already exists")
@@ -95,7 +113,11 @@ class FirebaseOP {
     
     //MARK: - InClass methods
     
-    private func checkUserExistence(nic: String, completion:@escaping (Bool) -> Void) {
+    //Method to check whether the userrecords exists in the databse
+    /**
+        Closure returns TRUE if the user record exsists or FALSE if it doesn't
+     */
+    fileprivate func checkUserExistence(nic: String, completion:@escaping (Bool) -> Void) {
         let ref = self.getDBReference()
         ref.child("students").child(nic).observeSingleEvent(of: .value, with: {
             snapshot in
@@ -107,7 +129,8 @@ class FirebaseOP {
         })
     }
     
-    private func setupAuthenticationAccount(email: String, password: String, completion: @escaping (Bool) -> Void){
+    //Method to set the authentication account for the user
+    fileprivate func setupAuthenticationAccount(email: String, password: String, completion: @escaping (Bool) -> Void){
         Auth.auth().createUser(withEmail: email, password: password, completion: {
             result, error in
             if let error = error {
@@ -120,12 +143,15 @@ class FirebaseOP {
         })
     }
     
-    private func createUser(user: User, completion: @escaping (Bool, String?, User?) -> Void){
+    //Method which creates a new User node in the Realtime Database
+    fileprivate func createUser(user: User, completion: @escaping (Bool, String?, User?) -> Void){
         let ref = self.getDBReference()
         var user = user
         user.TIMESTAMP = Date().currentTimeMillis()
         user.joinedDate = String(user.TIMESTAMP ?? 0000)
         user.status = 1
+        
+        //Creating a user DICTIONARY object to store in DB
         let data = [
             "name": user.name!,
             "studentID": user.studentID!,
@@ -139,6 +165,7 @@ class FirebaseOP {
             "TIMESTAMP": user.TIMESTAMP!
         ] as [String : Any]
         
+        //Saving user node in DB
         ref.child("students").child(user.nic!).setValue(data) {
             (error:Error?, ref:DatabaseReference) in
             if let error = error {
@@ -150,7 +177,9 @@ class FirebaseOP {
         }
     }
     
-    private func uploadProfileImage(image: UIImage?, studentID : String, completion: @escaping (String) -> Void) {
+    //Method which uploads a imageFile (Profile Image) of user while compressing it by 50%
+    fileprivate func uploadProfileImage(image: UIImage?, studentID : String, completion: @escaping (String) -> Void) {
+        //0.5 = compression quality
         if let uploadData = image?.jpegData(compressionQuality: 0.5) {
             let ref = getStorageReference()
             let metaData = StorageMetadata()

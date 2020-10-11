@@ -6,6 +6,10 @@
 //  Copyright © 2020 treCoops. All rights reserved.
 //
 
+/**
+    Custom UIClass to generate a rounded TextField
+ */
+
 import UIKit
 
 class RoundedTextField: UITextField {
@@ -21,7 +25,7 @@ class RoundedTextField: UITextField {
         setupButton()
     }
     
-    
+    //Generate round corners
     private func setupButton() {
         layer.cornerRadius  = frame.size.height/5
         layer.borderWidth = 0.4

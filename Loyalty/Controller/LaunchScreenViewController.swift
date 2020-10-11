@@ -27,7 +27,11 @@ class LaunchScreenViewController: UIViewController {
     }
 }
 
+//MARK: - Class methods
+
 extension LaunchScreenViewController {
+    
+    //Check if previous usersession exists
     func validateUserSession(){
         firebaseOP.authenticateDefaultUser(completion: {
             result in
@@ -41,9 +45,13 @@ extension LaunchScreenViewController {
         })
     }
     
+    //Validate the nic no with NIBM records
     func validateWithNIBM(){
+        //if session exists
         if SessionManager.authState {
+            //serialize the JSON data as User to get nic no.
             if let userNIC = SessionManager.getUserSesion()?.nic {
+                //Validate the user exists in NIBM records
                 UserValidator.validateUser(userNIC, completion: {
                     res in
                     self.progressHUD.dismissProgressHUD()

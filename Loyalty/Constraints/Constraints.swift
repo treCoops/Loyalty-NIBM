@@ -45,6 +45,7 @@ struct FieldErrorCaptions {
     
     static let generalizeErrCaption = "Oops! Something went wrong!"
     static let userCreationrrCaption = "Unable to create new user!"
+    static let userAlreadyExists = "A user with the same NIC has already registered with the system!"
 }
 
 struct NIBMAuth {

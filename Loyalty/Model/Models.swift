@@ -19,8 +19,9 @@ struct User : Codable {
     var password: String?
     var profileImage: String?
     var status: Int?
+    var TIMESTAMP: Int64?
     
-    init(name: String?, studentID: String?, mobile: String?, nic: String?, joinedDate: String?, email: String?, password: String?, profileImage: String?, status: Int?) {
+    init(name: String?, studentID: String?, mobile: String?, nic: String?, joinedDate: String?, email: String?, password: String?, profileImage: String?, status: Int?, TIMESTAMP: Int64?) {
         self.name = name
         self.studentID = studentID
         self.mobile = mobile
@@ -30,6 +31,7 @@ struct User : Codable {
         self.password = password
         self.profileImage = profileImage
         self.status = status
+        self.TIMESTAMP = TIMESTAMP
     }
     
     init(from decoder: Decoder) throws {
@@ -43,5 +45,6 @@ struct User : Codable {
         self.password = try container.decodeIfPresent(String.self, forKey: .password)
         self.profileImage = try container.decodeIfPresent(String.self, forKey: .profileImage)
         self.status = try container.decodeIfPresent(Int.self, forKey: .status)
+        self.TIMESTAMP = try container.decodeIfPresent(Int64.self, forKey: .TIMESTAMP)
     }
 }

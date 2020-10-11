@@ -21,6 +21,8 @@ class SignUpTwoViewController: UIViewController {
     
     var imagePicker: ImagePicker!
     var progressHUD: ProgressHUD!
+    var popupAlert: PopupAlerts!
+    var duplicateUserAlert: UIAlertController!
     
     var termsChecked : Bool = false
     var user : User!
@@ -35,6 +37,7 @@ class SignUpTwoViewController: UIViewController {
         self.imagePicker = ImagePicker(presentationController: self, delegate: self)
         firebaseOP.delegate = self
         progressHUD = ProgressHUD(view: view)
+        popupAlert = PopupAlerts.instance
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -154,5 +157,14 @@ extension SignUpTwoViewController : FirebaseActions {
     func isSignUpFailedWithError(error: String) {
         progressHUD.dismissProgressHUD()
         SKToast.show(withMessage: error)
+    }
+    
+    func isExisitingUser(error: String) {
+        progressHUD.dismissProgressHUD()
+        if duplicateUserAlert == nil {
+            duplicateUserAlert = popupAlert.createAlert(title: "User exists", message: error).addAction(title: "OK", handler: {_ in
+            }).displayAlert()
+        }
+        self.present(duplicateUserAlert, animated: true)
     }
 }

@@ -88,7 +88,7 @@ extension SignUpOneViewController: UITextFieldDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Seagus.signUpOneToSignUpTwo {
             if let vc = segue.destination as? SignUpTwoViewController {
-                let user = User(name: txtFullName.text, studentID: txtStudentID.text, mobile: nil, nic: txtNIC.text, joinedDate: nil, email: nil, password: nil, profileImage: nil, status: nil)
+                let user = User(name: txtFullName.text, studentID: txtStudentID.text, mobile: nil, nic: txtNIC.text?.uppercased(), joinedDate: nil, email: nil, password: nil, profileImage: nil, status: nil, TIMESTAMP: nil)
                 vc.user = user
             }
         }

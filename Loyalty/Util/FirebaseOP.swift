@@ -30,55 +30,92 @@ class FirebaseOP {
     
     func signUpUser(user: User, image: UIImage?){
         
-        guard let email = user.email, let pass = user.password, let studentID = user.studentID else {
+        guard let email = user.email, let pass = user.password, let studentID = user.studentID, let nic = user.nic else {
             self.delegate?.isSignUpFailedWithError(error: FieldErrorCaptions.generalizeErrCaption)
             return
         }
         
-        setupAuthenticationAccount(email: email, password: pass, completion: {
-            authResult in
-            if authResult {
-                var tempUser = user
-                if image == nil {
-                    tempUser.profileImage = ""
-                    self.createUser(user: tempUser, completion: {
-                        result, error, user in
-                        if result {
-                            self.delegate?.isSignUpSuccessful(user: user)
-                        } else {
-                            self.delegate?.isSignUpFailedWithError(error: error ?? FieldErrorCaptions.generalizeErrCaption)
-                        }
-                    })
-                    return
-                }
-                
-                self.uploadProfileImage(image: image, studentID: studentID, completion: {
-                    imageURL in
-                    tempUser.profileImage = imageURL
-                    self.createUser(user: tempUser, completion: {
-                        result, error, user in
-                        if result {
-                            self.delegate?.isSignUpSuccessful(user: user)
-                        } else {
-                            self.delegate?.isSignUpFailedWithError(error: error ?? FieldErrorCaptions.generalizeErrCaption)
-                        }
-                    })
-                })
-            } else {
-                self.delegate?.isSignUpFailedWithError(error: FieldErrorCaptions.userCreationrrCaption)
+        checkUserExistence(nic: nic, completion: {
+            result in
+            
+            //Checking whether the user exists
+            if result {
+                NSLog("User already exists")
+                self.delegate?.isExisitingUser(error: FieldErrorCaptions.userAlreadyExists)
+                return
             }
+            NSLog("Creating new user")
+            //execute if the user does not exist
+            self.setupAuthenticationAccount(email: email, password: pass, completion: {
+                authResult in
+                //executes if authentication account creation successful
+                if authResult {
+                    var tempUser = user
+                    //executes if the user does not select any profile image
+                    if image == nil {
+                        tempUser.profileImage = ""
+                        //create user on database
+                        self.createUser(user: tempUser, completion: {
+                            result, error, user in
+                            //user created on database
+                            if result {
+                                self.delegate?.isSignUpSuccessful(user: user)
+                            } else {
+                                NSLog("Could not create new user on DB")
+                                self.delegate?.isSignUpFailedWithError(error: error ?? FieldErrorCaptions.generalizeErrCaption)
+                            }
+                        })
+                        return
+                    }
+                    
+                    //executes when the user selected a profile image
+                    //upload the image and retrieve the download URL for the image
+                    self.uploadProfileImage(image: image, studentID: studentID, completion: {
+                        imageURL in
+                        tempUser.profileImage = imageURL
+                        //create user on database
+                        self.createUser(user: tempUser, completion: {
+                            result, error, user in
+                            //user created on database
+                            if result {
+                                self.delegate?.isSignUpSuccessful(user: user)
+                            } else {
+                                NSLog("Could not create new user on DB")
+                                self.delegate?.isSignUpFailedWithError(error: error ?? FieldErrorCaptions.generalizeErrCaption)
+                            }
+                        })
+                    })
+                } else {
+                    self.delegate?.isSignUpFailedWithError(error: FieldErrorCaptions.userCreationrrCaption)
+                }
+            })
+            
         })
     }
     
     //MARK: - InClass methods
     
+    private func checkUserExistence(nic: String, completion:@escaping (Bool) -> Void) {
+        let ref = self.getDBReference()
+        ref.child("students").child(nic).observeSingleEvent(of: .value, with: {
+            snapshot in
+            if snapshot.hasChildren(){
+                completion(true)
+            } else {
+                completion(false)
+            }
+        })
+    }
+    
     private func setupAuthenticationAccount(email: String, password: String, completion: @escaping (Bool) -> Void){
         Auth.auth().createUser(withEmail: email, password: password, completion: {
             result, error in
-            if error != nil {
+            if let error = error {
                 completion(false)
+                NSLog(error.localizedDescription)
             } else {
                 completion(true)
+                NSLog(result?.description ?? "")
             }
         })
     }
@@ -86,7 +123,8 @@ class FirebaseOP {
     private func createUser(user: User, completion: @escaping (Bool, String?, User?) -> Void){
         let ref = self.getDBReference()
         var user = user
-        user.joinedDate = String(Date().currentTimeMillis())
+        user.TIMESTAMP = Date().currentTimeMillis()
+        user.joinedDate = String(user.TIMESTAMP ?? 0000)
         user.status = 1
         let data = [
             "name": user.name!,
@@ -97,13 +135,15 @@ class FirebaseOP {
             "email": user.email!,
             "password": user.password!,
             "profileImage": user.profileImage!,
-            "status": user.status!
+            "status": user.status!,
+            "TIMESTAMP": user.TIMESTAMP!
         ] as [String : Any]
         
         ref.child("students").child(user.nic!).setValue(data) {
             (error:Error?, ref:DatabaseReference) in
             if let error = error {
                 completion(false, error.localizedDescription, nil)
+                NSLog(error.localizedDescription)
             } else {
                 completion(true, nil, user)
             }
@@ -116,20 +156,30 @@ class FirebaseOP {
             let metaData = StorageMetadata()
             metaData.contentType = "image/jpeg"
             
-            ref.child("studentProfile/").child(studentID).putData(uploadData, metadata: metaData) {
+            //sending the imagedata to firebase storage
+            ref.child("studentProfile/").child(Auth.auth().currentUser?.uid ?? studentID).putData(uploadData, metadata: metaData) {
                 (meta, error) in
                 
-                ref.child("studentProfile/").child(studentID).downloadURL(completion: {
+                //retrieve the downloadURL
+                ref.child("studentProfile/").child(Auth.auth().currentUser?.uid ?? studentID).downloadURL(completion: {
                     (url,error) in
                     
+                    //fetching the download URL
+                    //Remove all created credentials if failed
                     guard let downloadURL = url else {
+                        NSLog("Could not retrieve download URL")
                         let user = Auth.auth().currentUser
-                        
+                        NSLog("Removing authentication account")
                         user?.delete(completion: {
                             error in
                             if let error = error {
                                 print(error.localizedDescription)
                             }
+                        })
+                        NSLog("Removing image")
+                        ref.child("studentProfile/").child(Auth.auth().currentUser?.uid ?? studentID).delete(completion: {
+                            error in
+                            print(error?.localizedDescription ?? "")
                         })
                         self.delegate?.isSignUpFailedWithError(error: FieldErrorCaptions.generalizeErrCaption)
                         return
@@ -160,6 +210,7 @@ class FirebaseOP {
 
 protocol FirebaseActions {
     func isSignUpSuccessful(user: User?)
+    func isExisitingUser(error: String)
     func isSignUpFailedWithError(error: Error)
     func isSignUpFailedWithError(error: String)
 }
@@ -168,6 +219,7 @@ protocol FirebaseActions {
 
 extension FirebaseActions {
     func isSignUpSuccessful(user: User?){}
+    func isExisitingUser(error: String){}
     func isSignUpFailedWithError(error: Error){}
     func isSignUpFailedWithError(error: String){}
 }

@@ -53,6 +53,9 @@ struct FieldErrorCaptions {
     static let generalizeErrCaption = "Oops! Something went wrong!"
     static let userCreationrrCaption = "Unable to create new user!"
     static let userAlreadyExists = "A user with the same NIC has already registered with the system!"
+    
+    static let noConnectionTitle = "No connection"
+    static let noConnectionMessage = "The app requires a working internet connection please check your connection settings."
 }
 
 //NIBM API authentication credentials and URL info

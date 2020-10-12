@@ -23,8 +23,22 @@ class FirebaseOP {
     //Class Delegate
     var delegate: FirebaseActions?
     
+    var dbRef: DatabaseReference!
+    var storageRef: StorageReference!
+    var uploadTask: StorageUploadTask?
+    
     //Make Singleton
     fileprivate init() {}
+    
+    //cancel all firebase operation in case of network lost
+    func stopAllOperations(){
+        if let dbRef = dbRef {
+            dbRef.removeAllObservers()
+        }
+        if let uploadTask = uploadTask {
+            uploadTask.cancel()
+        }
+    }
     
     //Authenticate the default user when launching the application
     func authenticateDefaultUser(completion: @escaping (Bool) -> Void){
@@ -186,7 +200,7 @@ class FirebaseOP {
             metaData.contentType = "image/jpeg"
             
             //sending the imagedata to firebase storage
-            ref.child("studentProfile/").child(Auth.auth().currentUser?.uid ?? studentID).putData(uploadData, metadata: metaData) {
+            uploadTask =  ref.child("studentProfile/").child(Auth.auth().currentUser?.uid ?? studentID).putData(uploadData, metadata: metaData) {
                 (meta, error) in
                 
                 //retrieve the downloadURL
@@ -218,18 +232,27 @@ class FirebaseOP {
                 })
             }
         }
+        
     }
     
     //MARK: - Retrieve the realtime database reference
     
     private func getDBReference() -> DatabaseReference{
-        return Database.database().reference()
+        guard dbRef != nil else {
+            dbRef = Database.database().reference()
+            return dbRef
+        }
+        return dbRef
     }
     
     //MARK: - Retrieve the storage reference
     
     private func getStorageReference() -> StorageReference {
-        return Storage.storage().reference()
+        guard storageRef != nil else {
+            storageRef = Storage.storage().reference()
+            return storageRef
+        }
+        return storageRef
     }
     
 
@@ -242,6 +265,8 @@ protocol FirebaseActions {
     func isExisitingUser(error: String)
     func isSignUpFailedWithError(error: Error)
     func isSignUpFailedWithError(error: String)
+    
+    func onOperationsCancelled()
 }
 
 //MARK: - Set of Protocol extensions
@@ -251,4 +276,6 @@ extension FirebaseActions {
     func isExisitingUser(error: String){}
     func isSignUpFailedWithError(error: Error){}
     func isSignUpFailedWithError(error: String){}
+    
+    func onOperationsCancelled(){}
 }

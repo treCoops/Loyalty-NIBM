@@ -63,6 +63,7 @@
 		EFE3468C25325F5D009C83C5 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE3468B25325F5D009C83C5 /* ImagePicker.swift */; };
 		EFE346912532759F009C83C5 /* DateToMills.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE346902532759F009C83C5 /* DateToMills.swift */; };
 		EFE346962532FCD7009C83C5 /* PopupAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE346952532FCD7009C83C5 /* PopupAlerts.swift */; };
+		EFE3469E253449F9009C83C5 /* NetworkChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE3469D253449F9009C83C5 /* NetworkChecker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -151,6 +152,7 @@
 		EFE3468B25325F5D009C83C5 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		EFE346902532759F009C83C5 /* DateToMills.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateToMills.swift; sourceTree = "<group>"; };
 		EFE346952532FCD7009C83C5 /* PopupAlerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupAlerts.swift; sourceTree = "<group>"; };
+		EFE3469D253449F9009C83C5 /* NetworkChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkChecker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -354,6 +356,7 @@
 				EFE3468B25325F5D009C83C5 /* ImagePicker.swift */,
 				EFE346902532759F009C83C5 /* DateToMills.swift */,
 				EFE346952532FCD7009C83C5 /* PopupAlerts.swift */,
+				EFE3469D253449F9009C83C5 /* NetworkChecker.swift */,
 				EFE3461825321346009C83C5 /* FirebaseOP.swift */,
 			);
 			path = Util;
@@ -605,6 +608,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EFE3454E2531F432009C83C5 /* Models.swift in Sources */,
+				EFE3469E253449F9009C83C5 /* NetworkChecker.swift in Sources */,
 				26D1232B252F2A43002028D3 /* OfferTableViewCell.swift in Sources */,
 				2663E3DA252E1153004C8B13 /* RoundedUIButton.swift in Sources */,
 				EFE3461925321346009C83C5 /* FirebaseOP.swift in Sources */,

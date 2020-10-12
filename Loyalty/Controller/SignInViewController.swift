@@ -13,13 +13,19 @@ class SignInViewController: UIViewController {
     
     @IBOutlet weak var txtPassword: RoundedTextField!
     @IBOutlet weak var txtNIC: RoundedTextField!
+    var networkChecker = NetworkChecker.instance
+    var popupAlerts = PopupAlerts.instance
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         viewParent.roundView()
         setTextDelegates()
+        networkChecker.delegate = self
+    }
     
+    
+    override func viewDidDisappear(_ animated: Bool) {
+//        firebaseOP.stopAllOperations()
     }
 
 }
@@ -33,6 +39,18 @@ extension SignInViewController : UITextFieldDelegate {
     func setTextDelegates(){
         txtNIC.delegate = self
         txtPassword.delegate = self
+    }
+}
+
+extension SignInViewController: NetworkListener {
+    func onNetworkChanged(connected: Bool, onMobileData: Bool) {
+        DispatchQueue.main.async {
+            self.popupAlerts.dismissNetworkLostAlert()
+            
+            if !connected {
+                self.present(self.popupAlerts.displayNetworkLostAlert(), animated: true)
+            }
+        }
     }
 }
 

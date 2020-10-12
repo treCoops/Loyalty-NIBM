@@ -7,7 +7,7 @@
 //
 
 /**
-    Utility class to display simple popup dialogs
+    Utility class to display simple popup dialogs including networkLost popup dialog
  */
 
 import Foundation
@@ -16,6 +16,7 @@ import UIKit
 class PopupAlerts {
     
     var alert: UIAlertController!
+    var networkLostAlert: UIAlertController!
     //Class instance
     static var instance = PopupAlerts()
     
@@ -37,5 +38,22 @@ class PopupAlerts {
     //Returns and display the alert
     func displayAlert() -> UIAlertController {
         return self.alert
+    }
+    
+    func displayNetworkLostAlert() -> UIAlertController {
+        guard networkLostAlert != nil else {
+            self.networkLostAlert = UIAlertController(title: FieldErrorCaptions.noConnectionTitle, message: FieldErrorCaptions.noConnectionMessage, preferredStyle: .alert)
+            self.networkLostAlert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            return self.networkLostAlert
+        }
+        
+        return self.networkLostAlert
+    }
+    
+    func dismissNetworkLostAlert(){
+        guard networkLostAlert != nil else {
+            return
+        }
+        self.networkLostAlert.dismiss(animated: true, completion: nil)
     }
 }

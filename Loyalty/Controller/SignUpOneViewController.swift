@@ -17,13 +17,16 @@ class SignUpOneViewController: UIViewController {
     
     var progressHUD : ProgressHUD!
     
+    var networkChecker = NetworkChecker.instance
+    var popupAlerts = PopupAlerts.instance
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         viewParent.roundView()
         progressHUD = ProgressHUD(view: view)
+        networkChecker.delegate = self
     }
-    
 }
 
 //MARK: - Inclass IBActions
@@ -49,6 +52,11 @@ extension SignUpOneViewController {
         if !InputFieldValidator.isValidNIC(txtNIC.text ?? "") {
             txtNIC.clearText()
             txtNIC.displayInlineError(errorString: FieldErrorCaptions.txtNICErrCaption)
+            return
+        }
+        
+        if !networkChecker.isReachable {
+            self.present(popupAlerts.displayNetworkLostAlert(), animated: true)
             return
         }
         
@@ -91,6 +99,18 @@ extension SignUpOneViewController: UITextFieldDelegate {
                 let user = User(name: txtFullName.text, studentID: txtStudentID.text, mobile: nil, nic: txtNIC.text?.uppercased(), joinedDate: nil, email: nil, password: nil, profileImage: nil, status: nil, TIMESTAMP: nil)
                 //innitialize the user object in the SignUpTwoViewController
                 vc.user = user
+            }
+        }
+    }
+}
+
+extension SignUpOneViewController: NetworkListener {
+    func onNetworkChanged(connected: Bool, onMobileData: Bool) {
+        DispatchQueue.main.async {
+            self.popupAlerts.dismissNetworkLostAlert()
+            
+            if !connected {
+                self.present(self.popupAlerts.displayNetworkLostAlert(), animated: true)
             }
         }
     }

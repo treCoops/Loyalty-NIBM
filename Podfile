@@ -11,6 +11,7 @@ target 'Loyalty' do
   pod 'Kingfisher'
   pod 'SwiftyJSON'
   pod 'SKToast', '~> 1.0.0'
+  pod "Connectivity"
 
   pod 'Firebase/Auth'
   pod 'Firebase/Storage'

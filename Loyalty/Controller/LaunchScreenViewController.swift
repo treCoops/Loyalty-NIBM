@@ -13,17 +13,25 @@ class LaunchScreenViewController: UIViewController {
 
     var progressHUD : ProgressHUD!
     var firebaseOP = FirebaseOP.instance
+    var networkChecker = NetworkChecker.instance
+    var popupAlerts = PopupAlerts.instance
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
         self.progressHUD = ProgressHUD(view: view)
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
+        networkChecker.delegate = self
+        networkChecker.startMonitoring()
         
         progressHUD.displayProgressHUD()
         validateUserSession()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        firebaseOP.stopAllOperations()
     }
 }
 
@@ -72,6 +80,18 @@ extension LaunchScreenViewController {
             self.progressHUD.dismissProgressHUD()
             self.performSegue(withIdentifier: Seagus.launchScreenToSignIn, sender: nil)
             NSLog("No previous login sesions found")
+        }
+    }
+}
+
+extension LaunchScreenViewController: NetworkListener {
+    func onNetworkChanged(connected: Bool, onMobileData: Bool) {
+        DispatchQueue.main.async {
+            self.popupAlerts.dismissNetworkLostAlert()
+            
+            if !connected {
+                self.present(self.popupAlerts.displayNetworkLostAlert(), animated: true)
+            }
         }
     }
 }

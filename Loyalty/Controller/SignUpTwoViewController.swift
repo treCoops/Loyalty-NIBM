@@ -22,6 +22,8 @@ class SignUpTwoViewController: UIViewController {
     var imagePicker: ImagePicker!
     var progressHUD: ProgressHUD!
     var popupAlert: PopupAlerts!
+    var networkChecker = NetworkChecker.instance
+    var popupAlerts = PopupAlerts.instance
     
     //holds the popup which shows when user already exists
     var duplicateUserAlert: UIAlertController!
@@ -39,7 +41,7 @@ class SignUpTwoViewController: UIViewController {
         self.imagePicker = ImagePicker(presentationController: self, delegate: self)
         firebaseOP.delegate = self
         progressHUD = ProgressHUD(view: view)
-        popupAlert = PopupAlerts.instance
+        networkChecker.delegate = self
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -47,6 +49,11 @@ class SignUpTwoViewController: UIViewController {
         //set tap gesture for the UIImageView [UserInteraction should be enabled]
         let gesture = UITapGestureRecognizer(target: self, action:  #selector(self.onPickImageClicked))
         self.imgProfilePic.addGestureRecognizer(gesture)
+    }
+    
+
+    override func viewDidDisappear(_ animated: Bool) {
+        firebaseOP.stopAllOperations()
     }
 }
 
@@ -101,6 +108,11 @@ extension SignUpTwoViewController {
         user.email = txtEmailAddress.text
         user.mobile = txtMobileNumber.text
         user.password = txtPassword.text
+        
+        if !networkChecker.isReachable {
+            self.present(popupAlerts.displayNetworkLostAlert(), animated: true)
+            return
+        }
         
         progressHUD.displayProgressHUD()
         //prepare to sign up the user
@@ -181,5 +193,17 @@ extension SignUpTwoViewController : FirebaseActions {
         }
         //display alert
         self.present(duplicateUserAlert, animated: true)
+    }
+}
+
+extension SignUpTwoViewController: NetworkListener {
+    func onNetworkChanged(connected: Bool, onMobileData: Bool) {
+        DispatchQueue.main.async {
+            self.popupAlerts.dismissNetworkLostAlert()
+            
+            if !connected {
+                self.present(self.popupAlerts.displayNetworkLostAlert(), animated: true)
+            }
+        }
     }
 }

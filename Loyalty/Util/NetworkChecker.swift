@@ -66,8 +66,10 @@ class NetworkChecker {
     
     //New implementation using Connectivity module
     
+    //start monitoring network events
     func startMonitoring() {
         connectivity.isPollingEnabled = true
+        connectivity.pollingInterval = AppConfig.connectionCheckTimeout
         connectivity.startNotifier()
         connectivity.whenConnected = { connectivity in
             self.delegate?.onNetworkChanged(connected: true, onMobileData: connectivity.isConnectedViaCellular)
@@ -77,6 +79,7 @@ class NetworkChecker {
         }
     }
     
+    //stop network event monitoring
     func stopMonitoring() {
         connectivity.stopNotifier()
     }

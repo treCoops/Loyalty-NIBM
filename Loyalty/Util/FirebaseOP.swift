@@ -53,6 +53,43 @@ class FirebaseOP {
         })
     }
     
+    //Perform user sign in with checking the existence on the DB with the correspond access credentials
+    func signInUser(nic: String, password: String){
+        checkUserExistence(nic: nic, completion: {
+            result, data in
+            //result = TRUE when user exists in DB
+            //data = firebaseSnapshot
+            if result {
+                //parsing data from snapshot
+                if let userData = data.value as? [String: Any] {
+                    //validating access credentials
+                    if userData["password"] as? String == password {
+                        NSLog("Successful sign-in")
+                        self.delegate?.onUserSignInSuccess(user: User(
+                                                            name: userData["name"] as? String,
+                                                            studentID: userData["studentID"] as? String,
+                                                            mobile: userData["mobile"] as? String,
+                                                            nic: userData["nic"] as? String,
+                                                            joinedDate: userData["joinedDate"] as? String,
+                                                            email: userData["email"] as? String,
+                                                            password: userData["password"] as? String,
+                                                            profileImage: userData["profileImage"] as? String,
+                                                            status: userData["status"] as? Int,
+                                                            TIMESTAMP: userData["TIMESTAMP"] as? Int64))
+                    } else {
+                        self.delegate?.onUserSignInFailedWithError(error: "Invalid access credentials")
+                    }
+                } else {
+                    NSLog("Unable to serialize user node data")
+                    self.delegate?.onUserSignInFailedWithError(error: FieldErrorCaptions.generalizeErrCaption)
+                }
+            } else {
+                NSLog("User not registered")
+                self.delegate?.onUserNotRegistered(error: "User not registered with the app.")
+            }
+        })
+    }
+    
     /**
         Perform user signUp operations with including
             - Creating an authentication for user
@@ -69,7 +106,7 @@ class FirebaseOP {
         
         //Checking for the existance of the user (Duplicate account)
         checkUserExistence(nic: nic, completion: {
-            result in
+            result, data in
             //Checking whether the user exists
             if result {
                 NSLog("User already exists")
@@ -131,14 +168,14 @@ class FirebaseOP {
     /**
         Closure returns TRUE if the user record exsists or FALSE if it doesn't
      */
-    fileprivate func checkUserExistence(nic: String, completion:@escaping (Bool) -> Void) {
+    fileprivate func checkUserExistence(nic: String, completion:@escaping (Bool,DataSnapshot) -> Void) {
         let ref = self.getDBReference()
         ref.child("students").child(nic).observeSingleEvent(of: .value, with: {
             snapshot in
             if snapshot.hasChildren(){
-                completion(true)
+                completion(true,snapshot)
             } else {
-                completion(false)
+                completion(false,snapshot)
             }
         })
     }
@@ -266,6 +303,11 @@ protocol FirebaseActions {
     func isSignUpFailedWithError(error: Error)
     func isSignUpFailedWithError(error: String)
     
+    func onUserNotRegistered(error: String)
+    func onUserSignInSuccess(user: User?)
+    func onUserSignInFailedWithError(error: Error)
+    func onUserSignInFailedWithError(error: String)
+    
     func onOperationsCancelled()
 }
 
@@ -276,6 +318,11 @@ extension FirebaseActions {
     func isExisitingUser(error: String){}
     func isSignUpFailedWithError(error: Error){}
     func isSignUpFailedWithError(error: String){}
+    
+    func onUserNotRegistered(error: String){}
+    func onUserSignInSuccess(user: User?){}
+    func onUserSignInFailedWithError(error: Error){}
+    func onUserSignInFailedWithError(error: String){}
     
     func onOperationsCancelled(){}
 }

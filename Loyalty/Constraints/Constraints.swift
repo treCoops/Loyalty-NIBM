@@ -19,6 +19,8 @@ struct Seagus {
     static var signUpOneToSignUpTwo = "signUpOneToSignUpTwo"
     static var signUpTwoToHome = "signUpTwoToHome"
     static var launchToHome = "launchToHome"
+    static var signInToSignUp = "signInToSignUp"
+    static var signInToHome = "signInToHome"
 }
 
 //Names of the XIB Files
@@ -74,5 +76,9 @@ struct UserSession {
 struct DefaultCredentials {
     static let defaultEmail = "appuser@gmail.com"
     static let defaultPass = "TrincoBaby"
+}
+
+struct AppConfig {
+    static let connectionCheckTimeout: Double = 10
 }
 

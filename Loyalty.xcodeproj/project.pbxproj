@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1D08BBC94120E1DE175969DA /* Pods_Loyalty_LoyaltyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 931CBB42FA4ED6EE07CF16B4 /* Pods_Loyalty_LoyaltyUITests.framework */; };
+		220344A39C83AB8DD3C02F6A /* Pods_Loyalty_LoyaltyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E025A60F931714FD8D6FC55A /* Pods_Loyalty_LoyaltyUITests.framework */; };
 		2663E3A0252E03CC004C8B13 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2663E39F252E03CC004C8B13 /* AppDelegate.swift */; };
 		2663E3A2252E03CC004C8B13 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2663E3A1252E03CC004C8B13 /* SceneDelegate.swift */; };
 		2663E3A4252E03CC004C8B13 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2663E3A3252E03CC004C8B13 /* SignInViewController.swift */; };
@@ -50,8 +50,8 @@
 		26D1233A252F47A9002028D3 /* OfferValidateDoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D12339252F47A9002028D3 /* OfferValidateDoneViewController.swift */; };
 		26D1233C252F47C2002028D3 /* OfferValidateErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D1233B252F47C2002028D3 /* OfferValidateErrorViewController.swift */; };
 		26D1233E252F47D9002028D3 /* OfferValidateQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D1233D252F47D9002028D3 /* OfferValidateQuestionViewController.swift */; };
-		472510043E47BAD7C3C50287 /* Pods_LoyaltyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 444B0C9D2B4A9BE2A33B0574 /* Pods_LoyaltyTests.framework */; };
-		96824B512AE45C4616B3D845 /* Pods_Loyalty.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9955A6B0995F69FC2CE043E1 /* Pods_Loyalty.framework */; };
+		66FDF28416031B6BE5E0B550 /* Pods_Loyalty.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3006E812A9BEBD83451BB6D /* Pods_Loyalty.framework */; };
+		B56831B3B9B7AB1A65D04101 /* Pods_LoyaltyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08335A29ABCFF4621EF322A1 /* Pods_LoyaltyTests.framework */; };
 		EF12209F2531EC9F007089DB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EF12209E2531EC9F007089DB /* GoogleService-Info.plist */; };
 		EFE3454E2531F432009C83C5 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE3454D2531F432009C83C5 /* Models.swift */; };
 		EFE3460F2532034C009C83C5 /* ProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE3460E2532034C009C83C5 /* ProgressHUD.swift */; };
@@ -84,7 +84,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		25BA06434B1030BA7FEB6A7D /* Pods-Loyalty-LoyaltyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Loyalty-LoyaltyUITests.debug.xcconfig"; path = "Target Support Files/Pods-Loyalty-LoyaltyUITests/Pods-Loyalty-LoyaltyUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		08335A29ABCFF4621EF322A1 /* Pods_LoyaltyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LoyaltyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2663E39C252E03CC004C8B13 /* Loyalty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Loyalty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2663E39F252E03CC004C8B13 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2663E3A1252E03CC004C8B13 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -133,14 +133,14 @@
 		26D12339252F47A9002028D3 /* OfferValidateDoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferValidateDoneViewController.swift; sourceTree = "<group>"; };
 		26D1233B252F47C2002028D3 /* OfferValidateErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferValidateErrorViewController.swift; sourceTree = "<group>"; };
 		26D1233D252F47D9002028D3 /* OfferValidateQuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferValidateQuestionViewController.swift; sourceTree = "<group>"; };
-		444B0C9D2B4A9BE2A33B0574 /* Pods_LoyaltyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LoyaltyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		70EB264E9D4FE01B1064B610 /* Pods-Loyalty.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Loyalty.debug.xcconfig"; path = "Target Support Files/Pods-Loyalty/Pods-Loyalty.debug.xcconfig"; sourceTree = "<group>"; };
-		86A90BF8DA0074FA90559C5E /* Pods-LoyaltyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoyaltyTests.release.xcconfig"; path = "Target Support Files/Pods-LoyaltyTests/Pods-LoyaltyTests.release.xcconfig"; sourceTree = "<group>"; };
-		931CBB42FA4ED6EE07CF16B4 /* Pods_Loyalty_LoyaltyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Loyalty_LoyaltyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9955A6B0995F69FC2CE043E1 /* Pods_Loyalty.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Loyalty.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B98EC4C425D869EE45D3FB04 /* Pods-Loyalty.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Loyalty.release.xcconfig"; path = "Target Support Files/Pods-Loyalty/Pods-Loyalty.release.xcconfig"; sourceTree = "<group>"; };
-		E53449FAEBBC49104CA33637 /* Pods-LoyaltyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoyaltyTests.debug.xcconfig"; path = "Target Support Files/Pods-LoyaltyTests/Pods-LoyaltyTests.debug.xcconfig"; sourceTree = "<group>"; };
-		E7ED84179E9D8D5BABF634C4 /* Pods-Loyalty-LoyaltyUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Loyalty-LoyaltyUITests.release.xcconfig"; path = "Target Support Files/Pods-Loyalty-LoyaltyUITests/Pods-Loyalty-LoyaltyUITests.release.xcconfig"; sourceTree = "<group>"; };
+		3A1113BF97A0DA15F68A77DC /* Pods-Loyalty.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Loyalty.debug.xcconfig"; path = "Target Support Files/Pods-Loyalty/Pods-Loyalty.debug.xcconfig"; sourceTree = "<group>"; };
+		3E27DBEAD7318C78D85ADDF6 /* Pods-Loyalty-LoyaltyUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Loyalty-LoyaltyUITests.release.xcconfig"; path = "Target Support Files/Pods-Loyalty-LoyaltyUITests/Pods-Loyalty-LoyaltyUITests.release.xcconfig"; sourceTree = "<group>"; };
+		ACC1436B0F0F0BDE9F988237 /* Pods-Loyalty.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Loyalty.release.xcconfig"; path = "Target Support Files/Pods-Loyalty/Pods-Loyalty.release.xcconfig"; sourceTree = "<group>"; };
+		BBD06572D970D31CFD470043 /* Pods-LoyaltyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoyaltyTests.release.xcconfig"; path = "Target Support Files/Pods-LoyaltyTests/Pods-LoyaltyTests.release.xcconfig"; sourceTree = "<group>"; };
+		C0432CA007F948B7BEFA5BFE /* Pods-LoyaltyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoyaltyTests.debug.xcconfig"; path = "Target Support Files/Pods-LoyaltyTests/Pods-LoyaltyTests.debug.xcconfig"; sourceTree = "<group>"; };
+		DC515A356704FED6CE1408F4 /* Pods-Loyalty-LoyaltyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Loyalty-LoyaltyUITests.debug.xcconfig"; path = "Target Support Files/Pods-Loyalty-LoyaltyUITests/Pods-Loyalty-LoyaltyUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		E025A60F931714FD8D6FC55A /* Pods_Loyalty_LoyaltyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Loyalty_LoyaltyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E3006E812A9BEBD83451BB6D /* Pods_Loyalty.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Loyalty.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF12209E2531EC9F007089DB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EFE3454D2531F432009C83C5 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		EFE3460E2532034C009C83C5 /* ProgressHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHUD.swift; sourceTree = "<group>"; };
@@ -160,7 +160,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				96824B512AE45C4616B3D845 /* Pods_Loyalty.framework in Frameworks */,
+				66FDF28416031B6BE5E0B550 /* Pods_Loyalty.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -168,7 +168,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				472510043E47BAD7C3C50287 /* Pods_LoyaltyTests.framework in Frameworks */,
+				B56831B3B9B7AB1A65D04101 /* Pods_LoyaltyTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,7 +176,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1D08BBC94120E1DE175969DA /* Pods_Loyalty_LoyaltyUITests.framework in Frameworks */,
+				220344A39C83AB8DD3C02F6A /* Pods_Loyalty_LoyaltyUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -191,7 +191,7 @@
 				2663E3C0252E03CD004C8B13 /* LoyaltyUITests */,
 				2663E39D252E03CC004C8B13 /* Products */,
 				2D023CD95E72EEEB24B6AC7C /* Pods */,
-				574878D159F70A3C1147B3F3 /* Frameworks */,
+				8226EA21A2B2437C35D73113 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -317,22 +317,22 @@
 		2D023CD95E72EEEB24B6AC7C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				70EB264E9D4FE01B1064B610 /* Pods-Loyalty.debug.xcconfig */,
-				B98EC4C425D869EE45D3FB04 /* Pods-Loyalty.release.xcconfig */,
-				25BA06434B1030BA7FEB6A7D /* Pods-Loyalty-LoyaltyUITests.debug.xcconfig */,
-				E7ED84179E9D8D5BABF634C4 /* Pods-Loyalty-LoyaltyUITests.release.xcconfig */,
-				E53449FAEBBC49104CA33637 /* Pods-LoyaltyTests.debug.xcconfig */,
-				86A90BF8DA0074FA90559C5E /* Pods-LoyaltyTests.release.xcconfig */,
+				3A1113BF97A0DA15F68A77DC /* Pods-Loyalty.debug.xcconfig */,
+				ACC1436B0F0F0BDE9F988237 /* Pods-Loyalty.release.xcconfig */,
+				DC515A356704FED6CE1408F4 /* Pods-Loyalty-LoyaltyUITests.debug.xcconfig */,
+				3E27DBEAD7318C78D85ADDF6 /* Pods-Loyalty-LoyaltyUITests.release.xcconfig */,
+				C0432CA007F948B7BEFA5BFE /* Pods-LoyaltyTests.debug.xcconfig */,
+				BBD06572D970D31CFD470043 /* Pods-LoyaltyTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		574878D159F70A3C1147B3F3 /* Frameworks */ = {
+		8226EA21A2B2437C35D73113 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				9955A6B0995F69FC2CE043E1 /* Pods_Loyalty.framework */,
-				931CBB42FA4ED6EE07CF16B4 /* Pods_Loyalty_LoyaltyUITests.framework */,
-				444B0C9D2B4A9BE2A33B0574 /* Pods_LoyaltyTests.framework */,
+				E3006E812A9BEBD83451BB6D /* Pods_Loyalty.framework */,
+				E025A60F931714FD8D6FC55A /* Pods_Loyalty_LoyaltyUITests.framework */,
+				08335A29ABCFF4621EF322A1 /* Pods_LoyaltyTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -369,11 +369,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2663E3C6252E03CD004C8B13 /* Build configuration list for PBXNativeTarget "Loyalty" */;
 			buildPhases = (
-				0C613BB51953F1BF6A8A9C4A /* [CP] Check Pods Manifest.lock */,
+				198F558E8ECB65CA2EEF1437 /* [CP] Check Pods Manifest.lock */,
 				2663E398252E03CC004C8B13 /* Sources */,
 				2663E399252E03CC004C8B13 /* Frameworks */,
 				2663E39A252E03CC004C8B13 /* Resources */,
-				96687C8CC25611344C744645 /* [CP] Embed Pods Frameworks */,
+				16FB50A48465EB0251031371 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -388,7 +388,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2663E3C9252E03CD004C8B13 /* Build configuration list for PBXNativeTarget "LoyaltyTests" */;
 			buildPhases = (
-				DD3E958AB23EB1FFA5418AC1 /* [CP] Check Pods Manifest.lock */,
+				39F2AC8386F27BDD78387E6B /* [CP] Check Pods Manifest.lock */,
 				2663E3AE252E03CD004C8B13 /* Sources */,
 				2663E3AF252E03CD004C8B13 /* Frameworks */,
 				2663E3B0252E03CD004C8B13 /* Resources */,
@@ -407,11 +407,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2663E3CC252E03CD004C8B13 /* Build configuration list for PBXNativeTarget "LoyaltyUITests" */;
 			buildPhases = (
-				6101620EA8CC1B3C70DA132F /* [CP] Check Pods Manifest.lock */,
+				D423AD36C5B4FD09019256F7 /* [CP] Check Pods Manifest.lock */,
 				2663E3B9252E03CD004C8B13 /* Sources */,
 				2663E3BA252E03CD004C8B13 /* Frameworks */,
 				2663E3BB252E03CD004C8B13 /* Resources */,
-				9D5440AD3BBC1C5C71537A97 /* [CP] Embed Pods Frameworks */,
+				BE1F7FC093A9872CED0EC9C8 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -500,7 +500,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0C613BB51953F1BF6A8A9C4A /* [CP] Check Pods Manifest.lock */ = {
+		16FB50A48465EB0251031371 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Loyalty/Pods-Loyalty-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Loyalty/Pods-Loyalty-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Loyalty/Pods-Loyalty-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		198F558E8ECB65CA2EEF1437 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -522,7 +539,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		6101620EA8CC1B3C70DA132F /* [CP] Check Pods Manifest.lock */ = {
+		39F2AC8386F27BDD78387E6B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -537,31 +554,14 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Loyalty-LoyaltyUITests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-LoyaltyTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		96687C8CC25611344C744645 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Loyalty/Pods-Loyalty-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Loyalty/Pods-Loyalty-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Loyalty/Pods-Loyalty-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		9D5440AD3BBC1C5C71537A97 /* [CP] Embed Pods Frameworks */ = {
+		BE1F7FC093A9872CED0EC9C8 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -578,7 +578,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Loyalty-LoyaltyUITests/Pods-Loyalty-LoyaltyUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		DD3E958AB23EB1FFA5418AC1 /* [CP] Check Pods Manifest.lock */ = {
+		D423AD36C5B4FD09019256F7 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -593,7 +593,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-LoyaltyTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Loyalty-LoyaltyUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -822,7 +822,7 @@
 		};
 		2663E3C7252E03CD004C8B13 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 70EB264E9D4FE01B1064B610 /* Pods-Loyalty.debug.xcconfig */;
+			baseConfigurationReference = 3A1113BF97A0DA15F68A77DC /* Pods-Loyalty.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -840,7 +840,7 @@
 		};
 		2663E3C8252E03CD004C8B13 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B98EC4C425D869EE45D3FB04 /* Pods-Loyalty.release.xcconfig */;
+			baseConfigurationReference = ACC1436B0F0F0BDE9F988237 /* Pods-Loyalty.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -858,7 +858,7 @@
 		};
 		2663E3CA252E03CD004C8B13 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E53449FAEBBC49104CA33637 /* Pods-LoyaltyTests.debug.xcconfig */;
+			baseConfigurationReference = C0432CA007F948B7BEFA5BFE /* Pods-LoyaltyTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -880,7 +880,7 @@
 		};
 		2663E3CB252E03CD004C8B13 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 86A90BF8DA0074FA90559C5E /* Pods-LoyaltyTests.release.xcconfig */;
+			baseConfigurationReference = BBD06572D970D31CFD470043 /* Pods-LoyaltyTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -902,7 +902,7 @@
 		};
 		2663E3CD252E03CD004C8B13 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 25BA06434B1030BA7FEB6A7D /* Pods-Loyalty-LoyaltyUITests.debug.xcconfig */;
+			baseConfigurationReference = DC515A356704FED6CE1408F4 /* Pods-Loyalty-LoyaltyUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -922,7 +922,7 @@
 		};
 		2663E3CE252E03CD004C8B13 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E7ED84179E9D8D5BABF634C4 /* Pods-Loyalty-LoyaltyUITests.release.xcconfig */;
+			baseConfigurationReference = 3E27DBEAD7318C78D85ADDF6 /* Pods-Loyalty-LoyaltyUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

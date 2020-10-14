@@ -54,7 +54,10 @@ struct FieldErrorCaptions {
     
     static let generalizeErrCaption = "Oops! Something went wrong!"
     static let userCreationrrCaption = "Unable to create new user!"
-    static let userAlreadyExists = "A user with the same NIC has already registered with the system!"
+    static let userAlreadyExistsErrCaption = "A user with the same NIC has already registered with the system!"
+    
+    static let categoryLoadFailedErrCaption = "Unable to load categories"
+    static let offersLoadFailedErrCaption = "Unable to load offers"
     
     static let noConnectionTitle = "No connection"
     static let noConnectionMessage = "The app requires a working internet connection please check your connection settings."

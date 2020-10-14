@@ -96,7 +96,7 @@ extension SignUpOneViewController: UITextFieldDelegate {
         if segue.identifier == Seagus.signUpOneToSignUpTwo {
             if let vc = segue.destination as? SignUpTwoViewController {
                 //Creating a new user object with using the entered data (partial data)
-                let user = User(name: txtFullName.text, studentID: txtStudentID.text, mobile: nil, nic: txtNIC.text?.uppercased(), joinedDate: nil, email: nil, password: nil, profileImage: nil, status: nil, TIMESTAMP: nil)
+                let user = User(name: txtFullName.text, studentID: txtStudentID.text, mobile: nil, nic: txtNIC.text?.uppercased(), joinedDate: nil, email: nil, password: nil, profileImage: nil, status: nil, timeStamp: nil)
                 //innitialize the user object in the SignUpTwoViewController
                 vc.user = user
             }

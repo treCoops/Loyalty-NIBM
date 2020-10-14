@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class FeaturedCollectionViewCell: UICollectionViewCell {
 
@@ -24,8 +25,10 @@ class FeaturedCollectionViewCell: UICollectionViewCell {
         return "FeaturedCollectionViewCell"
     }
     
-    func configureCell(Data: XIBFeatured) {
-        
+    func configureCell(Data: Category) {
+        if let url = Data.coverImage {
+            imgLogo.kf.setImage(with: URL(string: url))
+        }
     }
 
 }

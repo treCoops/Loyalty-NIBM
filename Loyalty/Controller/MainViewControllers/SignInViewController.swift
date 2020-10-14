@@ -29,11 +29,9 @@ class SignInViewController: UIViewController {
         progressHUD = ProgressHUD(view: view)
     }
     
-    
     override func viewDidDisappear(_ animated: Bool) {
-//        firebaseOP.stopAllOperations()
+        firebaseOP.stopAllOperations()
     }
-
 }
 
 //MARK: - InterfaceBuilder Actions

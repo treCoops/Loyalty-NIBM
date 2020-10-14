@@ -62,13 +62,15 @@ class SignUpTwoViewController: UIViewController {
 extension SignUpTwoViewController {
     
     @IBAction func btnTermsClicked(_ sender: UIButton) {
-        if termsChecked {
-            termsChecked = false
-            btnCheckTerms.setImage(#imageLiteral(resourceName: "unchecked"), for: .normal)
-        } else {
-            termsChecked = true
-            btnCheckTerms.setImage(#imageLiteral(resourceName: "checked"), for: .normal)
-        }
+        termsChecked = !termsChecked
+        btnCheckTerms.setImage(termsChecked ? #imageLiteral(resourceName: "unchecked") : #imageLiteral(resourceName: "checked"), for: .normal)
+//        if termsChecked {
+//            termsChecked = false
+//            btnCheckTerms.setImage(#imageLiteral(resourceName: "unchecked"), for: .normal)
+//        } else {
+//            termsChecked = true
+//            btnCheckTerms.setImage(#imageLiteral(resourceName: "checked"), for: .normal)
+//        }
     }
     
     @IBAction func loginPressed(_ sender: UIButton) {

@@ -15,6 +15,7 @@
 
 import Foundation
 import Firebase
+import CoreData
 
 class FirebaseOP {
     
@@ -40,6 +41,17 @@ class FirebaseOP {
         }
     }
     
+    //MARK: - Authentication based operations
+    /**
+        Operations :-
+            User SignIn
+            User SignUp
+            Check existing user
+            Default user authentication
+            Setup user authentication
+            Upload profile-image to storage
+     */
+
     //Authenticate the default user when launching the application
     func authenticateDefaultUser(completion: @escaping (Bool) -> Void){
         Auth.auth().signIn(withEmail: DefaultCredentials.defaultEmail, password: DefaultCredentials.defaultPass, completion: {
@@ -75,7 +87,7 @@ class FirebaseOP {
                                                             password: userData["password"] as? String,
                                                             profileImage: userData["profileImage"] as? String,
                                                             status: userData["status"] as? Int,
-                                                            TIMESTAMP: userData["TIMESTAMP"] as? Int64))
+                                                            timeStamp: userData["TIMESTAMP"] as? Int64))
                     } else {
                         self.delegate?.onUserSignInFailedWithError(error: "Invalid access credentials")
                     }
@@ -110,7 +122,7 @@ class FirebaseOP {
             //Checking whether the user exists
             if result {
                 NSLog("User already exists")
-                self.delegate?.isExisitingUser(error: FieldErrorCaptions.userAlreadyExists)
+                self.delegate?.isExisitingUser(error: FieldErrorCaptions.userAlreadyExistsErrCaption)
                 return
             }
             NSLog("Creating new user")
@@ -162,8 +174,6 @@ class FirebaseOP {
         })
     }
     
-    //MARK: - InClass methods
-    
     //Method to check whether the userrecords exists in the databse
     /**
         Closure returns TRUE if the user record exsists or FALSE if it doesn't
@@ -198,8 +208,8 @@ class FirebaseOP {
     fileprivate func createUser(user: User, completion: @escaping (Bool, String?, User?) -> Void){
         let ref = self.getDBReference()
         var user = user
-        user.TIMESTAMP = Date().currentTimeMillis()
-        user.joinedDate = String(user.TIMESTAMP ?? 0000)
+        user.timeStamp = Date().currentTimeMillis()
+        user.joinedDate = String(user.timeStamp ?? 0000)
         user.status = 1
         
         //Creating a user DICTIONARY object to store in DB
@@ -213,7 +223,7 @@ class FirebaseOP {
             "password": user.password!,
             "profileImage": user.profileImage!,
             "status": user.status!,
-            "TIMESTAMP": user.TIMESTAMP!
+            "timeStamp": user.timeStamp!
         ] as [String : Any]
         
         //Saving user node in DB
@@ -272,6 +282,137 @@ class FirebaseOP {
         
     }
     
+    //End of authentication based operations
+    
+    //MARK: - Category based operations
+    
+    func getAllCategories(){
+        let ref = self.getDBReference()
+        ref.child("vendorCategories").observeSingleEvent(of: .value, with: {
+            snapshot in
+            if snapshot.hasChildren(){
+                if let tempData = snapshot.value as? [String: Any] {
+                    var categories: [Category] = []
+                    for data in tempData {
+                        guard let innerData = data.value as? [String : Any] else {
+                            NSLog("Could not serialize category inner data")
+                            continue
+                        }
+                        //Create a category coreData model instance
+                        let category = Category(context: DataModelHelper.context)
+                        category.key = innerData["key"] as? String
+                        category.categoryName = innerData["categoryName"] as? String
+                        category.coverImage = innerData["coverImage"] as? String
+                        categories.append(category)
+                    }
+                    DataModelHelper.saveContext()
+                    self.delegate?.onCategoriesLoaded()
+                } else {
+                    NSLog("Could not serialize category data")
+                    self.delegate?.onCategoriesLoadFailedWithError(error: FieldErrorCaptions.categoryLoadFailedErrCaption)
+                }
+            } else {
+                NSLog("No category data found")
+                self.delegate?.onCategoriesLoadFailedWithError(error: FieldErrorCaptions.categoryLoadFailedErrCaption)
+            }
+        })
+    }
+    
+    //End of category based operations
+    
+    //MARK: - Offer based operations
+    
+    func getAllOffers(){
+        let ref = self.getDBReference()
+        getAllVendors(completion: {
+            vendorData in
+            if vendorData.hasChildren(){
+                if let tempData = vendorData.value as? [String: Any]{
+                    for data in tempData {
+                        guard let innerData = data.value as? [String : Any] else {
+                            NSLog("Could not serialize vendor inner data")
+                            continue
+                        }
+                        let vendor = Vendor(context: DataModelHelper.context)
+                        vendor.category = innerData["category"] as? String
+                        vendor.categoryLabel = innerData["categoryLabel"] as? String
+                        vendor.contactNo = innerData["contactNo"] as? String
+                        vendor.coverImageUrl = innerData["coverImageUrl"] as? String
+                        vendor.email = innerData["email"] as? String
+                        vendor.key = innerData["key"] as? String
+                        vendor.name = innerData["name"] as? String
+                        vendor.profileImageUrl = innerData["profileImageUrl"] as? String
+                        vendor.status = innerData["status"] as? Int16 ?? 0000
+                        vendor.timeStamp = innerData["timeStamp"] as? Int64 ?? 0000
+                        vendor.vendor_description = innerData["description"] as? String
+                    }
+                    DataModelHelper.saveContext()
+                    
+                    ref.child("offers").observeSingleEvent(of: .value, with: {
+                        snapshot in
+                        if snapshot.hasChildren(){
+                            if let tempData = snapshot.value as? [String: Any] {
+                                //Create a predicate request to fetch the vendorimage
+                                let request: NSFetchRequest<Vendor> = Vendor.fetchRequest();
+                                for data in tempData {
+                                    guard let innerData = data.value as? [String : Any] else {
+                                        NSLog("Could not serialize offer inner data")
+                                        continue
+                                    }
+                                    request.predicate = NSPredicate(format: "key == %@", innerData["vendorId"] as? String ?? "")
+                                    let offer = Offer(context: DataModelHelper.context)
+                                    offer.image = innerData["image"] as? String
+                                    offer.is_featured = innerData["is_featured"] as? Bool ?? false
+                                    offer.key = innerData["key"] as? String
+                                    offer.offer_description = innerData["description"] as? String
+                                    offer.status = innerData["status"] as? Int16 ?? 0000
+                                    offer.title = innerData["title"] as? String
+                                    offer.vendor = innerData["vendor"] as? String
+                                    offer.vendorId = innerData["vendorId"] as? String
+                                    offer.profileImageUrl = DataModelHelper.requestVendorImage(request: request)
+                                }
+                                DataModelHelper.saveContext()
+                                self.delegate?.onOffersLoaded()
+                            } else {
+                                NSLog("Could not serialize offer data")
+                                self.delegate?.onOffersLoadFailedWithError(error: FieldErrorCaptions.offersLoadFailedErrCaption)
+                            }
+                        } else {
+                            NSLog("No offer data found")
+                            self.delegate?.onOffersLoadFailedWithError(error: FieldErrorCaptions.offersLoadFailedErrCaption)
+                        }
+                    })
+                } else {
+                    NSLog("Could not serialize vendor data")
+                }
+            } else {
+                NSLog("No vendor data found")
+            }
+        })
+    }
+    
+    //End of offer based operations
+
+    //MARK: - User history based operations
+    
+    
+    
+    //End of user history based operations
+    
+    private func getAllVendors(completion: @escaping (DataSnapshot) -> Void){
+        let ref = self.getDBReference()
+        ref.child("vendors").observeSingleEvent(of: .value, with: {
+            snapshot in
+            completion(snapshot)
+        })
+    }
+    
+    //MARK: - Vendor based operations
+    
+    
+    
+    //End of vendor based operations
+    
     //MARK: - Retrieve the realtime database reference
     
     private func getDBReference() -> DatabaseReference{
@@ -291,8 +432,6 @@ class FirebaseOP {
         }
         return storageRef
     }
-    
-
 }
 
 //MARK: - List of Protocols
@@ -307,6 +446,14 @@ protocol FirebaseActions {
     func onUserSignInSuccess(user: User?)
     func onUserSignInFailedWithError(error: Error)
     func onUserSignInFailedWithError(error: String)
+    
+    func onCategoriesLoaded()
+    func onCategoriesLoadFailedWithError(error: Error)
+    func onCategoriesLoadFailedWithError(error: String)
+    
+    func onOffersLoaded()
+    func onOffersLoadFailedWithError(error: Error)
+    func onOffersLoadFailedWithError(error: String)
     
     func onOperationsCancelled()
 }
@@ -323,6 +470,14 @@ extension FirebaseActions {
     func onUserSignInSuccess(user: User?){}
     func onUserSignInFailedWithError(error: Error){}
     func onUserSignInFailedWithError(error: String){}
+    
+    func onCategoriesLoaded(){}
+    func onCategoriesLoadFailedWithError(error: Error){}
+    func onCategoriesLoadFailedWithError(error: String){}
+    
+    func onOffersLoaded(){}
+    func onOffersLoadFailedWithError(error: Error){}
+    func onOffersLoadFailedWithError(error: String){}
     
     func onOperationsCancelled(){}
 }

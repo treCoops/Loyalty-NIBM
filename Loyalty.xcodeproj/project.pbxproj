@@ -53,6 +53,7 @@
 		66FDF28416031B6BE5E0B550 /* Pods_Loyalty.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3006E812A9BEBD83451BB6D /* Pods_Loyalty.framework */; };
 		B56831B3B9B7AB1A65D04101 /* Pods_LoyaltyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08335A29ABCFF4621EF322A1 /* Pods_LoyaltyTests.framework */; };
 		EF12209F2531EC9F007089DB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EF12209E2531EC9F007089DB /* GoogleService-Info.plist */; };
+		EF56FC9E25371A4500996B07 /* DataModelHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF56FC9D25371A4500996B07 /* DataModelHelper.swift */; };
 		EFE3454E2531F432009C83C5 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE3454D2531F432009C83C5 /* Models.swift */; };
 		EFE3460F2532034C009C83C5 /* ProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE3460E2532034C009C83C5 /* ProgressHUD.swift */; };
 		EFE346142532037C009C83C5 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE346132532037C009C83C5 /* SessionManager.swift */; };
@@ -64,6 +65,7 @@
 		EFE346912532759F009C83C5 /* DateToMills.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE346902532759F009C83C5 /* DateToMills.swift */; };
 		EFE346962532FCD7009C83C5 /* PopupAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE346952532FCD7009C83C5 /* PopupAlerts.swift */; };
 		EFE3469E253449F9009C83C5 /* NetworkChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE3469D253449F9009C83C5 /* NetworkChecker.swift */; };
+		EFE3471A2536F341009C83C5 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EFE347182536F341009C83C5 /* DataModel.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -142,6 +144,7 @@
 		E025A60F931714FD8D6FC55A /* Pods_Loyalty_LoyaltyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Loyalty_LoyaltyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3006E812A9BEBD83451BB6D /* Pods_Loyalty.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Loyalty.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF12209E2531EC9F007089DB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		EF56FC9D25371A4500996B07 /* DataModelHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModelHelper.swift; sourceTree = "<group>"; };
 		EFE3454D2531F432009C83C5 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		EFE3460E2532034C009C83C5 /* ProgressHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHUD.swift; sourceTree = "<group>"; };
 		EFE346132532037C009C83C5 /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
@@ -153,6 +156,7 @@
 		EFE346902532759F009C83C5 /* DateToMills.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateToMills.swift; sourceTree = "<group>"; };
 		EFE346952532FCD7009C83C5 /* PopupAlerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupAlerts.swift; sourceTree = "<group>"; };
 		EFE3469D253449F9009C83C5 /* NetworkChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkChecker.swift; sourceTree = "<group>"; };
+		EFE347192536F341009C83C5 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,6 +214,7 @@
 			children = (
 				EFE3460D253202C0009C83C5 /* Util */,
 				EFE3460C25320296009C83C5 /* Constraints */,
+				EFE347172536F30A009C83C5 /* DataModel */,
 				26D12310252EFDC3002028D3 /* Model */,
 				2663E3D6252E1025004C8B13 /* UIClass */,
 				2663E3D3252E0983004C8B13 /* Helpers */,
@@ -245,26 +250,13 @@
 		2663E3CF252E0698004C8B13 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				EFE3471325357F6B009C83C5 /* MainViewControllers */,
+				EFE3471225357F38009C83C5 /* XIBControllers */,
 				26D12311252EFE19002028D3 /* XIBHistory.swift */,
 				26D1231D252F14C8002028D3 /* XIBPromotion.swift */,
 				26D12325252F22F4002028D3 /* XIBFeatured.swift */,
 				26D1232D252F2ED0002028D3 /* XIBOffer.swift */,
 				26D12335252F3FE9002028D3 /* XIBVendorOffer.swift */,
-				26D12331252F3E5E002028D3 /* VenderOfferTableViewCell.swift */,
-				26D12329252F2A43002028D3 /* OfferTableViewCell.swift */,
-				26D12321252F20F6002028D3 /* FeaturedCollectionViewCell.swift */,
-				26D12319252F149E002028D3 /* PromotionTableViewCell.swift */,
-				2663E3A3252E03CC004C8B13 /* SignInViewController.swift */,
-				2663E3D0252E070B004C8B13 /* LaunchScreenViewController.swift */,
-				26D12302252EBD2F002028D3 /* SignUpOneViewController.swift */,
-				26D12304252EC621002028D3 /* SignUpTwoViewController.swift */,
-				26D1230A252EE3D9002028D3 /* ResetPasswordViewController.swift */,
-				26D1230C252EFC80002028D3 /* HistoryTableViewCell.swift */,
-				26D12315252F05F0002028D3 /* HistoryViewController.swift */,
-				26D12317252F12CA002028D3 /* SearchViewController.swift */,
-				26D1231F252F1A03002028D3 /* HomeViewController.swift */,
-				26D1232F252F3C5F002028D3 /* VendorViewController.swift */,
-				26D12337252F4415002028D3 /* OfferViewController.swift */,
 				26D12339252F47A9002028D3 /* OfferValidateDoneViewController.swift */,
 				26D1233B252F47C2002028D3 /* OfferValidateErrorViewController.swift */,
 				26D1233D252F47D9002028D3 /* OfferValidateQuestionViewController.swift */,
@@ -360,6 +352,44 @@
 				EFE3461825321346009C83C5 /* FirebaseOP.swift */,
 			);
 			path = Util;
+			sourceTree = "<group>";
+		};
+		EFE3471225357F38009C83C5 /* XIBControllers */ = {
+			isa = PBXGroup;
+			children = (
+				26D12331252F3E5E002028D3 /* VenderOfferTableViewCell.swift */,
+				26D12329252F2A43002028D3 /* OfferTableViewCell.swift */,
+				26D12321252F20F6002028D3 /* FeaturedCollectionViewCell.swift */,
+				26D1230C252EFC80002028D3 /* HistoryTableViewCell.swift */,
+				26D12319252F149E002028D3 /* PromotionTableViewCell.swift */,
+			);
+			path = XIBControllers;
+			sourceTree = "<group>";
+		};
+		EFE3471325357F6B009C83C5 /* MainViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				2663E3A3252E03CC004C8B13 /* SignInViewController.swift */,
+				2663E3D0252E070B004C8B13 /* LaunchScreenViewController.swift */,
+				26D12302252EBD2F002028D3 /* SignUpOneViewController.swift */,
+				26D12304252EC621002028D3 /* SignUpTwoViewController.swift */,
+				26D1230A252EE3D9002028D3 /* ResetPasswordViewController.swift */,
+				26D12315252F05F0002028D3 /* HistoryViewController.swift */,
+				26D12317252F12CA002028D3 /* SearchViewController.swift */,
+				26D1231F252F1A03002028D3 /* HomeViewController.swift */,
+				26D1232F252F3C5F002028D3 /* VendorViewController.swift */,
+				26D12337252F4415002028D3 /* OfferViewController.swift */,
+			);
+			path = MainViewControllers;
+			sourceTree = "<group>";
+		};
+		EFE347172536F30A009C83C5 /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				EFE347182536F341009C83C5 /* DataModel.xcdatamodeld */,
+				EF56FC9D25371A4500996B07 /* DataModelHelper.swift */,
+			);
+			path = DataModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -640,9 +670,11 @@
 				EFE3464D2532221C009C83C5 /* UserValidator.swift in Sources */,
 				26D1230B252EE3D9002028D3 /* ResetPasswordViewController.swift in Sources */,
 				EFE346962532FCD7009C83C5 /* PopupAlerts.swift in Sources */,
+				EFE3471A2536F341009C83C5 /* DataModel.xcdatamodeld in Sources */,
 				EFE3468225323CDF009C83C5 /* InputFieldValidator.swift in Sources */,
 				26D12318252F12CA002028D3 /* SearchViewController.swift in Sources */,
 				EFE346912532759F009C83C5 /* DateToMills.swift in Sources */,
+				EF56FC9E25371A4500996B07 /* DataModelHelper.swift in Sources */,
 				26D12326252F22F4002028D3 /* XIBFeatured.swift in Sources */,
 				2663E3D1252E070B004C8B13 /* LaunchScreenViewController.swift in Sources */,
 				2663E3DC252E118D004C8B13 /* RoundedUIButtonWithBorder.swift in Sources */,
@@ -980,6 +1012,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		EFE347182536F341009C83C5 /* DataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				EFE347192536F341009C83C5 /* DataModel.xcdatamodel */,
+			);
+			currentVersion = EFE347192536F341009C83C5 /* DataModel.xcdatamodel */;
+			path = DataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 2663E394252E03CC004C8B13 /* Project object */;
 }

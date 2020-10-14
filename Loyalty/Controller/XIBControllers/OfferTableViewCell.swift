@@ -7,15 +7,15 @@
 //
 
 import UIKit
+import Kingfisher
 
 class OfferTableViewCell: UITableViewCell {
 
     @IBOutlet weak var imgBanner: UIImageView!
-
     @IBOutlet weak var viewParent: UIView!
-    //    @IBOutlet weak var txtCategory: UILabel!
-//    @IBOutlet weak var txtTitle: UILabel!
     @IBOutlet weak var imgLogo: UIImageView!
+    @IBOutlet weak var lblOfferTitle: UILabel!
+    @IBOutlet weak var lblDescription: UILabel!
     
     
     override func awakeFromNib() {
@@ -29,8 +29,7 @@ class OfferTableViewCell: UITableViewCell {
         
     }
     
-    func configXIB(data: XIBOffer){
-           
+    func configXIB(data: Offer){
         viewParent.layer.shadowColor = UIColor.lightGray.cgColor
         viewParent.layer.shadowOpacity = 0.3
         viewParent.layer.shadowOffset = CGSize(width: 0, height: 1)
@@ -38,7 +37,13 @@ class OfferTableViewCell: UITableViewCell {
         viewParent.layer.cornerRadius = 10
         imgBanner.layer.cornerRadius = 10
         imgLogo.layer.cornerRadius = 10
-       
+        
+        if let url = data.image {
+            imgBanner.kf.setImage(with: URL(string: url))
+        }
+        
+        lblOfferTitle.text = data.title
+        lblDescription.text = data.offer_description
     }
     
     

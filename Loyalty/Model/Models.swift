@@ -23,9 +23,9 @@ struct User : Codable {
     var password: String?
     var profileImage: String?
     var status: Int?
-    var TIMESTAMP: Int64?
+    var timeStamp: Int64?
     
-    init(name: String?, studentID: String?, mobile: String?, nic: String?, joinedDate: String?, email: String?, password: String?, profileImage: String?, status: Int?, TIMESTAMP: Int64?) {
+    init(name: String?, studentID: String?, mobile: String?, nic: String?, joinedDate: String?, email: String?, password: String?, profileImage: String?, status: Int?, timeStamp: Int64?) {
         self.name = name
         self.studentID = studentID
         self.mobile = mobile
@@ -35,7 +35,7 @@ struct User : Codable {
         self.password = password
         self.profileImage = profileImage
         self.status = status
-        self.TIMESTAMP = TIMESTAMP
+        self.timeStamp = timeStamp
     }
     
     //Constructor which is used when decoding or encoding
@@ -50,6 +50,40 @@ struct User : Codable {
         self.password = try container.decodeIfPresent(String.self, forKey: .password)
         self.profileImage = try container.decodeIfPresent(String.self, forKey: .profileImage)
         self.status = try container.decodeIfPresent(Int.self, forKey: .status)
-        self.TIMESTAMP = try container.decodeIfPresent(Int64.self, forKey: .TIMESTAMP)
+        self.timeStamp = try container.decodeIfPresent(Int64.self, forKey: .timeStamp)
     }
 }
+
+//class Category {
+//    var categoryName: String?
+//    var coverImage: String?
+//    var key: String?
+//
+//    init(categoryName: String, coverImage: String, key: String) {
+//        self.categoryName = categoryName
+//        self.coverImage = coverImage
+//        self.key = key
+//    }
+//}
+
+//class Offer {
+//    var key: String?
+//    var description: String?
+//    var title: String?
+//    var image: String?
+//    var vendor: String?
+//    var vendorId: String?
+//    var status: Int?
+//    
+//    init(key: String, description: String, title: String, image: String, vendor: String, vendorId: String, status: Int) {
+//        self.key = key
+//        self.description = description
+//        self.title = title
+//        self.image = image
+//        self.vendor = vendor
+//        self.vendorId = vendorId
+//        self.status = status
+//    }
+//}
+
+

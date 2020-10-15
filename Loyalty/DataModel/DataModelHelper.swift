@@ -28,9 +28,8 @@ class DataModelHelper {
     }
     
     //Category based operations
-    static func fetchCategories() -> [Category]? {
+    static func fetchCategories(request: NSFetchRequest<Category> = Category.fetchRequest()) -> [Category]? {
         //default fetch request which fetches all the categories
-        let request: NSFetchRequest<Category> = Category.fetchRequest()
         do {
             let category = try context.fetch(request)
             return category
@@ -38,6 +37,13 @@ class DataModelHelper {
             print("Runtime error on fetching categories data from Context")
         }
         return nil
+    }
+    
+    //Search categories
+    static func searchCategories(category: String) -> [Category]?{
+        let request: NSFetchRequest<Category> = Category.fetchRequest()
+        request.predicate = NSPredicate(format: "categoryName CONTAINS[cd] %@", category)
+        return fetchCategories(request: request)
     }
     
     static func fetchOffers(fetchFeatured: Bool) -> [Offer]? {

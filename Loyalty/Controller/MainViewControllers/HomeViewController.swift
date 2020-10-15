@@ -39,13 +39,20 @@ class HomeViewController: UIViewController {
         networkChecker.delegate = self
         firebaseOP.delegate = self
         progressHUD = ProgressHUD(view: view)
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
+        
+        if !networkChecker.isReachable {
+            displayConnectionLostAlert()
+            return
+        }
+        
         progressHUD.displayProgressHUD()
         firebaseOP.getAllCategories()
         firebaseOP.getAllOffers()
         loadUserInfo()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        networkChecker.delegate = self
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -70,6 +77,20 @@ extension HomeViewController {
             return
         }
         imgProfilePic.kf.setImage(with: URL(string: url))
+    }
+    
+    func displayConnectionLostAlert(){
+        self.present(self.popupAlerts.displayNetworkLostAlert(actionTitle: "Retry", actionHandler: {
+            action in
+            if !self.networkChecker.isReachable {
+                self.displayConnectionLostAlert()
+                return
+            }
+            self.progressHUD.displayProgressHUD()
+            self.firebaseOP.getAllCategories()
+            self.firebaseOP.getAllOffers()
+            self.loadUserInfo()
+        }), animated: true)
     }
 }
 
@@ -120,13 +141,9 @@ extension HomeViewController: FirebaseActions {
 
 extension HomeViewController: NetworkListener {
     func onNetworkChanged(connected: Bool, onMobileData: Bool) {
-        func onNetworkChanged(connected: Bool, onMobileData: Bool) {
-            DispatchQueue.main.async {
-                self.popupAlerts.dismissNetworkLostAlert()
-                
-                if !connected {
-                    self.present(self.popupAlerts.displayNetworkLostAlert(), animated: true)
-                }
+        DispatchQueue.main.async {
+            if !connected {
+                self.displayConnectionLostAlert()
             }
         }
     }
@@ -170,6 +187,15 @@ extension HomeViewController : UICollectionViewDataSource {
         return UICollectionViewCell()
     }
     
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+      cell.alpha = 0
+      cell.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
+      UIView.animate(withDuration: 0.50) {
+        cell.alpha = 1
+        cell.transform = .identity
+      }
+    }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     
     }
@@ -177,7 +203,6 @@ extension HomeViewController : UICollectionViewDataSource {
 }
 
 extension HomeViewController : UICollectionViewDelegateFlowLayout {
-    
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {

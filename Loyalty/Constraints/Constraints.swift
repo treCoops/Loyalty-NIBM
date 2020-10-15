@@ -21,6 +21,9 @@ struct Seagus {
     static var launchToHome = "launchToHome"
     static var signInToSignUp = "signInToSignUp"
     static var signInToHome = "signInToHome"
+    static var categoryToSingleCategory = "categoryToSingleCategory"
+    static var singleCategoryToVendor = "singleCategoryToVendor"
+    static var vendorToViewOffer = "vendorToViewOffer"
 }
 
 //Names of the XIB Files
@@ -37,8 +40,8 @@ struct XIBIdentifier {
     static var XIB_OFFER_CELL = "ReuseableCellOffer"
     static var XIB_OFFER = "OfferTableViewCell"
     
-    static var XIB_OFFER_VENDOR_CELL = "ReuseableCellVendorOffer"
-    static var XIB_OFFER_VENDOR = "VenderOfferTableViewCell"
+    static var XIB_OFFER_VENDOR_CELL = "ReuseableCellVendor"
+    static var XIB_OFFER_VENDOR = "VendorTableViewCell"
     
 }
 
@@ -51,6 +54,8 @@ struct FieldErrorCaptions {
     static let txtContactNoErrCaption = "Enter a valid Contact no."
     static let txtPassErrCaption = "Password length should be 6-20"
     static let txtConfirmPassErrCaption = "Passwords don't match"
+    
+    static let searchFieldIsEmptyErrCaption = "Search field is empty"
     
     static let generalizeErrCaption = "Oops! Something went wrong!"
     static let userCreationrrCaption = "Unable to create new user!"

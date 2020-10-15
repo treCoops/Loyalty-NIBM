@@ -82,15 +82,25 @@ extension LaunchScreenViewController {
             NSLog("No previous login sesions found")
         }
     }
+    
+    func displayConnectionLostAlert(){
+        self.present(self.popupAlerts.displayNetworkLostAlert(actionTitle: "Retry", actionHandler: {
+            action in
+            if !self.networkChecker.isReachable {
+                self.displayConnectionLostAlert()
+                return
+            }
+            self.progressHUD.displayProgressHUD()
+            self.validateUserSession()
+        }), animated: true)
+    }
 }
 
 extension LaunchScreenViewController: NetworkListener {
     func onNetworkChanged(connected: Bool, onMobileData: Bool) {
         DispatchQueue.main.async {
-            self.popupAlerts.dismissNetworkLostAlert()
-            
             if !connected {
-                self.present(self.popupAlerts.displayNetworkLostAlert(), animated: true)
+                self.displayConnectionLostAlert()
             }
         }
     }

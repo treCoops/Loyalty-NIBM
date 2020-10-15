@@ -44,7 +44,7 @@
 		26D1232E252F2ED0002028D3 /* XIBOffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D1232D252F2ED0002028D3 /* XIBOffer.swift */; };
 		26D12330252F3C5F002028D3 /* VendorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D1232F252F3C5F002028D3 /* VendorViewController.swift */; };
 		26D12333252F3E5E002028D3 /* VenderOfferTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D12331252F3E5E002028D3 /* VenderOfferTableViewCell.swift */; };
-		26D12334252F3E5E002028D3 /* VenderOfferTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26D12332252F3E5E002028D3 /* VenderOfferTableViewCell.xib */; };
+		26D12334252F3E5E002028D3 /* VendorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26D12332252F3E5E002028D3 /* VendorTableViewCell.xib */; };
 		26D12336252F3FE9002028D3 /* XIBVendorOffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D12335252F3FE9002028D3 /* XIBVendorOffer.swift */; };
 		26D12338252F4415002028D3 /* OfferViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D12337252F4415002028D3 /* OfferViewController.swift */; };
 		26D1233A252F47A9002028D3 /* OfferValidateDoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D12339252F47A9002028D3 /* OfferValidateDoneViewController.swift */; };
@@ -54,6 +54,9 @@
 		B56831B3B9B7AB1A65D04101 /* Pods_LoyaltyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08335A29ABCFF4621EF322A1 /* Pods_LoyaltyTests.framework */; };
 		EF12209F2531EC9F007089DB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EF12209E2531EC9F007089DB /* GoogleService-Info.plist */; };
 		EF56FC9E25371A4500996B07 /* DataModelHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF56FC9D25371A4500996B07 /* DataModelHelper.swift */; };
+		EF56FCA3253764F000996B07 /* ViewAllCategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF56FCA2253764F000996B07 /* ViewAllCategoriesViewController.swift */; };
+		EF56FCA8253767DB00996B07 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF56FCA7253767DB00996B07 /* CategoryCollectionViewCell.swift */; };
+		EF56FCB025379AC300996B07 /* SingleCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF56FCAF25379AC300996B07 /* SingleCategoryViewController.swift */; };
 		EFE3454E2531F432009C83C5 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE3454D2531F432009C83C5 /* Models.swift */; };
 		EFE3460F2532034C009C83C5 /* ProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE3460E2532034C009C83C5 /* ProgressHUD.swift */; };
 		EFE346142532037C009C83C5 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE346132532037C009C83C5 /* SessionManager.swift */; };
@@ -129,7 +132,7 @@
 		26D1232D252F2ED0002028D3 /* XIBOffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XIBOffer.swift; sourceTree = "<group>"; };
 		26D1232F252F3C5F002028D3 /* VendorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendorViewController.swift; sourceTree = "<group>"; };
 		26D12331252F3E5E002028D3 /* VenderOfferTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenderOfferTableViewCell.swift; sourceTree = "<group>"; };
-		26D12332252F3E5E002028D3 /* VenderOfferTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VenderOfferTableViewCell.xib; sourceTree = "<group>"; };
+		26D12332252F3E5E002028D3 /* VendorTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VendorTableViewCell.xib; sourceTree = "<group>"; };
 		26D12335252F3FE9002028D3 /* XIBVendorOffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XIBVendorOffer.swift; sourceTree = "<group>"; };
 		26D12337252F4415002028D3 /* OfferViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferViewController.swift; sourceTree = "<group>"; };
 		26D12339252F47A9002028D3 /* OfferValidateDoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferValidateDoneViewController.swift; sourceTree = "<group>"; };
@@ -145,6 +148,9 @@
 		E3006E812A9BEBD83451BB6D /* Pods_Loyalty.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Loyalty.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF12209E2531EC9F007089DB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EF56FC9D25371A4500996B07 /* DataModelHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModelHelper.swift; sourceTree = "<group>"; };
+		EF56FCA2253764F000996B07 /* ViewAllCategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewAllCategoriesViewController.swift; sourceTree = "<group>"; };
+		EF56FCA7253767DB00996B07 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		EF56FCAF25379AC300996B07 /* SingleCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleCategoryViewController.swift; sourceTree = "<group>"; };
 		EFE3454D2531F432009C83C5 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		EFE3460E2532034C009C83C5 /* ProgressHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHUD.swift; sourceTree = "<group>"; };
 		EFE346132532037C009C83C5 /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
@@ -273,7 +279,7 @@
 				26D1231A252F149E002028D3 /* PromotionTableViewCell.xib */,
 				26D12322252F20F6002028D3 /* FeaturedCollectionViewCell.xib */,
 				26D1232A252F2A43002028D3 /* OfferTableViewCell.xib */,
-				26D12332252F3E5E002028D3 /* VenderOfferTableViewCell.xib */,
+				26D12332252F3E5E002028D3 /* VendorTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -362,6 +368,7 @@
 				26D12321252F20F6002028D3 /* FeaturedCollectionViewCell.swift */,
 				26D1230C252EFC80002028D3 /* HistoryTableViewCell.swift */,
 				26D12319252F149E002028D3 /* PromotionTableViewCell.swift */,
+				EF56FCA7253767DB00996B07 /* CategoryCollectionViewCell.swift */,
 			);
 			path = XIBControllers;
 			sourceTree = "<group>";
@@ -379,6 +386,8 @@
 				26D1231F252F1A03002028D3 /* HomeViewController.swift */,
 				26D1232F252F3C5F002028D3 /* VendorViewController.swift */,
 				26D12337252F4415002028D3 /* OfferViewController.swift */,
+				EF56FCA2253764F000996B07 /* ViewAllCategoriesViewController.swift */,
+				EF56FCAF25379AC300996B07 /* SingleCategoryViewController.swift */,
 			);
 			path = MainViewControllers;
 			sourceTree = "<group>";
@@ -508,7 +517,7 @@
 				26D1232C252F2A43002028D3 /* OfferTableViewCell.xib in Resources */,
 				2663E3A9252E03CD004C8B13 /* Assets.xcassets in Resources */,
 				26D1230F252EFC80002028D3 /* HistoryTableViewCell.xib in Resources */,
-				26D12334252F3E5E002028D3 /* VenderOfferTableViewCell.xib in Resources */,
+				26D12334252F3E5E002028D3 /* VendorTableViewCell.xib in Resources */,
 				2663E3A7252E03CD004C8B13 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -641,6 +650,7 @@
 				EFE3469E253449F9009C83C5 /* NetworkChecker.swift in Sources */,
 				26D1232B252F2A43002028D3 /* OfferTableViewCell.swift in Sources */,
 				2663E3DA252E1153004C8B13 /* RoundedUIButton.swift in Sources */,
+				EF56FCA8253767DB00996B07 /* CategoryCollectionViewCell.swift in Sources */,
 				EFE3461925321346009C83C5 /* FirebaseOP.swift in Sources */,
 				2663E3A4252E03CC004C8B13 /* SignInViewController.swift in Sources */,
 				26D12323252F20F6002028D3 /* FeaturedCollectionViewCell.swift in Sources */,
@@ -668,6 +678,7 @@
 				26D1231B252F149E002028D3 /* PromotionTableViewCell.swift in Sources */,
 				26D1233E252F47D9002028D3 /* OfferValidateQuestionViewController.swift in Sources */,
 				EFE3464D2532221C009C83C5 /* UserValidator.swift in Sources */,
+				EF56FCA3253764F000996B07 /* ViewAllCategoriesViewController.swift in Sources */,
 				26D1230B252EE3D9002028D3 /* ResetPasswordViewController.swift in Sources */,
 				EFE346962532FCD7009C83C5 /* PopupAlerts.swift in Sources */,
 				EFE3471A2536F341009C83C5 /* DataModel.xcdatamodeld in Sources */,
@@ -679,6 +690,7 @@
 				2663E3D1252E070B004C8B13 /* LaunchScreenViewController.swift in Sources */,
 				2663E3DC252E118D004C8B13 /* RoundedUIButtonWithBorder.swift in Sources */,
 				26D12303252EBD2F002028D3 /* SignUpOneViewController.swift in Sources */,
+				EF56FCB025379AC300996B07 /* SingleCategoryViewController.swift in Sources */,
 				EFE3468C25325F5D009C83C5 /* ImagePicker.swift in Sources */,
 				26D12316252F05F0002028D3 /* HistoryViewController.swift in Sources */,
 				26D12314252F022F002028D3 /* SquareImageView.swift in Sources */,

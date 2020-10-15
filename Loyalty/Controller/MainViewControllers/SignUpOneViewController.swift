@@ -27,6 +27,10 @@ class SignUpOneViewController: UIViewController {
         progressHUD = ProgressHUD(view: view)
         networkChecker.delegate = self
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        networkChecker.delegate = self
+    }
 }
 
 //MARK: - Inclass IBActions
@@ -107,8 +111,6 @@ extension SignUpOneViewController: UITextFieldDelegate {
 extension SignUpOneViewController: NetworkListener {
     func onNetworkChanged(connected: Bool, onMobileData: Bool) {
         DispatchQueue.main.async {
-            self.popupAlerts.dismissNetworkLostAlert()
-            
             if !connected {
                 self.present(self.popupAlerts.displayNetworkLostAlert(), animated: true)
             }

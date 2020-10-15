@@ -11,6 +11,7 @@ import UIKit
 class VenderOfferTableViewCell: UITableViewCell {
     @IBOutlet weak var viewParent: UIView!
     @IBOutlet weak var imgBanner: UIImageView!
+    @IBOutlet weak var imgLogo: UIImageView!
     @IBOutlet weak var txtTitle: UILabel!
     
     override func awakeFromNib() {
@@ -24,7 +25,7 @@ class VenderOfferTableViewCell: UITableViewCell {
        
     }
     
-    func configXIB(data: XIBVendorOffer){
+    func configXIB(data: Vendor){
            
         viewParent.layer.shadowColor = UIColor.lightGray.cgColor
         viewParent.layer.shadowOpacity = 0.3
@@ -32,8 +33,17 @@ class VenderOfferTableViewCell: UITableViewCell {
         viewParent.layer.shadowRadius = 10
         viewParent.layer.cornerRadius = 10
         imgBanner.layer.cornerRadius = 10
-//        imgLogo.layer.cornerRadius = 10
+        imgLogo.layer.cornerRadius = 10
+        
+        if let url = data.coverImageUrl {
+            imgBanner.kf.setImage(with: URL(string: url))
+        }
+        
+        if let url = data.profileImageUrl {
+            imgLogo.kf.setImage(with: URL(string: url))
+        }
        
+        txtTitle.text = data.name
     }
     
 }

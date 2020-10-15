@@ -117,8 +117,6 @@ extension SignInViewController: FirebaseActions {
 extension SignInViewController: NetworkListener {
     func onNetworkChanged(connected: Bool, onMobileData: Bool) {
         DispatchQueue.main.async {
-            self.popupAlerts.dismissNetworkLostAlert()
-            
             if !connected {
                 self.present(self.popupAlerts.displayNetworkLostAlert(), animated: true)
             }

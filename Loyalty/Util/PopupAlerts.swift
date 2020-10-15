@@ -42,8 +42,21 @@ class PopupAlerts {
     
     func displayNetworkLostAlert() -> UIAlertController {
         guard networkLostAlert != nil else {
+            self.dismissNetworkLostAlert()
             self.networkLostAlert = UIAlertController(title: FieldErrorCaptions.noConnectionTitle, message: FieldErrorCaptions.noConnectionMessage, preferredStyle: .alert)
             self.networkLostAlert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            return self.networkLostAlert
+        }
+        
+        return self.networkLostAlert
+    }
+    
+    func displayNetworkLostAlert(actionTitle: String, actionHandler: @escaping (UIAlertAction) -> Void) -> UIAlertController {
+        guard networkLostAlert != nil else {
+            self.dismissNetworkLostAlert()
+            self.networkLostAlert = UIAlertController(title: FieldErrorCaptions.noConnectionTitle, message: FieldErrorCaptions.noConnectionMessage, preferredStyle: .alert)
+            self.networkLostAlert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            self.networkLostAlert.addAction(UIAlertAction(title: actionTitle, style: .default, handler: actionHandler))
             return self.networkLostAlert
         }
         

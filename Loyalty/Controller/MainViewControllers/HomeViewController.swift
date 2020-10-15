@@ -45,6 +45,7 @@ class HomeViewController: UIViewController {
             return
         }
         
+        setupSearchBarGestureRecognizer()
         progressHUD.displayProgressHUD()
         firebaseOP.getAllCategories()
         firebaseOP.getAllOffers()
@@ -91,6 +92,16 @@ extension HomeViewController {
             self.firebaseOP.getAllOffers()
             self.loadUserInfo()
         }), animated: true)
+    }
+    
+    func setupSearchBarGestureRecognizer(){
+        //set tap gesture for the seatchBarView [UserInteraction should be enabled]
+        let gesture = UITapGestureRecognizer(target: self, action:  #selector(self.onSearchClicked))
+        self.viewSearchParent.addGestureRecognizer(gesture)
+    }
+    
+    @objc func onSearchClicked(){
+        performSegue(withIdentifier: Seagus.HomeToSearch, sender: nil)
     }
 }
 

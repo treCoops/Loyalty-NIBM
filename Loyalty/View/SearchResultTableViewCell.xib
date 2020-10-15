@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" restorationIdentifier="ReusableCellSearchResult" selectionStyle="default" indentationWidth="10" reuseIdentifier="ReusableCellSearchResult" rowHeight="90" id="KGk-i7-Jjw" customClass="SearchResultTableViewCell" customModule="Loyalty" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="322" height="90"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="322" height="90"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KRF-8F-YSR">
+                        <rect key="frame" x="5" y="5" width="312" height="80"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Nike" translatesAutoresizingMaskIntoConstraints="NO" id="U7c-M4-fgi">
+                                <rect key="frame" x="5" y="5" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="Bcm-Hz-6gQ"/>
+                                    <constraint firstAttribute="height" constant="60" id="sH2-6w-gJs"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vendor Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T5B-dF-dqP">
+                                <rect key="frame" x="70" y="5" width="232" height="17"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vendor Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qwf-uV-AOT">
+                                <rect key="frame" x="70" y="27" width="232" height="15"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Qwf-uV-AOT" firstAttribute="top" secondItem="T5B-dF-dqP" secondAttribute="bottom" constant="5" id="J1m-Jx-67m"/>
+                            <constraint firstItem="Qwf-uV-AOT" firstAttribute="leading" secondItem="U7c-M4-fgi" secondAttribute="trailing" constant="5" id="Pj7-Ch-RxC"/>
+                            <constraint firstItem="U7c-M4-fgi" firstAttribute="leading" secondItem="KRF-8F-YSR" secondAttribute="leading" constant="5" id="jAF-Gp-Flr"/>
+                            <constraint firstAttribute="height" constant="80" id="kfA-yp-Khf"/>
+                            <constraint firstItem="T5B-dF-dqP" firstAttribute="leading" secondItem="U7c-M4-fgi" secondAttribute="trailing" constant="5" id="r1R-Sr-lSj"/>
+                            <constraint firstAttribute="trailing" secondItem="T5B-dF-dqP" secondAttribute="trailing" constant="10" id="ua2-hC-evf"/>
+                            <constraint firstItem="T5B-dF-dqP" firstAttribute="top" secondItem="KRF-8F-YSR" secondAttribute="top" constant="5" id="vh5-Pg-hr6"/>
+                            <constraint firstItem="U7c-M4-fgi" firstAttribute="top" secondItem="KRF-8F-YSR" secondAttribute="top" constant="5" id="wdq-V3-uyM"/>
+                            <constraint firstAttribute="trailing" secondItem="Qwf-uV-AOT" secondAttribute="trailing" constant="10" id="yZT-IU-W1j"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="KRF-8F-YSR" secondAttribute="bottom" constant="5" id="PVm-p8-rQ2"/>
+                    <constraint firstItem="KRF-8F-YSR" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="aMv-46-gec"/>
+                    <constraint firstAttribute="trailing" secondItem="KRF-8F-YSR" secondAttribute="trailing" constant="5" id="jTE-io-mTM"/>
+                    <constraint firstItem="KRF-8F-YSR" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="vKM-YP-tgw"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="imgLogo" destination="U7c-M4-fgi" id="QIH-cf-kdr"/>
+                <outlet property="lblCategory" destination="Qwf-uV-AOT" id="maH-wp-FzP"/>
+                <outlet property="lblName" destination="T5B-dF-dqP" id="Bfm-dK-9wm"/>
+                <outlet property="viewParent" destination="KRF-8F-YSR" id="lfy-WV-whf"/>
+            </connections>
+            <point key="canvasLocation" x="139.13043478260872" y="101.11607142857143"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="Nike" width="190" height="196"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

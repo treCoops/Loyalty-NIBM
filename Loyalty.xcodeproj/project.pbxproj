@@ -57,6 +57,8 @@
 		EF56FCA3253764F000996B07 /* ViewAllCategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF56FCA2253764F000996B07 /* ViewAllCategoriesViewController.swift */; };
 		EF56FCA8253767DB00996B07 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF56FCA7253767DB00996B07 /* CategoryCollectionViewCell.swift */; };
 		EF56FCB025379AC300996B07 /* SingleCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF56FCAF25379AC300996B07 /* SingleCategoryViewController.swift */; };
+		EF56FCB92538C00000996B07 /* SearchResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF56FCB72538C00000996B07 /* SearchResultTableViewCell.swift */; };
+		EF56FCBA2538C00000996B07 /* SearchResultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF56FCB82538C00000996B07 /* SearchResultTableViewCell.xib */; };
 		EFE3454E2531F432009C83C5 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE3454D2531F432009C83C5 /* Models.swift */; };
 		EFE3460F2532034C009C83C5 /* ProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE3460E2532034C009C83C5 /* ProgressHUD.swift */; };
 		EFE346142532037C009C83C5 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE346132532037C009C83C5 /* SessionManager.swift */; };
@@ -151,6 +153,8 @@
 		EF56FCA2253764F000996B07 /* ViewAllCategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewAllCategoriesViewController.swift; sourceTree = "<group>"; };
 		EF56FCA7253767DB00996B07 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		EF56FCAF25379AC300996B07 /* SingleCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleCategoryViewController.swift; sourceTree = "<group>"; };
+		EF56FCB72538C00000996B07 /* SearchResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewCell.swift; sourceTree = "<group>"; };
+		EF56FCB82538C00000996B07 /* SearchResultTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchResultTableViewCell.xib; sourceTree = "<group>"; };
 		EFE3454D2531F432009C83C5 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		EFE3460E2532034C009C83C5 /* ProgressHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHUD.swift; sourceTree = "<group>"; };
 		EFE346132532037C009C83C5 /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
@@ -280,6 +284,7 @@
 				26D12322252F20F6002028D3 /* FeaturedCollectionViewCell.xib */,
 				26D1232A252F2A43002028D3 /* OfferTableViewCell.xib */,
 				26D12332252F3E5E002028D3 /* VendorTableViewCell.xib */,
+				EF56FCB82538C00000996B07 /* SearchResultTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -363,6 +368,7 @@
 		EFE3471225357F38009C83C5 /* XIBControllers */ = {
 			isa = PBXGroup;
 			children = (
+				EF56FCB72538C00000996B07 /* SearchResultTableViewCell.swift */,
 				26D12331252F3E5E002028D3 /* VendorTableViewCell.swift */,
 				26D12329252F2A43002028D3 /* OfferTableViewCell.swift */,
 				26D12321252F20F6002028D3 /* FeaturedCollectionViewCell.swift */,
@@ -516,6 +522,7 @@
 				26D12324252F20F6002028D3 /* FeaturedCollectionViewCell.xib in Resources */,
 				26D1232C252F2A43002028D3 /* OfferTableViewCell.xib in Resources */,
 				2663E3A9252E03CD004C8B13 /* Assets.xcassets in Resources */,
+				EF56FCBA2538C00000996B07 /* SearchResultTableViewCell.xib in Resources */,
 				26D1230F252EFC80002028D3 /* HistoryTableViewCell.xib in Resources */,
 				26D12334252F3E5E002028D3 /* VendorTableViewCell.xib in Resources */,
 				2663E3A7252E03CD004C8B13 /* Main.storyboard in Resources */,
@@ -688,6 +695,7 @@
 				EF56FC9E25371A4500996B07 /* DataModelHelper.swift in Sources */,
 				26D12326252F22F4002028D3 /* XIBFeatured.swift in Sources */,
 				2663E3D1252E070B004C8B13 /* LaunchScreenViewController.swift in Sources */,
+				EF56FCB92538C00000996B07 /* SearchResultTableViewCell.swift in Sources */,
 				2663E3DC252E118D004C8B13 /* RoundedUIButtonWithBorder.swift in Sources */,
 				26D12303252EBD2F002028D3 /* SignUpOneViewController.swift in Sources */,
 				EF56FCB025379AC300996B07 /* SingleCategoryViewController.swift in Sources */,

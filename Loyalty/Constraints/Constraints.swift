@@ -24,6 +24,8 @@ struct Seagus {
     static var categoryToSingleCategory = "categoryToSingleCategory"
     static var singleCategoryToVendor = "singleCategoryToVendor"
     static var vendorToViewOffer = "vendorToViewOffer"
+    static var HomeToSearch = "HomeToSearch"
+    static var HomeToProfile = "HomeToProfile"
 }
 
 //Names of the XIB Files
@@ -31,8 +33,8 @@ struct XIBIdentifier {
     static var XIB_HISTORY_CELL = "ReuseableCellHistory"
     static var XIB_HISTORY = "HistoryTableViewCell"
     
-    static var XIB_PROMOTION_CELL = "ReuseableCellPromotion"
-    static var XIB_PROMOTION = "PromotionTableViewCell"
+    static var XIB_SEARCH_RESULT_CELL = "ReusableCellSearchResult"
+    static var XIB_SEARCH_RESULT = "SearchResultTableViewCell"
     
     static var FeaturedCollectionViewCell = "LogoCell"
     static var FeaturedCellReuseable = "FeaturedCellReuseable"

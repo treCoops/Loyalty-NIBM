@@ -51,13 +51,27 @@ class DataModelHelper {
     //Get vendors using the provided fetchRequest otherwise fetch all vendors based on category
     static func fetchVendors(category: String, vendorName: String?) -> [Vendor]? {
         let request: NSFetchRequest<Vendor> = Vendor.fetchRequest()
-        let defaultPredicate = NSPredicate(format: "category = %@", category)
+        let categoryPredicate = NSPredicate(format: "category = %@", category)
         if let vendorName = vendorName {
-            NSLog("Filter using vendor name")
-            let andPredicate = NSCompoundPredicate(type: NSCompoundPredicate.LogicalType.and, subpredicates: [defaultPredicate, NSPredicate(format: "name CONTAINS[cd] %@", vendorName)])
+            NSLog("Filter using vendor name and category")
+            let andPredicate = NSCompoundPredicate(type: NSCompoundPredicate.LogicalType.and, subpredicates: [categoryPredicate, NSPredicate(format: "name CONTAINS[cd] %@", vendorName)])
             request.predicate = andPredicate
         } else {
-            request.predicate = defaultPredicate
+            request.predicate = categoryPredicate
+        }
+        do {
+            return try context.fetch(request)
+        } catch {
+            print("Runtime error on fetching vendor data from Context \(error)")
+        }
+        
+        return []
+    }
+    
+    static func fetchVendors(vendorName: String?) -> [Vendor]? {
+        let request: NSFetchRequest<Vendor> = Vendor.fetchRequest()
+        if let vendorName = vendorName {
+            request.predicate = NSPredicate(format: "name CONTAINS[cd] %@", vendorName)
         }
         do {
             return try context.fetch(request)

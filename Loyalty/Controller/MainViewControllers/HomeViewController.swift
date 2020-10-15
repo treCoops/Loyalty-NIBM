@@ -28,6 +28,8 @@ class HomeViewController: UIViewController {
     var isOffersLoaded = false
     var isCategoriesLoaded = false
     
+    var selectedCategoryIndex: Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -45,7 +47,8 @@ class HomeViewController: UIViewController {
             return
         }
         
-        setupSearchBarGestureRecognizer()
+        //Set gesture recognizers(Tap events) for both profileImage and searchVar
+        setupGestureRecognizers()
         progressHUD.displayProgressHUD()
         firebaseOP.getAllCategories()
         firebaseOP.getAllOffers()
@@ -60,14 +63,10 @@ class HomeViewController: UIViewController {
         firebaseOP.stopAllOperations()
     }
     
-    //Register the customized layout XIB with views and prepare
-    func registerNib() {
-        categoriesCollectionView?.register(UINib(nibName: FeaturedCollectionViewCell.nibName, bundle: nil), forCellWithReuseIdentifier: FeaturedCollectionViewCell.reuseIdentifier)
-        
-        tblOffer.register(UINib(nibName: XIBIdentifier.XIB_OFFER, bundle: nil), forCellReuseIdentifier: XIBIdentifier.XIB_OFFER_CELL)
-        
-        if let flowLayout = self.categoriesCollectionView?.collectionViewLayout as? UICollectionViewFlowLayout {
-            flowLayout.estimatedItemSize = CGSize(width: 1, height: 1)
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == Seagus.HomeToSingleCategory {
+            let destVC = segue.destination as! SingleCategoryViewController
+            destVC.category = categories[selectedCategoryIndex]
         }
     }
 }
@@ -94,14 +93,31 @@ extension HomeViewController {
         }), animated: true)
     }
     
-    func setupSearchBarGestureRecognizer(){
+    func setupGestureRecognizers(){
         //set tap gesture for the seatchBarView [UserInteraction should be enabled]
-        let gesture = UITapGestureRecognizer(target: self, action:  #selector(self.onSearchClicked))
-        self.viewSearchParent.addGestureRecognizer(gesture)
+        let searchGesture = UITapGestureRecognizer(target: self, action:  #selector(self.onSearchClicked))
+        let profileGesture = UITapGestureRecognizer(target: self, action:  #selector(self.onProfileClicked))
+        self.viewSearchParent.addGestureRecognizer(searchGesture)
+        self.imgProfilePic.addGestureRecognizer(profileGesture)
     }
     
     @objc func onSearchClicked(){
         performSegue(withIdentifier: Seagus.HomeToSearch, sender: nil)
+    }
+    
+    @objc func onProfileClicked(){
+        performSegue(withIdentifier: Seagus.HomeToProfile, sender: nil)
+    }
+    
+    //Register the customized layout XIB with views and prepare
+    func registerNib() {
+        categoriesCollectionView?.register(UINib(nibName: FeaturedCollectionViewCell.nibName, bundle: nil), forCellWithReuseIdentifier: FeaturedCollectionViewCell.reuseIdentifier)
+        
+        tblOffer.register(UINib(nibName: XIBIdentifier.XIB_OFFER, bundle: nil), forCellReuseIdentifier: XIBIdentifier.XIB_OFFER_CELL)
+        
+        if let flowLayout = self.categoriesCollectionView?.collectionViewLayout as? UICollectionViewFlowLayout {
+            flowLayout.estimatedItemSize = CGSize(width: 1, height: 1)
+        }
     }
 }
 
@@ -208,7 +224,8 @@ extension HomeViewController : UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    
+        selectedCategoryIndex = indexPath.row
+        performSegue(withIdentifier: Seagus.HomeToSingleCategory, sender: nil)
     }
     
 }

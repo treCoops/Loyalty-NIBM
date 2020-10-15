@@ -26,6 +26,8 @@ struct Seagus {
     static var vendorToViewOffer = "vendorToViewOffer"
     static var HomeToSearch = "HomeToSearch"
     static var HomeToProfile = "HomeToProfile"
+    static var HomeToSingleCategory = "HomeToSingleCategory"
+    static var SearchToVendor = "SearchToVendor"
 }
 
 //Names of the XIB Files

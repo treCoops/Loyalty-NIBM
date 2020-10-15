@@ -21,6 +21,8 @@ class SearchViewController: UIViewController {
     
     var vendors : [Vendor] = []
     
+    var selectedVendorIndex: Int = 0
+    
     @IBOutlet weak var tblPromotions: UITableView!
     
     override func viewDidLoad() {
@@ -40,6 +42,11 @@ class SearchViewController: UIViewController {
     override func viewDidDisappear(_ animated: Bool) {
         //Terminating all firebase operations when moved to another viewController
         firebaseOP.stopAllOperations()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destVC = segue.destination as! VendorViewController
+        destVC.vendor = vendors[selectedVendorIndex]
     }
 }
 
@@ -141,7 +148,8 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        selectedVendorIndex = indexPath.row
+        performSegue(withIdentifier: Seagus.SearchToVendor, sender: nil)
     }
 }
 

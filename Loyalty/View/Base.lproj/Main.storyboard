@@ -512,8 +512,9 @@
                         <outlet property="imgProfilePic" destination="Izh-cJ-Idz" id="wXT-xD-ZZC"/>
                         <outlet property="tblOffer" destination="zi0-ht-L0G" id="ajW-WD-gel"/>
                         <outlet property="viewSearchParent" destination="Kl1-78-428" id="pXI-3J-hcU"/>
-                        <segue destination="hUq-2X-hPJ" kind="presentation" identifier="HomeToSearch" id="z53-gz-dQi"/>
+                        <segue destination="hUq-2X-hPJ" kind="show" identifier="HomeToSearch" id="z53-gz-dQi"/>
                         <segue destination="hwb-pk-kwr" kind="show" identifier="HomeToProfile" id="j8Z-sB-JTv"/>
+                        <segue destination="BKN-Ng-ifM" kind="show" identifier="HomeToSingleCategory" id="tAb-Zi-Rhl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ypz-Ny-Agz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -627,7 +628,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7lt-GJ-BRU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6166" y="690"/>
+            <point key="canvasLocation" x="5358" y="1584"/>
         </scene>
         <!--Offer View Controller-->
         <scene sceneID="J6H-Cz-4Ft">
@@ -684,7 +685,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Uv-1A-9fh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6985" y="690"/>
+            <point key="canvasLocation" x="6447" y="1584"/>
         </scene>
         <!--Offer Validate Done View Controller-->
         <scene sceneID="9RO-QW-se5">
@@ -855,7 +856,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7jv-dZ-ndq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4726" y="1673"/>
+            <point key="canvasLocation" x="4842" y="2339"/>
         </scene>
         <!--Offer Validate Error View Controller-->
         <scene sceneID="gSr-mA-yOh">
@@ -969,7 +970,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZLb-EX-5kz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5486" y="1673"/>
+            <point key="canvasLocation" x="5602" y="2339"/>
         </scene>
         <!--Offer Validate Question View Controller-->
         <scene sceneID="pMW-MW-ZyX">
@@ -1079,7 +1080,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SH9-QE-5NT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6282" y="1673"/>
+            <point key="canvasLocation" x="6398" y="2339"/>
         </scene>
         <!--View All Categories View Controller-->
         <scene sceneID="p3y-7B-ShF">
@@ -1191,7 +1192,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="abV-fB-sPS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4517.6000000000004" y="689.5052473763119"/>
+            <point key="canvasLocation" x="4490" y="291"/>
         </scene>
         <!--Single Category View Controller-->
         <scene sceneID="3qF-07-KHA">
@@ -1287,14 +1288,6 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mq3-qK-cQc">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="800"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wjn-NH-OLp">
-                                                <rect key="frame" x="15" y="50" width="38" height="38"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="38" id="p6u-jb-ux8"/>
-                                                    <constraint firstAttribute="height" constant="38" id="psr-HY-XfB"/>
-                                                </constraints>
-                                                <state key="normal" image="back_black"/>
-                                            </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Ai-BM-umT">
                                                 <rect key="frame" x="127.5" y="5" width="120" height="120"/>
                                                 <subviews>
@@ -1478,11 +1471,20 @@
                                                     <constraint firstItem="tFD-D8-EhH" firstAttribute="top" secondItem="lmf-xD-N6N" secondAttribute="bottom" constant="15" id="z5L-ho-Lnz"/>
                                                 </constraints>
                                             </view>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wjn-NH-OLp">
+                                                <rect key="frame" x="10" y="10" width="30" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="30" id="p6u-jb-ux8"/>
+                                                    <constraint firstAttribute="height" constant="30" id="psr-HY-XfB"/>
+                                                </constraints>
+                                                <state key="normal" image="back_black"/>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="Inp-oB-2Os" firstAttribute="top" secondItem="ZgU-pH-qaF" secondAttribute="bottom" constant="3" id="0gq-wt-QwW"/>
                                             <constraint firstItem="ZgU-pH-qaF" firstAttribute="centerX" secondItem="Mq3-qK-cQc" secondAttribute="centerX" id="9hQ-DG-eH0"/>
+                                            <constraint firstItem="wjn-NH-OLp" firstAttribute="leading" secondItem="Mq3-qK-cQc" secondAttribute="leading" constant="10" id="MLt-Zc-fA4"/>
                                             <constraint firstItem="rvJ-o3-Sdd" firstAttribute="leading" secondItem="Mq3-qK-cQc" secondAttribute="leading" constant="10" id="OkJ-uy-tx3"/>
                                             <constraint firstItem="5Ai-BM-umT" firstAttribute="top" secondItem="Mq3-qK-cQc" secondAttribute="top" constant="5" id="UTa-28-XVv"/>
                                             <constraint firstAttribute="height" constant="800" id="Y6B-rd-Nyr"/>
@@ -1493,9 +1495,8 @@
                                             <constraint firstItem="rvJ-o3-Sdd" firstAttribute="top" secondItem="Inp-oB-2Os" secondAttribute="bottom" constant="5" id="oqU-At-aQF"/>
                                             <constraint firstItem="rvJ-o3-Sdd" firstAttribute="top" secondItem="Inp-oB-2Os" secondAttribute="bottom" constant="5" id="pN7-xe-Rs8"/>
                                             <constraint firstItem="5Ai-BM-umT" firstAttribute="centerX" secondItem="Mq3-qK-cQc" secondAttribute="centerX" id="pyq-03-pJO"/>
-                                            <constraint firstItem="wjn-NH-OLp" firstAttribute="leading" secondItem="Mq3-qK-cQc" secondAttribute="leading" constant="15" id="shg-iE-DYs"/>
                                             <constraint firstItem="mcP-91-hAG" firstAttribute="top" secondItem="Mq3-qK-cQc" secondAttribute="top" constant="55" id="svO-HT-s7t"/>
-                                            <constraint firstItem="wjn-NH-OLp" firstAttribute="top" secondItem="Mq3-qK-cQc" secondAttribute="top" constant="50" id="tOD-fq-YKN"/>
+                                            <constraint firstItem="wjn-NH-OLp" firstAttribute="top" secondItem="Mq3-qK-cQc" secondAttribute="top" constant="10" id="veW-mc-G4J"/>
                                             <constraint firstItem="ZgU-pH-qaF" firstAttribute="top" secondItem="5Ai-BM-umT" secondAttribute="bottom" constant="1" id="zoj-P1-EBf"/>
                                         </constraints>
                                     </view>
@@ -1584,11 +1585,11 @@
             <objects>
                 <viewController id="hUq-2X-hPJ" customClass="SearchViewController" customModule="Loyalty" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="O3e-kC-guM">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EdX-G7-UjB">
-                                <rect key="frame" x="10" y="20" width="30" height="30"/>
+                                <rect key="frame" x="10" y="64" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="MuK-fI-o8O"/>
                                     <constraint firstAttribute="width" constant="30" id="htN-80-MVC"/>
@@ -1599,7 +1600,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GFg-LD-3mu">
-                                <rect key="frame" x="10" y="69" width="355" height="568"/>
+                                <rect key="frame" x="10" y="113" width="355" height="544"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="hUq-2X-hPJ" id="in3-Tp-SD2"/>
@@ -1607,7 +1608,7 @@
                                 </connections>
                             </tableView>
                             <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search vendors" translatesAutoresizingMaskIntoConstraints="NO" id="2Vz-vU-uwL">
-                                <rect key="frame" x="50" y="8" width="315" height="56"/>
+                                <rect key="frame" x="50" y="52" width="315" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="hUq-2X-hPJ" id="0XB-Qf-RDp"/>
@@ -1632,6 +1633,7 @@
                     <connections>
                         <outlet property="tableViewVendors" destination="GFg-LD-3mu" id="BaE-hH-OIp"/>
                         <outlet property="tblPromotions" destination="GFg-LD-3mu" id="Szu-9I-uad"/>
+                        <segue destination="Gba-jK-M4N" kind="show" identifier="SearchToVendor" id="EbX-na-0hH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="58E-xd-Wxg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1988,6 +1990,8 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="AWc-qY-k4i"/>
+        <segue reference="tAb-Zi-Rhl"/>
+        <segue reference="EbX-na-0hH"/>
         <segue reference="MQj-4t-AEw"/>
     </inferredMetricsTieBreakers>
     <resources>

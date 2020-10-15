@@ -22,6 +22,8 @@ class SingleCategoryViewController: UIViewController {
     
     var vendors: [Vendor] = []
     
+    lazy var selectedRowIndex: Int! = 0
+    
     var category: Category? {
         didSet {
             
@@ -46,6 +48,15 @@ class SingleCategoryViewController: UIViewController {
         //Terminating all firebase operations when moved to another viewController
         firebaseOP.stopAllOperations()
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destVC = segue.destination as! VendorViewController
+        if let index = tableViewVendors.indexPathForSelectedRow?.row {
+            destVC.vendor = vendors[index]
+        } else {
+            destVC.vendor = vendors[selectedRowIndex]
+        }
+    }
 }
 
 extension SingleCategoryViewController {
@@ -62,7 +73,6 @@ extension SingleCategoryViewController {
     func getVendorList() {
         if let vendors = DataModelHelper.fetchVendors(category: category?.key ?? "", vendorName: nil) {
             self.vendors = vendors
-            print(vendors)
             DispatchQueue.main.async {
                 self.tableViewVendors.reloadData()
             }
@@ -78,7 +88,7 @@ extension SingleCategoryViewController {
         }
     }
     
-    //setup a pull to refresh control for the collectionview inorder to fetch new data from database
+    //setup a pull to refresh control for the tableView inorder to fetch new data from database
     func setUpRefreshControl(){
         // Add Refresh Control to CollectionView
         if #available(iOS 10.0, *) {
@@ -86,7 +96,7 @@ extension SingleCategoryViewController {
         } else {
             tableViewVendors.addSubview(refreshControl)
         }
-        refreshControl.attributedTitle = NSAttributedString(string: "Fetching categories ...", attributes: .none)
+        refreshControl.attributedTitle = NSAttributedString(string: "Fetching vendors ...", attributes: .none)
         refreshControl.addTarget(self, action: #selector(refreshVendorData(_:)), for: .valueChanged)
     }
     
@@ -152,7 +162,8 @@ extension SingleCategoryViewController: UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        selectedRowIndex = indexPath.row
+        self.performSegue(withIdentifier: Seagus.singleCategoryToVendor, sender: nil)
     }
 }
 

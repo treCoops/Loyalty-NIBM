@@ -76,11 +76,24 @@ class DataModelHelper {
             request.predicate = NSPredicate(format: "is_featured = %d", true)
         }
         do {
-            let offer = try context.fetch(request)
-            return offer
+            return try context.fetch(request)
         } catch {
             print("Runtime error on fetching offer data from Context \(error)")
         }
+        return []
+    }
+    
+    //fetch offers based on a specific vendor name
+    static func fetchOffers(vendorKey: String) -> [Offer]? {
+        let request: NSFetchRequest<Offer> = Offer.fetchRequest()
+        //set predicate to filter out with a specific vendor
+        request.predicate = NSPredicate(format: "vendorId = %@", vendorKey)
+        do {
+            return try context.fetch(request)
+        } catch {
+            print("Runtime error on fetching offer data from Context \(error)")
+        }
+        
         return []
     }
     

@@ -399,6 +399,9 @@ class FirebaseOP {
     
     //End of user history based operations
     
+    
+    //MARK: - Vendor based operations
+    
     func getAllVendors(){
         let ref = self.getDBReference()
         ref.child("vendors").observeSingleEvent(of: .value, with: {
@@ -443,10 +446,6 @@ class FirebaseOP {
             completion(snapshot)
         })
     }
-    
-    //MARK: - Vendor based operations
-    
-    
     
     //End of vendor based operations
     

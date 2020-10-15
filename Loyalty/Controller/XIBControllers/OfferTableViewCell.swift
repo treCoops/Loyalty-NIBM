@@ -38,8 +38,9 @@ class OfferTableViewCell: UITableViewCell {
         imgBanner.layer.cornerRadius = 10
         imgLogo.layer.cornerRadius = 10
         
-        if let url = data.image {
-            imgBanner.kf.setImage(with: URL(string: url))
+        if let bannerURL = data.image, let logoURL = data.profileImageUrl {
+            imgBanner.kf.setImage(with: URL(string: bannerURL))
+            imgLogo.kf.setImage(with: URL(string: logoURL))
         }
         
         lblOfferTitle.text = data.title

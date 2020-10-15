@@ -24,8 +24,6 @@ class LaunchScreenViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         networkChecker.delegate = self
-        networkChecker.startMonitoring()
-        
         progressHUD.displayProgressHUD()
         validateUserSession()
     }

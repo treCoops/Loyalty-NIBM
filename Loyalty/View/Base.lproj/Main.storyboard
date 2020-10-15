@@ -541,8 +541,11 @@
                                     <constraint firstAttribute="width" constant="38" id="gGy-L2-lnh"/>
                                 </constraints>
                                 <state key="normal" image="back_black"/>
+                                <connections>
+                                    <action selector="backPressed:" destination="Gba-jK-M4N" eventType="touchUpInside" id="Hso-ST-FhG"/>
+                                </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Nike" translatesAutoresizingMaskIntoConstraints="NO" id="hrR-A5-a6j">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Nike" translatesAutoresizingMaskIntoConstraints="NO" id="hrR-A5-a6j">
                                 <rect key="frame" x="20" y="215" width="75" height="75"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="75" id="Kh2-AN-WJP"/>
@@ -550,20 +553,20 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NIKE SRI LANKA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BHr-oI-ZfR">
-                                <rect key="frame" x="105" y="215" width="94.5" height="15"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                                <rect key="frame" x="105" y="215" width="110" height="17"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lifestyle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kqr-Gj-mlU">
-                                <rect key="frame" x="105" y="231" width="41" height="12"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <rect key="frame" x="105" y="235" width="49.5" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nike, Inc. is an American multinational corporation that is engaged in the design, development, manufacturing, and worldwide" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j0Q-ac-4aN">
-                                <rect key="frame" x="105" y="245" width="250" height="32.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nike, Inc. is an American multinational corporation that is engaged in the design, development, manufacturing, and worldwide" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j0Q-ac-4aN">
+                                <rect key="frame" x="105" y="254.5" width="250" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -575,7 +578,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="D91-01-MYB">
-                                <rect key="frame" x="20" y="321" width="335" height="346"/>
+                                <rect key="frame" x="10" y="321" width="355" height="346"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="Gba-jK-M4N" id="d0n-zI-QDF"/>
@@ -589,7 +592,7 @@
                             <constraint firstItem="fHN-iV-NFi" firstAttribute="trailing" secondItem="VSg-Ya-5NO" secondAttribute="trailing" constant="40" id="2gE-tX-6QJ"/>
                             <constraint firstItem="fHN-iV-NFi" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="kqr-Gj-mlU" secondAttribute="trailing" symbolic="YES" id="4xo-2H-xbJ"/>
                             <constraint firstItem="BHr-oI-ZfR" firstAttribute="leading" secondItem="hrR-A5-a6j" secondAttribute="trailing" constant="10" id="7kz-NU-QBx"/>
-                            <constraint firstItem="kqr-Gj-mlU" firstAttribute="top" secondItem="BHr-oI-ZfR" secondAttribute="bottom" constant="1" id="9ba-C5-ytl"/>
+                            <constraint firstItem="kqr-Gj-mlU" firstAttribute="top" secondItem="BHr-oI-ZfR" secondAttribute="bottom" constant="3" id="9ba-C5-ytl"/>
                             <constraint firstItem="BHr-oI-ZfR" firstAttribute="top" secondItem="2Ei-Tt-hzH" secondAttribute="bottom" constant="15" id="EC8-8S-GvR"/>
                             <constraint firstItem="hrR-A5-a6j" firstAttribute="leading" secondItem="fHN-iV-NFi" secondAttribute="leading" constant="20" id="Ek5-Li-BSL"/>
                             <constraint firstItem="kqr-Gj-mlU" firstAttribute="leading" secondItem="hrR-A5-a6j" secondAttribute="trailing" constant="10" id="Gk9-eM-2XY"/>
@@ -598,8 +601,8 @@
                             <constraint firstItem="cJk-AL-EZU" firstAttribute="top" secondItem="fHN-iV-NFi" secondAttribute="top" constant="20" id="NR9-ot-Mey"/>
                             <constraint firstItem="2Ei-Tt-hzH" firstAttribute="top" secondItem="2nb-5l-J6m" secondAttribute="top" id="OYs-Ex-pUs"/>
                             <constraint firstItem="fHN-iV-NFi" firstAttribute="trailing" secondItem="j0Q-ac-4aN" secondAttribute="trailing" constant="20" id="PD3-Zd-BcP"/>
-                            <constraint firstItem="D91-01-MYB" firstAttribute="leading" secondItem="fHN-iV-NFi" secondAttribute="leading" constant="20" id="Pbz-lu-0Kt"/>
-                            <constraint firstItem="fHN-iV-NFi" firstAttribute="trailing" secondItem="D91-01-MYB" secondAttribute="trailing" constant="20" id="Vyk-sw-SEk"/>
+                            <constraint firstItem="D91-01-MYB" firstAttribute="leading" secondItem="fHN-iV-NFi" secondAttribute="leading" constant="10" id="Pbz-lu-0Kt"/>
+                            <constraint firstItem="fHN-iV-NFi" firstAttribute="trailing" secondItem="D91-01-MYB" secondAttribute="trailing" constant="10" id="Vyk-sw-SEk"/>
                             <constraint firstItem="fHN-iV-NFi" firstAttribute="bottom" secondItem="D91-01-MYB" secondAttribute="bottom" id="W14-Zg-uQ5"/>
                             <constraint firstItem="fHN-iV-NFi" firstAttribute="trailing" secondItem="2Ei-Tt-hzH" secondAttribute="trailing" id="ZAF-qc-Vfb"/>
                             <constraint firstItem="fHN-iV-NFi" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="BHr-oI-ZfR" secondAttribute="trailing" symbolic="YES" id="a4f-KN-QG1"/>
@@ -608,12 +611,16 @@
                             <constraint firstItem="j0Q-ac-4aN" firstAttribute="leading" secondItem="hrR-A5-a6j" secondAttribute="trailing" constant="10" id="m6V-46-AtF"/>
                             <constraint firstItem="2Ei-Tt-hzH" firstAttribute="leading" secondItem="fHN-iV-NFi" secondAttribute="leading" id="mPh-H2-aAv"/>
                             <constraint firstItem="cJk-AL-EZU" firstAttribute="leading" secondItem="fHN-iV-NFi" secondAttribute="leading" constant="15" id="phx-rA-yaA"/>
-                            <constraint firstItem="j0Q-ac-4aN" firstAttribute="top" secondItem="kqr-Gj-mlU" secondAttribute="bottom" constant="2" id="tF1-HK-WZl"/>
+                            <constraint firstItem="j0Q-ac-4aN" firstAttribute="top" secondItem="kqr-Gj-mlU" secondAttribute="bottom" constant="5" id="tF1-HK-WZl"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="JTl-WU-vrC"/>
                     <connections>
+                        <outlet property="imgBanner" destination="2Ei-Tt-hzH" id="9WY-qG-NAP"/>
                         <outlet property="imgLogo" destination="hrR-A5-a6j" id="FFC-pq-lnm"/>
+                        <outlet property="lblCategoryLabel" destination="kqr-Gj-mlU" id="f81-Jk-Vl1"/>
+                        <outlet property="lblName" destination="BHr-oI-ZfR" id="UTo-KR-zfp"/>
+                        <outlet property="lblVendorDescription" destination="j0Q-ac-4aN" id="rks-aa-vQq"/>
                         <outlet property="tableViewVenderOffers" destination="D91-01-MYB" id="ajK-F3-UVL"/>
                         <segue destination="c5w-x8-Gxf" kind="show" identifier="vendorToViewOffer" id="6gV-bK-mla"/>
                     </connections>

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class VenderOfferTableViewCell: UITableViewCell {
+class VendorTableViewCell: UITableViewCell {
     @IBOutlet weak var viewParent: UIView!
     @IBOutlet weak var imgBanner: UIImageView!
     @IBOutlet weak var imgLogo: UIImageView!

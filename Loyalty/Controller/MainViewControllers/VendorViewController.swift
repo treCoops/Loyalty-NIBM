@@ -12,23 +12,13 @@ class VendorViewController: UIViewController {
     @IBOutlet weak var imgLogo: UIImageView!
     @IBOutlet weak var tableViewVenderOffers: UITableView!
     
-    var offers : [XIBVendorOffer] = []
+    var offers : [Offer] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         imgLogo.squareImageView()
         
-        tableViewVenderOffers.register(UINib(nibName: XIBIdentifier.XIB_OFFER_VENDOR, bundle: nil), forCellReuseIdentifier: XIBIdentifier.XIB_OFFER_VENDOR_CELL)
-        
-        offers.append(XIBVendorOffer(bannerImageUrl: "", title: "", status: true, Id: ""))
-        offers.append(XIBVendorOffer(bannerImageUrl: "", title: "", status: true, Id: ""))
-        offers.append(XIBVendorOffer(bannerImageUrl: "", title: "", status: true, Id: ""))
-        offers.append(XIBVendorOffer(bannerImageUrl: "", title: "", status: true, Id: ""))
-        offers.append(XIBVendorOffer(bannerImageUrl: "", title: "", status: true, Id: ""))
-        offers.append(XIBVendorOffer(bannerImageUrl: "", title: "", status: true, Id: ""))
-        offers.append(XIBVendorOffer(bannerImageUrl: "", title: "", status: true, Id: ""))
-        offers.append(XIBVendorOffer(bannerImageUrl: "", title: "", status: true, Id: ""))
-
+        tableViewVenderOffers.register(UINib(nibName: XIBIdentifier.XIB_OFFER_CELL, bundle: nil), forCellReuseIdentifier: XIBIdentifier.XIB_OFFER)
     }
 
 
@@ -41,7 +31,7 @@ extension VendorViewController : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableViewVenderOffers.dequeueReusableCell(withIdentifier: XIBIdentifier.XIB_OFFER_VENDOR_CELL, for: indexPath) as! VenderOfferTableViewCell
+        let cell = tableViewVenderOffers.dequeueReusableCell(withIdentifier: XIBIdentifier.XIB_OFFER_CELL, for: indexPath) as! OfferTableViewCell
                cell.configXIB(data: offers[indexPath.row])
                
                cell.alpha = 0

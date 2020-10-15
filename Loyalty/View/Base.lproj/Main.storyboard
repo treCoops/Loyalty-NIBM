@@ -1093,7 +1093,7 @@
                                     <action selector="backPressed:" destination="23v-hO-ozB" eventType="touchUpInside" id="kNu-Kg-ExW"/>
                                 </connections>
                             </button>
-                            <searchBar contentMode="redraw" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="Wa5-jE-8Dh">
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search categories" translatesAutoresizingMaskIntoConstraints="NO" id="Wa5-jE-8Dh">
                                 <rect key="frame" x="45" y="44" width="280" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <scopeButtonTitles>
@@ -1202,10 +1202,11 @@
                                 </constraints>
                                 <state key="normal" image="back_black"/>
                                 <connections>
+                                    <action selector="backPressed:" destination="BKN-Ng-ifM" eventType="touchUpInside" id="6He-zr-aWX"/>
                                     <action selector="backPressed:" destination="23v-hO-ozB" eventType="touchUpInside" id="UGM-of-GX6"/>
                                 </connections>
                             </button>
-                            <searchBar contentMode="redraw" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="TYZ-hG-HHv">
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search vendors" translatesAutoresizingMaskIntoConstraints="NO" id="TYZ-hG-HHv">
                                 <rect key="frame" x="45" y="44" width="280" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <scopeButtonTitles>
@@ -1213,7 +1214,7 @@
                                     <string>Title</string>
                                 </scopeButtonTitles>
                                 <connections>
-                                    <outlet property="delegate" destination="23v-hO-ozB" id="rGt-dB-5mx"/>
+                                    <outlet property="delegate" destination="BKN-Ng-ifM" id="jwB-Rl-sK7"/>
                                 </connections>
                             </searchBar>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aqQ-zb-T6R">
@@ -1225,11 +1226,16 @@
                                 <state key="normal" image="qr-code"/>
                                 <connections>
                                     <action selector="qrCodePressed:" destination="23v-hO-ozB" eventType="touchUpInside" id="8D8-bA-3Qw"/>
+                                    <action selector="qrCodePressed:" destination="BKN-Ng-ifM" eventType="touchUpInside" id="8uy-7M-wsI"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hHx-z1-atM">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hHx-z1-atM">
                                 <rect key="frame" x="10" y="110" width="355" height="547"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BKN-Ng-ifM" id="nfo-GS-scW"/>
+                                    <outlet property="delegate" destination="BKN-Ng-ifM" id="tjH-Hb-fsO"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="VoD-aF-aEP"/>
@@ -1252,6 +1258,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="6TW-3r-WY8"/>
                     <connections>
+                        <outlet property="tableViewVendors" destination="hHx-z1-atM" id="iAT-UR-0WT"/>
                         <segue destination="Gba-jK-M4N" kind="show" identifier="singleCategoryToVendor" id="ewC-PU-p3w"/>
                     </connections>
                 </viewController>

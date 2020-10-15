@@ -40,8 +40,8 @@ struct XIBIdentifier {
     static var XIB_OFFER_CELL = "ReuseableCellOffer"
     static var XIB_OFFER = "OfferTableViewCell"
     
-    static var XIB_OFFER_VENDOR_CELL = "ReuseableCellVendor"
-    static var XIB_OFFER_VENDOR = "VendorTableViewCell"
+    static var XIB_VENDOR_CELL = "ReuseableCellVendor"
+    static var XIB_VENDOR = "VendorTableViewCell"
     
 }
 
@@ -63,6 +63,8 @@ struct FieldErrorCaptions {
     
     static let categoryLoadFailedErrCaption = "Unable to load categories"
     static let offersLoadFailedErrCaption = "Unable to load offers"
+    
+    static let vendorsLoadFailedErrCaption = "Unable to load vendors"
     
     static let noConnectionTitle = "No connection"
     static let noConnectionMessage = "The app requires a working internet connection please check your connection settings."

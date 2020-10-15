@@ -91,7 +91,7 @@
                 <outlet property="lblOfferTitle" destination="edk-ug-PLz" id="lAn-rU-eTA"/>
                 <outlet property="viewParent" destination="YvF-P4-sfT" id="maf-Ah-DmE"/>
             </connections>
-            <point key="canvasLocation" x="30" y="168"/>
+            <point key="canvasLocation" x="19" y="140"/>
         </tableViewCell>
     </objects>
     <resources>

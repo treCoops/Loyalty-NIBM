@@ -399,6 +399,43 @@ class FirebaseOP {
     
     //End of user history based operations
     
+    func getAllVendors(){
+        let ref = self.getDBReference()
+        ref.child("vendors").observeSingleEvent(of: .value, with: {
+            snapshot in
+            if snapshot.hasChildren(){
+                if let tempData = snapshot.value as? [String: Any]{
+                    for data in tempData {
+                        guard let innerData = data.value as? [String : Any] else {
+                            NSLog("Could not serialize vendor inner data")
+                            continue
+                        }
+                        let vendor = Vendor(context: DataModelHelper.context)
+                        vendor.category = innerData["category"] as? String
+                        vendor.categoryLabel = innerData["categoryLabel"] as? String
+                        vendor.contactNo = innerData["contactNo"] as? String
+                        vendor.coverImageUrl = innerData["coverImageUrl"] as? String
+                        vendor.email = innerData["email"] as? String
+                        vendor.key = innerData["key"] as? String
+                        vendor.name = innerData["name"] as? String
+                        vendor.profileImageUrl = innerData["profileImageUrl"] as? String
+                        vendor.status = innerData["status"] as? Int16 ?? 0000
+                        vendor.timeStamp = innerData["timeStamp"] as? Int64 ?? 0000
+                        vendor.vendor_description = innerData["description"] as? String
+                    }
+                    DataModelHelper.saveContext()
+                    self.delegate?.onVendorsLoaded()
+                } else {
+                    NSLog("Could not serialize vendor data")
+                    self.delegate?.onVendorsLoadFailedWithError(error: FieldErrorCaptions.vendorsLoadFailedErrCaption)
+                }
+            } else {
+                NSLog("No vendor data found")
+                self.delegate?.onVendorsLoadFailedWithError(error: FieldErrorCaptions.vendorsLoadFailedErrCaption)
+            }
+        })
+    }
+    
     private func getAllVendors(completion: @escaping (DataSnapshot) -> Void){
         let ref = self.getDBReference()
         ref.child("vendors").observeSingleEvent(of: .value, with: {
@@ -455,6 +492,10 @@ protocol FirebaseActions {
     func onOffersLoadFailedWithError(error: Error)
     func onOffersLoadFailedWithError(error: String)
     
+    func onVendorsLoaded()
+    func onVendorsLoadFailedWithError(error: Error)
+    func onVendorsLoadFailedWithError(error: String)
+    
     func onOperationsCancelled()
 }
 
@@ -478,6 +519,10 @@ extension FirebaseActions {
     func onOffersLoaded(){}
     func onOffersLoadFailedWithError(error: Error){}
     func onOffersLoadFailedWithError(error: String){}
+    
+    func onVendorsLoaded(){}
+    func onVendorsLoadFailedWithError(error: Error){}
+    func onVendorsLoadFailedWithError(error: String){}
     
     func onOperationsCancelled(){}
 }

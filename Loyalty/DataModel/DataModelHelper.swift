@@ -111,8 +111,37 @@ class DataModelHelper {
         return []
     }
     
-    //Fetch all the vendor images and returns
-    static func requestVendorImage(request: NSFetchRequest<Vendor>) -> String? {
+    //fetch offer details based on offerID
+    static func requestOfferDataFromOfferIF(offerID key: String) -> Offer? {
+        let request: NSFetchRequest<Offer> = Offer.fetchRequest()
+        //set predicate to filter out with a specific offer
+        request.predicate = NSPredicate(format: "key = %@", key)
+        do {
+            return try context.fetch(request).first
+        } catch {
+            print("Runtime error on fetching offer data from Context \(error)")
+        }
+        return nil
+    }
+    
+    //Fetch vendor from offer image and return
+    static func requestVendorImageFromOfferID(offerID: String) -> String? {
+        let request: NSFetchRequest<Offer> = Offer.fetchRequest()
+        //set predicate to filter out with a specific offer
+        request.predicate = NSPredicate(format: "key = %@", offerID)
+        do {
+            return try context.fetch(request).first?.profileImageUrl
+        } catch {
+            print("Runtime error on fetching offer profile image data from Context \(error)")
+        }
+        return nil
+    }
+    
+    //Fetch the vendor with vendor id image and return
+    static func requestVendorImageFromID(vendorID: String ) -> String? {
+        //Create a predicate request to fetch the vendorimage
+        let request: NSFetchRequest<Vendor> = Vendor.fetchRequest()
+        request.predicate = NSPredicate(format: "key = %@", vendorID)
         do {
             return try context.fetch(request).first?.profileImageUrl
         } catch {

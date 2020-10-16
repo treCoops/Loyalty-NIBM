@@ -313,7 +313,7 @@ class FirebaseOP {
                 }
             } else {
                 NSLog("No category data found")
-                self.delegate?.onCategoriesLoadFailedWithError(error: FieldErrorCaptions.categoryLoadFailedErrCaption)
+                self.delegate?.onCategoriesLoadFailedWithError(error: FieldErrorCaptions.categoryDataIsEmpty)
             }
         })
     }
@@ -322,6 +322,48 @@ class FirebaseOP {
     
     //MARK: - Offer based operations
     
+    //Claim the offer
+    func claimOffer(offer: Offer, user: User) {
+        let ref = self.getDBReference()
+        let claimData = ["offerId" : offer.key!,
+                         "offerTitle": offer.title!,
+                         "timestamp": Date().currentTimeMillis(),
+                         "userId": user.nic!,
+                         "userName": user.name!
+        ] as [String: Any]
+        ref.child("claims").childByAutoId().setValue(claimData) {
+            (error:Error?, ref:DatabaseReference) in
+            if let error = error {
+                self.delegate?.onClaimOfferFailedWithError(error: FieldErrorCaptions.offerClaimErrDescription)
+                NSLog(error.localizedDescription)
+            } else {
+                ref.child("offers").child(offer.key!).child("claimedUsers").setValue(user.nic!) {
+                    (error:Error?, ref:DatabaseReference) in
+                    if let error = error {
+                        self.delegate?.onClaimOfferFailedWithError(error: FieldErrorCaptions.offerClaimErrDescription)
+                        NSLog(error.localizedDescription)
+                    } else {
+                        self.delegate?.onClaimOfferSuccess()
+                    }
+                }
+            }
+        }
+    }
+    
+    //Check whether the user is elegible to claim the offer (whether the user has already claimed the offer)
+    func checkOfferElegibility(offerID offerKey: String, nic: String) {
+        let ref = self.getDBReference()
+        ref.child("offers").child(offerKey).child("claimedUsers").queryOrderedByValue().queryEqual(toValue: nic).observeSingleEvent(of: .value, with: {
+            snapshot in
+            if snapshot.hasChildren() {
+                self.delegate?.onElegililityRecieved(status: false)
+            } else {
+                self.delegate?.onElegililityRecieved(status: true)
+            }
+        })
+    }
+    
+    //get all offers
     func getAllOffers(){
         let ref = self.getDBReference()
         getAllVendors(completion: {
@@ -352,14 +394,11 @@ class FirebaseOP {
                         snapshot in
                         if snapshot.hasChildren(){
                             if let tempData = snapshot.value as? [String: Any] {
-                                //Create a predicate request to fetch the vendorimage
-                                let request: NSFetchRequest<Vendor> = Vendor.fetchRequest();
                                 for data in tempData {
                                     guard let innerData = data.value as? [String : Any] else {
                                         NSLog("Could not serialize offer inner data")
                                         continue
                                     }
-                                    request.predicate = NSPredicate(format: "key == %@", innerData["vendorId"] as? String ?? "")
                                     let offer = Offer(context: DataModelHelper.context)
                                     offer.image = innerData["image"] as? String
                                     offer.is_featured = innerData["is_featured"] as? Bool ?? false
@@ -369,7 +408,7 @@ class FirebaseOP {
                                     offer.title = innerData["title"] as? String
                                     offer.vendor = innerData["vendor"] as? String
                                     offer.vendorId = innerData["vendorId"] as? String
-                                    offer.profileImageUrl = DataModelHelper.requestVendorImage(request: request)
+                                    offer.profileImageUrl = DataModelHelper.requestVendorImageFromID(vendorID: innerData["vendorId"] as? String ?? "")
                                 }
                                 DataModelHelper.saveContext()
                                 self.delegate?.onOffersLoaded()
@@ -379,14 +418,16 @@ class FirebaseOP {
                             }
                         } else {
                             NSLog("No offer data found")
-                            self.delegate?.onOffersLoadFailedWithError(error: FieldErrorCaptions.offersLoadFailedErrCaption)
+                            self.delegate?.onOffersLoadFailedWithError(error: FieldErrorCaptions.offersDataIsEmpty)
                         }
                     })
                 } else {
                     NSLog("Could not serialize vendor data")
+                    self.delegate?.onOffersLoadFailedWithError(error: FieldErrorCaptions.offersLoadFailedErrCaption)
                 }
             } else {
                 NSLog("No vendor data found")
+                self.delegate?.onOffersLoadFailedWithError(error: FieldErrorCaptions.vendorDataIsEmpty)
             }
         })
     }
@@ -395,7 +436,31 @@ class FirebaseOP {
 
     //MARK: - User history based operations
     
-    
+    func getClaimedOffers(userID nic: String){
+        let ref = self.getDBReference()
+        ref.child("claims").queryOrdered(byChild: "userId").queryEqual(toValue: nic).observeSingleEvent(of: .value, with: {
+            snapshot in
+            if snapshot.hasChildren() {
+                if let tempData = snapshot.value as? [String: Any] {
+                    var claimedOffers: [Claim] = []
+                    for data in tempData {
+                        guard let innerData = data.value as? [String : Any] else {
+                            NSLog("Could not serialize claimed offer inner data")
+                            continue
+                        }
+                        claimedOffers.append(Claim(offerId: innerData["offerId"] as? String, offerTitle: innerData["offerTitle"] as? String, timestamp: innerData["timestamp"] as? Int64, userId: innerData["userId"] as? String, userName: innerData["userName"] as? String))
+                    }
+                    self.delegate?.onClaimedOffersLoaded(claims: claimedOffers)
+                } else {
+                    NSLog("Could not serialize claimed offer data")
+                    self.delegate?.onClaimedOffersLoadFailedWithError(error: FieldErrorCaptions.claimedOffersLoadFailedErrCaption)
+                }
+            } else {
+                NSLog("No claimed offers")
+                self.delegate?.onClaimedOffersLoadFailedWithError(error: FieldErrorCaptions.claimedOffersDataIsEmpty)
+            }
+        })
+    }
     
     //End of user history based operations
     
@@ -407,7 +472,7 @@ class FirebaseOP {
         ref.child("vendors").observeSingleEvent(of: .value, with: {
             snapshot in
             if snapshot.hasChildren(){
-                if let tempData = snapshot.value as? [String: Any]{
+                if let tempData = snapshot.value as? [String: Any] {
                     for data in tempData {
                         guard let innerData = data.value as? [String : Any] else {
                             NSLog("Could not serialize vendor inner data")
@@ -434,7 +499,7 @@ class FirebaseOP {
                 }
             } else {
                 NSLog("No vendor data found")
-                self.delegate?.onVendorsLoadFailedWithError(error: FieldErrorCaptions.vendorsLoadFailedErrCaption)
+                self.delegate?.onVendorsLoadFailedWithError(error: FieldErrorCaptions.vendorDataIsEmpty)
             }
         })
     }
@@ -470,7 +535,7 @@ class FirebaseOP {
     }
 }
 
-//MARK: - List of Protocols
+//MARK: - List of Protocol handlers
 
 protocol FirebaseActions {
     func isSignUpSuccessful(user: User?)
@@ -494,6 +559,18 @@ protocol FirebaseActions {
     func onVendorsLoaded()
     func onVendorsLoadFailedWithError(error: Error)
     func onVendorsLoadFailedWithError(error: String)
+    
+    func onClaimedOffersLoaded(claims: [Claim]?)
+    func onClaimedOffersLoadFailedWithError(error: String)
+    func onClaimedOffersLoadFailedWithError(error: Error)
+    
+    func onElegililityRecieved(status: Bool)
+    func onElegililityRecievedFailedWithError(error: String)
+    func onElegililityRecievedFailedWithError(error: Error)
+    
+    func onClaimOfferSuccess()
+    func onClaimOfferFailedWithError(error: String)
+    func onClaimOfferFailedWithError(error: Error)
     
     func onOperationsCancelled()
 }
@@ -522,6 +599,18 @@ extension FirebaseActions {
     func onVendorsLoaded(){}
     func onVendorsLoadFailedWithError(error: Error){}
     func onVendorsLoadFailedWithError(error: String){}
+    
+    func onClaimedOffersLoaded(claims: [Claim]?){}
+    func onClaimedOffersLoadFailedWithError(error: String){}
+    func onClaimedOffersLoadFailedWithError(error: Error){}
+    
+    func onElegililityRecieved(status: Bool){}
+    func onElegililityRecievedFailedWithError(error: String){}
+    func onElegililityRecievedFailedWithError(error: Error){}
+    
+    func onClaimOfferSuccess(){}
+    func onClaimOfferFailedWithError(error: String){}
+    func onClaimOfferFailedWithError(error: Error){}
     
     func onOperationsCancelled(){}
 }

@@ -7,12 +7,12 @@
 //
 
 import UIKit
+import Kingfisher
 
 class HistoryTableViewCell: UITableViewCell {
     @IBOutlet weak var viewParent: UIView!
     @IBOutlet weak var imgLogo: UIImageView!
     @IBOutlet weak var txtLabel: UILabel!
-    @IBOutlet weak var txtCategory: UILabel!
     @IBOutlet weak var txtDate: UILabel!
     @IBOutlet weak var imgStatus: UIImageView!
     
@@ -25,7 +25,7 @@ class HistoryTableViewCell: UITableViewCell {
 
     }
     
-    func configXIB(data: XIBHistory){
+    func configXIB(data: Claim){
         
         viewParent.layer.shadowColor = UIColor.lightGray.cgColor
         viewParent.layer.shadowOpacity = 0.3
@@ -34,7 +34,12 @@ class HistoryTableViewCell: UITableViewCell {
         viewParent.layer.cornerRadius = 10
         imgLogo.layer.cornerRadius = 8
         
+        if let url = DataModelHelper.requestVendorImageFromOfferID(offerID: data.offerId ?? "") {
+            imgLogo.kf.setImage(with: URL(string: url))
+        }
         
+        txtLabel.text = data.offerTitle
+        txtDate.text = Date().getDateFromMills(dateInMills: data.timestamp ?? 0000)
     }
     
 }

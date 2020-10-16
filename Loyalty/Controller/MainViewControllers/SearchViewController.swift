@@ -52,7 +52,7 @@ class SearchViewController: UIViewController {
 
 extension SearchViewController {
     @IBAction func backPressed(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
     }
 }
 

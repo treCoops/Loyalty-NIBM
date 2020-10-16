@@ -24,6 +24,8 @@ class VendorViewController: UIViewController {
     var firebaseOP = FirebaseOP.instance
     var progressHUD: ProgressHUD!
     
+    var selectedOfferIndex: Int = 0
+    
     var vendor: Vendor? {
         didSet {
 
@@ -52,6 +54,13 @@ class VendorViewController: UIViewController {
         //Terminating all firebase operations when moved to another viewController
         firebaseOP.stopAllOperations()
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == Seagus.vendorToViewOffer {
+            let destVC = segue.destination as! OfferViewController
+            destVC.offer = offers[selectedOfferIndex]
+        }
+    }
 }
 
 //MARK: - Interface Actions
@@ -61,6 +70,8 @@ extension VendorViewController {
         self.navigationController?.popViewController(animated: true)
     }
 }
+
+//MARK: - Inclass Methods
 
 extension VendorViewController {
     func registerNib(){
@@ -105,6 +116,7 @@ extension VendorViewController {
     }
 }
 
+//MARK: - TableView Delegates
 
 extension VendorViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -124,7 +136,8 @@ extension VendorViewController : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        selectedOfferIndex = indexPath.row
+        performSegue(withIdentifier: Seagus.vendorToViewOffer, sender: nil)
     }
 }
 

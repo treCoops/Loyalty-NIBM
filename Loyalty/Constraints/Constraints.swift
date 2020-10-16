@@ -28,6 +28,10 @@ struct Seagus {
     static var HomeToProfile = "HomeToProfile"
     static var HomeToSingleCategory = "HomeToSingleCategory"
     static var SearchToVendor = "SearchToVendor"
+    static var ViewOfferToValidationDone = "ViewOfferToValidationDone"
+    static var ViewOfferToValidationError = "ViewOfferToValidationError"
+    static var ScanQRToViewOffer = "ScanQRToViewOffer"
+    static var ViewOfferToScanQR = "ViewOfferToScanQR"
 }
 
 //Names of the XIB Files
@@ -66,9 +70,23 @@ struct FieldErrorCaptions {
     static let userAlreadyExistsErrCaption = "A user with the same NIC has already registered with the system!"
     
     static let categoryLoadFailedErrCaption = "Unable to load categories"
+    static let categoryDataIsEmpty = "No categories found"
+    
     static let offersLoadFailedErrCaption = "Unable to load offers"
+    static let offersDataIsEmpty = "No offers found"
     
     static let vendorsLoadFailedErrCaption = "Unable to load vendors"
+    static let vendorDataIsEmpty = "No vendors found"
+    
+    static let claimedOffersLoadFailedErrCaption = "Unable to load claimed offers"
+    static let claimedOffersDataIsEmpty = "No claimed offers found"
+    
+    static let scannerOfferNotValidTitle = "Offer not valid"
+    static let scannerOfferNotValidDescription = "Could not find a valid offer, please try again."
+    
+    static let offerValidationErr = "Could not validate the offer"
+    
+    static let offerClaimErrDescription = "Could not claim the offer"
     
     static let noConnectionTitle = "No connection"
     static let noConnectionMessage = "The app requires a working internet connection please check your connection settings."

@@ -54,6 +54,22 @@ struct User : Codable {
     }
 }
 
+struct Claim {
+    var offerId: String?
+    var offerTitle: String?
+    var timestamp: Int64?
+    var userId: String?
+    var userName: String?
+    
+    init(offerId: String?, offerTitle: String?, timestamp: Int64?, userId: String?, userName: String?) {
+        self.offerId = offerId
+        self.offerTitle = offerTitle
+        self.timestamp = timestamp
+        self.userId = userId
+        self.userName = userName
+    }
+}
+
 //class Category {
 //    var categoryName: String?
 //    var coverImage: String?

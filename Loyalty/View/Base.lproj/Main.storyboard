@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -653,7 +654,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="60% Off on selected items" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U2r-6r-70N">
-                                <rect key="frame" x="20" y="627" width="151" height="15"/>
+                                <rect key="frame" x="20" y="627" width="345" height="15"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -665,6 +666,23 @@
                                     <constraint firstAttribute="height" constant="35" id="pTM-i0-s5K"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Offer Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hcV-TS-YIM">
+                                <rect key="frame" x="20" y="600" width="345" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" systemColor="systemBackgroundColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="maK-uC-Kfw">
+                                <rect key="frame" x="275" y="66" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="09E-mR-YBR"/>
+                                    <constraint firstAttribute="height" constant="30" id="Ae2-vg-WrT"/>
+                                </constraints>
+                                <state key="normal">
+                                    <imageReference key="image" image="correct" symbolScale="large"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="thin"/>
+                                </state>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="DUa-LL-Ftw"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -672,11 +690,17 @@
                             <constraint firstItem="Nle-DT-mOv" firstAttribute="leading" secondItem="DUa-LL-Ftw" secondAttribute="leading" constant="15" id="2d4-bS-l4a"/>
                             <constraint firstItem="DUa-LL-Ftw" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="U2r-6r-70N" secondAttribute="trailing" symbolic="YES" id="3ft-1F-1Vz"/>
                             <constraint firstItem="U2r-6r-70N" firstAttribute="leading" secondItem="DUa-LL-Ftw" secondAttribute="leading" constant="20" id="65u-qi-56W"/>
+                            <constraint firstItem="b7f-cW-o4c" firstAttribute="leading" secondItem="maK-uC-Kfw" secondAttribute="trailing" constant="20" id="Cbt-Xh-aut"/>
                             <constraint firstItem="nXd-Lt-BXa" firstAttribute="leading" secondItem="DUa-LL-Ftw" secondAttribute="leading" constant="20" id="EVc-zy-5kQ"/>
+                            <constraint firstItem="DUa-LL-Ftw" firstAttribute="trailing" secondItem="U2r-6r-70N" secondAttribute="trailing" constant="10" id="GBN-YQ-J27"/>
+                            <constraint firstItem="U2r-6r-70N" firstAttribute="top" secondItem="hcV-TS-YIM" secondAttribute="bottom" constant="10" id="Ke0-r0-yWh"/>
                             <constraint firstItem="DUa-LL-Ftw" firstAttribute="trailing" secondItem="nXd-Lt-BXa" secondAttribute="trailing" constant="20" id="TIi-wL-rUu"/>
                             <constraint firstItem="nXd-Lt-BXa" firstAttribute="centerY" secondItem="nlx-4z-qmi" secondAttribute="centerY" id="bA0-yw-qOq"/>
+                            <constraint firstItem="DUa-LL-Ftw" firstAttribute="trailing" secondItem="hcV-TS-YIM" secondAttribute="trailing" constant="10" id="fEc-YH-iYj"/>
                             <constraint firstItem="DUa-LL-Ftw" firstAttribute="bottom" secondItem="U2r-6r-70N" secondAttribute="bottom" constant="25" id="fUi-Tc-2ta"/>
                             <constraint firstItem="Nle-DT-mOv" firstAttribute="top" secondItem="DUa-LL-Ftw" secondAttribute="top" constant="20" id="fdY-rA-DMc"/>
+                            <constraint firstItem="maK-uC-Kfw" firstAttribute="top" secondItem="DUa-LL-Ftw" secondAttribute="top" constant="22" id="gZc-w2-SbW"/>
+                            <constraint firstItem="hcV-TS-YIM" firstAttribute="leading" secondItem="DUa-LL-Ftw" secondAttribute="leading" constant="20" id="ol1-iw-eWg"/>
                             <constraint firstItem="DUa-LL-Ftw" firstAttribute="trailing" secondItem="b7f-cW-o4c" secondAttribute="trailing" constant="15" id="tFw-cK-WhS"/>
                             <constraint firstItem="b7f-cW-o4c" firstAttribute="top" secondItem="DUa-LL-Ftw" secondAttribute="top" constant="20" id="xhl-R8-xbD"/>
                         </constraints>
@@ -685,7 +709,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Uv-1A-9fh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6447" y="1584"/>
+            <point key="canvasLocation" x="6445.6000000000004" y="1583.6581709145428"/>
         </scene>
         <!--Offer Validate Done View Controller-->
         <scene sceneID="9RO-QW-se5">
@@ -1999,6 +2023,7 @@
         <image name="User" width="170.5" height="170.5"/>
         <image name="back_black" width="170.5" height="170.5"/>
         <image name="back_white" width="170.5" height="170.5"/>
+        <image name="correct" width="85" height="85"/>
         <image name="correct" width="85" height="85"/>
         <image name="logo" width="453" height="131"/>
         <image name="nibm-logo" width="333" height="91"/>

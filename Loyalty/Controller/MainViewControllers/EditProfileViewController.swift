@@ -209,6 +209,7 @@ extension EditProfileViewController: FirebaseActions {
     func onUpdateProfileSuccess(user: User) {
         SKToast.show(withMessage: "Details updated successfully.")
         progressHUD.dismissProgressHUD()
+        SessionManager.saveUserSession(user)
     }
     func onUpdateProfileFailedWithError(error: Error) {
         progressHUD.dismissProgressHUD()

@@ -12,10 +12,12 @@ import Kingfisher
 class CategoryCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var imgLogo: UIImageView!
+    @IBOutlet weak var lblCategory: UILabel!
     
-    func configure(imageUrl: String?) {
+    func configure(imageUrl: String?, categoryName: String) {
         if let url = imageUrl {
             imgLogo.kf.setImage(with: URL(string: url))
         }
+        lblCategory.text = categoryName
     }
 }

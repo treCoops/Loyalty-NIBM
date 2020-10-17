@@ -12,6 +12,7 @@ import Kingfisher
 class FeaturedCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var imgLogo: UIImageView!
+    @IBOutlet weak var lblCategory: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -29,6 +30,7 @@ class FeaturedCollectionViewCell: UICollectionViewCell {
         if let url = Data.coverImage {
             imgLogo.kf.setImage(with: URL(string: url))
         }
+        lblCategory.text = Data.categoryName
     }
 
 }

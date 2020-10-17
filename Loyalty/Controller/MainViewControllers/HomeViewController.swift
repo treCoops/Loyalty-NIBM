@@ -28,12 +28,11 @@ class HomeViewController: UIViewController {
     var isOffersLoaded = false
     var isCategoriesLoaded = false
     
-    var selectedCategoryIndex: Int = 0
+    var selectedIndex: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        imgProfilePic.squareImageView()
         viewSearchParent.roundView()
         
         registerNib()
@@ -66,7 +65,12 @@ class HomeViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Seagus.HomeToSingleCategory {
             let destVC = segue.destination as! SingleCategoryViewController
-            destVC.category = categories[selectedCategoryIndex]
+            destVC.category = categories[selectedIndex]
+        }
+        
+        if segue.identifier == Seagus.HomeToViewOffer {
+            let destVC = segue.destination as! OfferViewController
+            destVC.offer = offers[selectedIndex]
         }
     }
 }
@@ -199,7 +203,7 @@ extension HomeViewController : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        performSegue(withIdentifier: Seagus.HomeToViewOffer, sender: nil)
     }
 }
 
@@ -228,7 +232,7 @@ extension HomeViewController : UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        selectedCategoryIndex = indexPath.row
+        selectedIndex = indexPath.row
         performSegue(withIdentifier: Seagus.HomeToSingleCategory, sender: nil)
     }
     

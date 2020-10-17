@@ -149,7 +149,7 @@ extension ViewAllCategoriesViewController: UICollectionViewDataSource, UICollect
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: XIBIdentifier.FeaturedCollectionViewCell, for: indexPath) as? CategoryCollectionViewCell {
-            cell.configure(imageUrl: categories[indexPath.row].coverImage)
+            cell.configure(imageUrl: categories[indexPath.row].coverImage, categoryName: categories[indexPath.row].categoryName ?? "")
             return cell
         }
         

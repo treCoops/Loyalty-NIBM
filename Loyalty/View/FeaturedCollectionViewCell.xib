@@ -5,6 +5,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -17,35 +18,69 @@
                 <rect key="frame" x="0.0" y="0.0" width="65" height="65"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Nike" translatesAutoresizingMaskIntoConstraints="NO" id="X6R-pq-JsC">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eYH-cL-0rL">
                         <rect key="frame" x="0.0" y="0.0" width="65" height="65"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Nike" translatesAutoresizingMaskIntoConstraints="NO" id="X6R-pq-JsC">
+                                <rect key="frame" x="0.0" y="0.0" width="65" height="65"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="65" id="IiV-eX-0nM"/>
+                                    <constraint firstAttribute="width" constant="65" id="Qj1-ka-fbd"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NW5-lA-TXV">
+                                <rect key="frame" x="0.0" y="0.0" width="65" height="65"/>
+                                <color key="backgroundColor" red="0.1803921568627451" green="0.1803921568627451" blue="0.1803921568627451" alpha="0.70148758561643831" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="8"/>
+                                <color key="textColor" systemColor="systemBackgroundColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                        </subviews>
                         <constraints>
-                            <constraint firstAttribute="width" constant="65" id="42H-HZ-tkH"/>
-                            <constraint firstAttribute="height" constant="65" id="Ajf-fs-IFI"/>
+                            <constraint firstItem="X6R-pq-JsC" firstAttribute="leading" secondItem="eYH-cL-0rL" secondAttribute="leading" id="AUo-Bn-cTA"/>
+                            <constraint firstItem="NW5-lA-TXV" firstAttribute="top" secondItem="eYH-cL-0rL" secondAttribute="top" id="H8J-WO-Nq5"/>
+                            <constraint firstAttribute="width" constant="65" id="QY9-Mm-b25"/>
+                            <constraint firstAttribute="trailing" secondItem="X6R-pq-JsC" secondAttribute="trailing" id="XfQ-sO-ixJ"/>
+                            <constraint firstAttribute="height" constant="65" id="ZEn-Jf-RTd"/>
+                            <constraint firstItem="NW5-lA-TXV" firstAttribute="leading" secondItem="eYH-cL-0rL" secondAttribute="leading" id="cTc-c5-Qm2"/>
+                            <constraint firstAttribute="bottom" secondItem="NW5-lA-TXV" secondAttribute="bottom" id="pp4-2V-PaP"/>
+                            <constraint firstAttribute="bottom" secondItem="X6R-pq-JsC" secondAttribute="bottom" id="u1P-QW-Z3l"/>
+                            <constraint firstItem="X6R-pq-JsC" firstAttribute="top" secondItem="eYH-cL-0rL" secondAttribute="top" id="v5I-6K-ASl"/>
+                            <constraint firstAttribute="trailing" secondItem="NW5-lA-TXV" secondAttribute="trailing" id="vbJ-Xq-7WU"/>
                         </constraints>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                <integer key="value" value="5"/>
-                            </userDefinedRuntimeAttribute>
-                        </userDefinedRuntimeAttributes>
-                    </imageView>
+                    </view>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
-                <constraint firstItem="X6R-pq-JsC" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="WCY-uK-fzV"/>
-                <constraint firstItem="X6R-pq-JsC" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="glq-Cy-30s"/>
-                <constraint firstAttribute="bottom" secondItem="X6R-pq-JsC" secondAttribute="bottom" id="u8p-MG-0fl"/>
-                <constraint firstAttribute="trailing" secondItem="X6R-pq-JsC" secondAttribute="trailing" id="w6K-Qz-UP5"/>
+                <constraint firstAttribute="bottom" secondItem="eYH-cL-0rL" secondAttribute="bottom" id="0gP-l6-3bT"/>
+                <constraint firstAttribute="trailing" secondItem="eYH-cL-0rL" secondAttribute="trailing" id="1wz-aO-al5"/>
+                <constraint firstItem="eYH-cL-0rL" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="GR5-wj-hmR"/>
+                <constraint firstItem="eYH-cL-0rL" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="e1T-pR-koh"/>
             </constraints>
             <size key="customSize" width="86" height="74"/>
             <connections>
                 <outlet property="imgLogo" destination="X6R-pq-JsC" id="c7f-16-aMC"/>
+                <outlet property="lblCategory" destination="NW5-lA-TXV" id="13i-ju-1au"/>
             </connections>
-            <point key="canvasLocation" x="163.04347826086959" y="134.93303571428569"/>
+            <point key="canvasLocation" x="163.04347826086959" y="134.26339285714286"/>
         </collectionViewCell>
     </objects>
     <resources>
         <image name="Nike" width="190" height="196"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

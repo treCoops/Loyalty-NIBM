@@ -401,21 +401,21 @@
 		EFE3471325357F6B009C83C5 /* MainViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				2663E3A3252E03CC004C8B13 /* SignInViewController.swift */,
 				2663E3D0252E070B004C8B13 /* LaunchScreenViewController.swift */,
+				2663E3A3252E03CC004C8B13 /* SignInViewController.swift */,
 				26D12302252EBD2F002028D3 /* SignUpOneViewController.swift */,
 				26D12304252EC621002028D3 /* SignUpTwoViewController.swift */,
 				26D1230A252EE3D9002028D3 /* ResetPasswordViewController.swift */,
-				26D12315252F05F0002028D3 /* HistoryViewController.swift */,
-				26D12317252F12CA002028D3 /* SearchViewController.swift */,
 				26D1231F252F1A03002028D3 /* HomeViewController.swift */,
-				26D1232F252F3C5F002028D3 /* VendorViewController.swift */,
-				26D12337252F4415002028D3 /* OfferViewController.swift */,
+				26D12317252F12CA002028D3 /* SearchViewController.swift */,
 				EF56FCA2253764F000996B07 /* ViewAllCategoriesViewController.swift */,
 				EF56FCAF25379AC300996B07 /* SingleCategoryViewController.swift */,
-				EF56FCC125397D6B00996B07 /* EditProfileViewController.swift */,
-				EF56FCCE25398A2F00996B07 /* ScanQRViewController.swift */,
+				26D1232F252F3C5F002028D3 /* VendorViewController.swift */,
+				26D12337252F4415002028D3 /* OfferViewController.swift */,
 				26D12339252F47A9002028D3 /* OfferValidateDoneViewController.swift */,
+				EF56FCC125397D6B00996B07 /* EditProfileViewController.swift */,
+				26D12315252F05F0002028D3 /* HistoryViewController.swift */,
+				EF56FCCE25398A2F00996B07 /* ScanQRViewController.swift */,
 			);
 			path = MainViewControllers;
 			sourceTree = "<group>";

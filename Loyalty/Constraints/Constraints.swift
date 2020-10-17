@@ -32,6 +32,7 @@ struct Seagus {
     static var ViewOfferToValidationError = "ViewOfferToValidationError"
     static var ScanQRToViewOffer = "ScanQRToViewOffer"
     static var ViewOfferToScanQR = "ViewOfferToScanQR"
+    static var HomeToViewOffer = "HomeToViewOffer"
 }
 
 //Names of the XIB Files

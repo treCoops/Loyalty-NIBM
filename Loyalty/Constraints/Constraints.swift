@@ -63,11 +63,15 @@ struct FieldErrorCaptions {
     static let txtPassErrCaption = "Password length should be 6-20"
     static let txtConfirmPassErrCaption = "Passwords don't match"
     
+    static let currentPasswordErrCaption = "Current password does not match"
+    
     static let searchFieldIsEmptyErrCaption = "Search field is empty"
     
     static let generalizeErrCaption = "Oops! Something went wrong!"
     static let userCreationrrCaption = "Unable to create new user!"
     static let userAlreadyExistsErrCaption = "A user with the same NIC has already registered with the system!"
+    
+    static let updateUserDetailsFailedErrCaption = "Failed to update user details"
     
     static let categoryLoadFailedErrCaption = "Unable to load categories"
     static let categoryDataIsEmpty = "No categories found"
@@ -90,6 +94,8 @@ struct FieldErrorCaptions {
     
     static let noConnectionTitle = "No connection"
     static let noConnectionMessage = "The app requires a working internet connection please check your connection settings."
+    
+    static let signOutMessage = "You are about to sign out from the application. You are required to sign in again once you signed out."
 }
 
 //NIBM API authentication credentials and URL info

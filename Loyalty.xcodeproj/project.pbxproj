@@ -61,6 +61,8 @@
 		EF56FCBA2538C00000996B07 /* SearchResultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF56FCB82538C00000996B07 /* SearchResultTableViewCell.xib */; };
 		EF56FCC225397D6B00996B07 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF56FCC125397D6B00996B07 /* EditProfileViewController.swift */; };
 		EF56FCCF25398A2F00996B07 /* ScanQRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF56FCCE25398A2F00996B07 /* ScanQRViewController.swift */; };
+		EF87D506253A51B90059940B /* unlock.json in Resources */ = {isa = PBXBuildFile; fileRef = EF87D505253A51B80059940B /* unlock.json */; };
+		EFD96554253A41E20083DEFE /* success.json in Resources */ = {isa = PBXBuildFile; fileRef = EFD96553253A41E20083DEFE /* success.json */; };
 		EFE3454E2531F432009C83C5 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE3454D2531F432009C83C5 /* Models.swift */; };
 		EFE3460F2532034C009C83C5 /* ProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE3460E2532034C009C83C5 /* ProgressHUD.swift */; };
 		EFE346142532037C009C83C5 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE346132532037C009C83C5 /* SessionManager.swift */; };
@@ -160,6 +162,8 @@
 		EF56FCC125397D6B00996B07 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		EF56FCCE25398A2F00996B07 /* ScanQRViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanQRViewController.swift; sourceTree = "<group>"; };
 		EF56FCF22539916600996B07 /* iCimulator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = iCimulator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF87D505253A51B80059940B /* unlock.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = unlock.json; sourceTree = "<group>"; };
+		EFD96553253A41E20083DEFE /* success.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = success.json; sourceTree = "<group>"; };
 		EFE3454D2531F432009C83C5 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		EFE3460E2532034C009C83C5 /* ProgressHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHUD.swift; sourceTree = "<group>"; };
 		EFE346132532037C009C83C5 /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
@@ -238,6 +242,7 @@
 				2663E39F252E03CC004C8B13 /* AppDelegate.swift */,
 				2663E3A1252E03CC004C8B13 /* SceneDelegate.swift */,
 				2663E3A8252E03CD004C8B13 /* Assets.xcassets */,
+				EFD96552253A41C40083DEFE /* Animations */,
 				2663E3AD252E03CD004C8B13 /* Info.plist */,
 				EF12209E2531EC9F007089DB /* GoogleService-Info.plist */,
 			);
@@ -272,7 +277,6 @@
 				26D12325252F22F4002028D3 /* XIBFeatured.swift */,
 				26D1232D252F2ED0002028D3 /* XIBOffer.swift */,
 				26D12335252F3FE9002028D3 /* XIBVendorOffer.swift */,
-				26D12339252F47A9002028D3 /* OfferValidateDoneViewController.swift */,
 				26D1233B252F47C2002028D3 /* OfferValidateErrorViewController.swift */,
 				26D1233D252F47D9002028D3 /* OfferValidateQuestionViewController.swift */,
 			);
@@ -346,6 +350,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		EFD96552253A41C40083DEFE /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				EF87D505253A51B80059940B /* unlock.json */,
+				EFD96553253A41E20083DEFE /* success.json */,
+			);
+			path = Animations;
+			sourceTree = "<group>";
+		};
 		EFE3460C25320296009C83C5 /* Constraints */ = {
 			isa = PBXGroup;
 			children = (
@@ -402,6 +415,7 @@
 				EF56FCAF25379AC300996B07 /* SingleCategoryViewController.swift */,
 				EF56FCC125397D6B00996B07 /* EditProfileViewController.swift */,
 				EF56FCCE25398A2F00996B07 /* ScanQRViewController.swift */,
+				26D12339252F47A9002028D3 /* OfferValidateDoneViewController.swift */,
 			);
 			path = MainViewControllers;
 			sourceTree = "<group>";
@@ -527,9 +541,11 @@
 				26D1231C252F149E002028D3 /* PromotionTableViewCell.xib in Resources */,
 				2663E3AC252E03CD004C8B13 /* LaunchScreen.storyboard in Resources */,
 				EF12209F2531EC9F007089DB /* GoogleService-Info.plist in Resources */,
+				EF87D506253A51B90059940B /* unlock.json in Resources */,
 				26D12324252F20F6002028D3 /* FeaturedCollectionViewCell.xib in Resources */,
 				26D1232C252F2A43002028D3 /* OfferTableViewCell.xib in Resources */,
 				2663E3A9252E03CD004C8B13 /* Assets.xcassets in Resources */,
+				EFD96554253A41E20083DEFE /* success.json in Resources */,
 				EF56FCBA2538C00000996B07 /* SearchResultTableViewCell.xib in Resources */,
 				26D1230F252EFC80002028D3 /* HistoryTableViewCell.xib in Resources */,
 				26D12334252F3E5E002028D3 /* VendorTableViewCell.xib in Resources */,

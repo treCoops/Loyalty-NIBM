@@ -12,6 +12,7 @@ import AVFoundation
 class ScanQRViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     var captureSession: AVCaptureSession!
     var previewLayer: AVCaptureVideoPreviewLayer!
+    var popupAlerts = PopupAlerts.instance
     
     //Set recognized types to QR codes
     var supportedBarcodeTypes: [AVMetadataObject.ObjectType] = [.qr]
@@ -81,7 +82,7 @@ extension ScanQRViewController {
                 self.offer = offer
             })
         } else {
-            PopupAlerts.instance.createAlert(title: FieldErrorCaptions.scannerOfferNotValidTitle, message: FieldErrorCaptions.scannerOfferNotValidDescription).addAction(title: "OK", handler: {_ in})
+            self.present(self.popupAlerts.createAlert(title: FieldErrorCaptions.scannerOfferNotValidTitle, message: FieldErrorCaptions.scannerOfferNotValidDescription).addDefaultAction(title: "OK").displayAlert(), animated: true)
         }
     }
     //setup camera HW inorder to start capturing QR codes

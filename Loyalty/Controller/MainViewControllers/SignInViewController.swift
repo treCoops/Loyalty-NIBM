@@ -32,6 +32,10 @@ class SignInViewController: UIViewController {
     override func viewDidDisappear(_ animated: Bool) {
         firebaseOP.stopAllOperations()
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        networkChecker.delegate = self
+    }
 }
 
 //MARK: - InterfaceBuilder Actions

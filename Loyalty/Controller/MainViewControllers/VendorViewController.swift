@@ -149,9 +149,11 @@ extension VendorViewController: FirebaseActions {
         self.getOfferList()
     }
     func onOffersLoadFailedWithError(error: Error) {
+        refreshControl.endRefreshing()
         SKToast.show(withMessage: error.localizedDescription)
     }
     func onOffersLoadFailedWithError(error: String) {
+        refreshControl.endRefreshing()
         SKToast.show(withMessage: error)
     }
 }

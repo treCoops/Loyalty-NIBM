@@ -7,15 +7,19 @@
 //
 
 import UIKit
+import Lottie
 
 class ResetPasswordViewController: UIViewController {
     @IBOutlet weak var viewParent: UIView!
+    @IBOutlet weak var lottieView: AnimationView!
+    @IBOutlet weak var txtEmail: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         viewParent.roundView()
-
+        lottieView.loopMode = .loop
+        lottieView.play()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -23,5 +27,7 @@ class ResetPasswordViewController: UIViewController {
     }
     
 
-
+    @IBAction func resetPressed(_ sender: UIButton) {
+    }
+    
 }

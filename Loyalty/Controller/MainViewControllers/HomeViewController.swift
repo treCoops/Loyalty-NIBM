@@ -137,10 +137,12 @@ extension HomeViewController: FirebaseActions {
     }
     
     func onOffersLoadFailedWithError(error: Error) {
+        progressHUD.dismissProgressHUD()
         SKToast.show(withMessage: error.localizedDescription)
     }
     
     func onOffersLoadFailedWithError(error: String) {
+        progressHUD.dismissProgressHUD()
         SKToast.show(withMessage: error)
     }
     func onCategoriesLoaded() {
@@ -158,10 +160,12 @@ extension HomeViewController: FirebaseActions {
     }
     
     func onCategoriesLoadFailedWithError(error: Error) {
+        progressHUD.dismissProgressHUD()
         SKToast.show(withMessage: error.localizedDescription)
     }
     
     func onCategoriesLoadFailedWithError(error: String) {
+        progressHUD.dismissProgressHUD()
         SKToast.show(withMessage: error)
     }
 }

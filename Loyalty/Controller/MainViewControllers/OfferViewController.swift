@@ -58,6 +58,12 @@ class OfferViewController: UIViewController {
                 }
             }
         }
+        
+        if segue.identifier == Seagus.ViewOfferToValidationDone {
+            let destVC = segue.destination as! OfferValidateDoneViewController
+            destVC.user = user
+            destVC.offer = offer
+        }
     }
 }
 
@@ -127,19 +133,25 @@ extension OfferViewController: FirebaseActions {
         }
     }
     func onElegililityRecievedFailedWithError(error: Error) {
+        progressHUD.dismissProgressHUD()
         SKToast.show(withMessage: error.localizedDescription)
     }
     func onElegililityRecievedFailedWithError(error: String) {
+        progressHUD.dismissProgressHUD()
         SKToast.show(withMessage: error)
     }
     
     func onClaimOfferSuccess() {
+        progressHUD.dismissProgressHUD()
         btnGetOffer.isHidden = true
+        self.performSegue(withIdentifier: Seagus.ViewOfferToValidationDone, sender: nil)
     }
     func onClaimOfferFailedWithError(error: Error) {
+        progressHUD.dismissProgressHUD()
         SKToast.show(withMessage: error.localizedDescription)
     }
     func onClaimOfferFailedWithError(error: String) {
+        progressHUD.dismissProgressHUD()
         SKToast.show(withMessage: error)
     }
 }

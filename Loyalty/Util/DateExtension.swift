@@ -29,4 +29,10 @@ extension Date {
         dateFormatter.dateFormat = "MM-dd-yyyy"
         return dateFormatter.string(from: Date(timeIntervalSince1970: (Double(dateInMills) / 1000.0)))
     }
+    
+    func getCurrentDate() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM-dd-yyyy"
+        return dateFormatter.string(from: Date())
+    }
 }

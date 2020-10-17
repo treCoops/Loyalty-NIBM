@@ -198,6 +198,8 @@ extension SignUpTwoViewController : FirebaseActions {
     }
 }
 
+//MARK: - Network listener delegates
+
 extension SignUpTwoViewController: NetworkListener {
     func onNetworkChanged(connected: Bool, onMobileData: Bool) {
         DispatchQueue.main.async {

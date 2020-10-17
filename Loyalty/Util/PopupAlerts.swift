@@ -35,6 +35,12 @@ class PopupAlerts {
         return self
     }
     
+    //Add an default action button (cancel) to the alertview
+    func addDefaultAction(title: String) -> Self {
+        self.alert.addAction(UIAlertAction(title: title, style: .cancel, handler: nil))
+        return self
+    }
+    
     //Returns and display the alert
     func displayAlert() -> UIAlertController {
         return self.alert

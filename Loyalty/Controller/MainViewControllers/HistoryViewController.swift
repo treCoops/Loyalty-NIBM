@@ -99,9 +99,11 @@ extension HistoryViewController: FirebaseActions {
         }
     }
     func onClaimedOffersLoadFailedWithError(error: String) {
+        progressHUD.dismissProgressHUD()
         SKToast.show(withMessage: error)
     }
     func onClaimedOffersLoadFailedWithError(error: Error) {
+        progressHUD.dismissProgressHUD()
         SKToast.show(withMessage: error.localizedDescription)
     }
 }

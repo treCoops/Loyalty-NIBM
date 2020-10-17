@@ -46,6 +46,7 @@ class FirebaseOP {
         Operations :-
             User SignIn
             User SignUp
+            Reset passowrd
             Check existing user
             Default user authentication
             Setup user authentication
@@ -238,6 +239,62 @@ class FirebaseOP {
         }
     }
     
+    //Update existing user details
+    func updateUser(user: User, updateEmail: Bool, profileImage: UIImage? = nil) {
+        if updateEmail {
+            Auth.auth().currentUser?.updateEmail(to: user.email!) { (error) in
+                if let error = error {
+                    NSLog("Update email authentication failed \(error)")
+                    self.delegate?.onUpdateProfileFailedWithError(error: error)
+                }
+            }
+        }
+        
+        let ref = self.getDBReference()
+        
+        //Creating a user DICTIONARY object to store in DB
+        var data = [
+            "name": user.name!,
+            "studentID": user.studentID!,
+            "mobile": user.mobile!,
+            "nic": user.nic!,
+            "joinedDate": user.joinedDate!,
+            "email": user.email!,
+            "password": user.password!,
+            "profileImage": user.profileImage!,
+            "status": user.status!,
+            "timeStamp": Date().currentTimeMillis()
+        ] as [String : Any]
+        
+        //If the image is not updated
+        if profileImage == nil {
+            //Saving user node in DB
+            ref.child("students").child(user.nic!).setValue(data) {
+                (error:Error?, ref:DatabaseReference) in
+                if let error = error {
+                    self.delegate?.onUpdateProfileFailedWithError(error: FieldErrorCaptions.updateUserDetailsFailedErrCaption)
+                    NSLog(error.localizedDescription)
+                } else {
+                    self.delegate?.onUpdateProfileSuccess(user: user)
+                }
+            }
+        } else {
+            self.uploadProfileImage(image: profileImage, studentID: user.studentID!, completion: {
+                url in
+                data["profileImage"] = url
+                ref.child("students").child(user.nic!).setValue(data) {
+                    (error:Error?, ref:DatabaseReference) in
+                    if let error = error {
+                        self.delegate?.onUpdateProfileFailedWithError(error: FieldErrorCaptions.updateUserDetailsFailedErrCaption)
+                        NSLog(error.localizedDescription)
+                    } else {
+                        self.delegate?.onUpdateProfileSuccess(user: user)
+                    }
+                }
+            })
+        }
+    }
+    
     //Method which uploads a imageFile (Profile Image) of user while compressing it by 50%
     fileprivate func uploadProfileImage(image: UIImage?, studentID : String, completion: @escaping (String) -> Void) {
         //0.5 = compression quality
@@ -253,7 +310,7 @@ class FirebaseOP {
                 //retrieve the downloadURL
                 ref.child("studentProfile/").child(Auth.auth().currentUser?.uid ?? studentID).downloadURL(completion: {
                     (url,error) in
-                    
+
                     //fetching the download URL
                     //Remove all created credentials if failed
                     guard let downloadURL = url else {
@@ -272,6 +329,7 @@ class FirebaseOP {
                             print(error?.localizedDescription ?? "")
                         })
                         self.delegate?.isSignUpFailedWithError(error: FieldErrorCaptions.generalizeErrCaption)
+                        self.delegate?.onUpdateProfileFailedWithError(error: FieldErrorCaptions.updateUserDetailsFailedErrCaption)
                         return
                     }
                     
@@ -279,6 +337,14 @@ class FirebaseOP {
                 })
             }
         }
+        
+    }
+    
+    /**
+        =========Yet to be implemented========
+        Reset the password of the user
+     */
+    func requestPasswordReset(studentID: String) {
         
     }
     
@@ -572,6 +638,10 @@ protocol FirebaseActions {
     func onClaimOfferFailedWithError(error: String)
     func onClaimOfferFailedWithError(error: Error)
     
+    func onUpdateProfileSuccess(user: User)
+    func onUpdateProfileFailedWithError(error: String)
+    func onUpdateProfileFailedWithError(error: Error)
+    
     func onOperationsCancelled()
 }
 
@@ -611,6 +681,10 @@ extension FirebaseActions {
     func onClaimOfferSuccess(){}
     func onClaimOfferFailedWithError(error: String){}
     func onClaimOfferFailedWithError(error: Error){}
+    
+    func onUpdateProfileSuccess(user: User){}
+    func onUpdateProfileFailedWithError(error: String){}
+    func onUpdateProfileFailedWithError(error: Error){}
     
     func onOperationsCancelled(){}
 }

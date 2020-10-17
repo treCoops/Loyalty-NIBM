@@ -108,6 +108,8 @@ extension SignUpOneViewController: UITextFieldDelegate {
     }
 }
 
+//MARK: - Network listener delegates
+
 extension SignUpOneViewController: NetworkListener {
     func onNetworkChanged(connected: Bool, onMobileData: Bool) {
         DispatchQueue.main.async {

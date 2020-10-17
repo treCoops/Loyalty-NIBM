@@ -59,6 +59,8 @@ class SingleCategoryViewController: UIViewController {
     }
 }
 
+//MARK: - Interface actions
+
 extension SingleCategoryViewController {
     @IBAction func backPressed(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
@@ -68,6 +70,8 @@ extension SingleCategoryViewController {
         
     }
 }
+
+//MARK: - Inclass methods
 
 extension SingleCategoryViewController {
     func getVendorList() {
@@ -144,6 +148,8 @@ extension SingleCategoryViewController: UISearchBarDelegate {
     }
 }
 
+//MARK: - TableView delegates
+
 extension SingleCategoryViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return vendors.count
@@ -176,10 +182,12 @@ extension SingleCategoryViewController: FirebaseActions {
     }
     
     func onVendorsLoadFailedWithError(error: String) {
+        refreshControl.endRefreshing()
         SKToast.show(withMessage: error)
     }
     
     func onVendorsLoadFailedWithError(error: Error) {
+        refreshControl.endRefreshing()
         SKToast.show(withMessage: error.localizedDescription)
     }
 }

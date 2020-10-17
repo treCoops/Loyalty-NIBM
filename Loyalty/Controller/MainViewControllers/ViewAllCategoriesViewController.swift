@@ -206,10 +206,12 @@ extension ViewAllCategoriesViewController: FirebaseActions {
     
     //Displaying error messages
     func onCategoriesLoadFailedWithError(error: Error) {
+        self.refreshControl.endRefreshing()
         SKToast.show(withMessage: error.localizedDescription)
     }
     
     func onCategoriesLoadFailedWithError(error: String) {
+        self.refreshControl.endRefreshing()
         SKToast.show(withMessage: error)
     }
 }

@@ -50,17 +50,22 @@ class SearchViewController: UIViewController {
     }
 }
 
+//MARK: - Interface actions
+
 extension SearchViewController {
     @IBAction func backPressed(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
 }
 
+//MARK: - Inclass methods
+
 extension SearchViewController {
     func registerNIB(){
         tblPromotions.register(UINib(nibName: XIBIdentifier.XIB_SEARCH_RESULT, bundle: nil), forCellReuseIdentifier: XIBIdentifier.XIB_SEARCH_RESULT_CELL)
     }
     
+    //retrieve the list of vendors
     func getVendorList() {
         if let vendors = DataModelHelper.fetchVendors(vendorName: nil) {
             self.vendors = vendors
@@ -70,6 +75,7 @@ extension SearchViewController {
         }
     }
     
+    //perform a search on vendprs
     func searchVendors(vendor: String){
         if let vendors = DataModelHelper.fetchVendors(vendorName: vendor) {
             self.vendors = vendors
@@ -162,10 +168,12 @@ extension SearchViewController: FirebaseActions {
     }
     
     func onVendorsLoadFailedWithError(error: String) {
+        refreshControl.endRefreshing()
         SKToast.show(withMessage: error)
     }
     
     func onVendorsLoadFailedWithError(error: Error) {
+        refreshControl.endRefreshing()
         SKToast.show(withMessage: error.localizedDescription)
     }
 }

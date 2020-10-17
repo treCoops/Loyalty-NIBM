@@ -234,9 +234,9 @@
 				EFE3460D253202C0009C83C5 /* Util */,
 				EFE3460C25320296009C83C5 /* Constraints */,
 				EFE347172536F30A009C83C5 /* DataModel */,
+				2663E3D3252E0983004C8B13 /* Helpers */,
 				26D12310252EFDC3002028D3 /* Model */,
 				2663E3D6252E1025004C8B13 /* UIClass */,
-				2663E3D3252E0983004C8B13 /* Helpers */,
 				2663E3D2252E0787004C8B13 /* View */,
 				2663E3CF252E0698004C8B13 /* Controller */,
 				2663E39F252E03CC004C8B13 /* AppDelegate.swift */,
@@ -301,6 +301,7 @@
 		2663E3D3252E0983004C8B13 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				EF56FC9D25371A4500996B07 /* DataModelHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -424,7 +425,6 @@
 			isa = PBXGroup;
 			children = (
 				EFE347182536F341009C83C5 /* DataModel.xcdatamodeld */,
-				EF56FC9D25371A4500996B07 /* DataModelHelper.swift */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";

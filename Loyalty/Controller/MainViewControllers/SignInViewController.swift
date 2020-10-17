@@ -63,11 +63,11 @@ extension SignInViewController {
         //Validate the entered nic with NIBM
         UserValidator.validateUser(txtNIC.text!, completion: {
             result in
-            self.progressHUD.dismissProgressHUD()
             if result == "true" {
                 NSLog("NIC matched with NIBM records")
                 self.firebaseOP.signInUser(nic: self.txtNIC.text?.uppercased() ?? "", password: self.txtPassword.text ?? "")
             } else {
+                self.progressHUD.dismissProgressHUD()
                 NSLog("NIC not found on NIBM records")
                 SKToast.show(withMessage: "Entered NIC not registered with NIBM")
             }

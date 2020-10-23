@@ -74,6 +74,7 @@ extension SignUpOneViewController {
                 self.performSegue(withIdentifier: Seagus.signUpOneToSignUpTwo, sender: nil)
             } else {
                 NSLog("NIC not found on NIBM records")
+                self.performSegue(withIdentifier: Seagus.SignUpOneToNotRegistered, sender: nil)
                 SKToast.show(withMessage: "Entered NIC not registered with NIBM")
             }
         })

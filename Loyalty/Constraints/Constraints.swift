@@ -33,6 +33,7 @@ struct Seagus {
     static var ScanQRToViewOffer = "ScanQRToViewOffer"
     static var ViewOfferToScanQR = "ViewOfferToScanQR"
     static var HomeToViewOffer = "HomeToViewOffer"
+    static var SignUpOneToNotRegistered = "SignUpOneToNotRegistered"
 }
 
 //Names of the XIB Files

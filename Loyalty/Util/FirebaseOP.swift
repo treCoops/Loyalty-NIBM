@@ -242,11 +242,24 @@ class FirebaseOP {
     //Update existing user details
     func updateUser(user: User, updateEmail: Bool, profileImage: UIImage? = nil) {
         if updateEmail {
-            Auth.auth().currentUser?.updateEmail(to: user.email!) { (error) in
-                if let error = error {
-                    NSLog("Update email authentication failed \(error)")
-                    self.delegate?.onUpdateProfileFailedWithError(error: error)
-                }
+            let currentSession = SessionManager.getUserSesion()
+            if let currentEmail = currentSession?.email, let currentPass = currentSession?.password {
+                //Since the updating email requires a fresh login to the application the user will be signed in
+                //to the application with the last saved credentials (email and password)
+                Auth.auth().signIn(withEmail: currentEmail, password: currentPass, completion: {
+                    result, error in
+                    if let error = error {
+                        NSLog("Authentication failed when try to login to account \(error.localizedDescription)")
+                        self.delegate?.onUpdateProfileFailedWithError(error: FieldErrorCaptions.updateUserDetailsFailedErrCaption)
+                    } else {
+                        Auth.auth().currentUser?.updateEmail(to: user.email!) { (error) in
+                            if let error = error {
+                                NSLog("Update email authentication failed \(error)")
+                                self.delegate?.onUpdateProfileFailedWithError(error: FieldErrorCaptions.updateUserDetailsFailedErrCaption)
+                            }
+                        }
+                    }
+                })
             }
         }
         

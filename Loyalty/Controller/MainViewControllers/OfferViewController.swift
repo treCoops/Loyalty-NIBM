@@ -27,6 +27,7 @@ class OfferViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         btnGetOffer.isHidden = true
+        btnGetOffer.isEnabled = false
         progressHUD = ProgressHUD(view: view)
         networkChecker.delegate = self
         firebaseOP.delegate = self
@@ -128,8 +129,14 @@ extension OfferViewController: NetworkListener {
 extension OfferViewController: FirebaseActions {
     func onElegililityRecieved(status: Bool) {
         progressHUD.dismissProgressHUD()
+        btnGetOffer.isHidden = false
         if status {
-            btnGetOffer.isHidden = false
+            btnGetOffer.isEnabled = true
+            btnGetOffer.backgroundColor = #colorLiteral(red: 0.9190844893, green: 0.6535602212, blue: 0, alpha: 1)
+        } else {
+            btnGetOffer.setTitle("Offer already claimed", for: .disabled)
+            btnGetOffer.isEnabled = false
+            btnGetOffer.backgroundColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
         }
     }
     func onElegililityRecievedFailedWithError(error: Error) {
@@ -143,7 +150,9 @@ extension OfferViewController: FirebaseActions {
     
     func onClaimOfferSuccess() {
         progressHUD.dismissProgressHUD()
-        btnGetOffer.isHidden = true
+        btnGetOffer.setTitle("Offer already claimed", for: .disabled)
+        btnGetOffer.isEnabled = false
+        btnGetOffer.backgroundColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
         self.performSegue(withIdentifier: Seagus.ViewOfferToValidationDone, sender: nil)
     }
     func onClaimOfferFailedWithError(error: Error) {

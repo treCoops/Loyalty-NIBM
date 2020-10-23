@@ -38,6 +38,7 @@ class OfferValidateDoneViewController: UIViewController {
         viewHeading.layer.cornerRadius = 10
         viewHeading.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
         
+        lottieView.contentMode = .scaleToFill
         lottieView.loopMode = .loop
         lottieView.play()
         

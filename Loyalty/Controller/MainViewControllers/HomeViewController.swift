@@ -30,21 +30,24 @@ class HomeViewController: UIViewController {
     
     var selectedIndex: Int = 0
     
+    var isTriggeredFromQR = false
+    var capturedOffer: Offer?
+        
     override func viewDidLoad() {
         super.viewDidLoad()
 
         viewSearchParent.roundView()
         
         registerNib()
-        
-        networkChecker.delegate = self
-        firebaseOP.delegate = self
         progressHUD = ProgressHUD(view: view)
         
         if !networkChecker.isReachable {
             displayConnectionLostAlert()
             return
         }
+        
+        networkChecker.delegate = self
+        firebaseOP.delegate = self
         
         //Set gesture recognizers(Tap events) for both profileImage and searchVar
         setupGestureRecognizers()
@@ -56,6 +59,7 @@ class HomeViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         networkChecker.delegate = self
+        firebaseOP.delegate = self
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -70,8 +74,20 @@ class HomeViewController: UIViewController {
         
         if segue.identifier == Seagus.HomeToViewOffer {
             let destVC = segue.destination as! OfferViewController
-            destVC.offer = offers[selectedIndex]
+            if isTriggeredFromQR {
+                destVC.offer = capturedOffer
+            } else {
+                destVC.offer = offers[selectedIndex]
+            }
         }
+        
+        if segue.identifier == Seagus.HomeToScanQR {
+            let destVC = segue.destination as! ScanQRViewController
+            destVC.delegate = self
+        }
+    }
+    @IBAction func scanQRPressed(_ sender: UIButton) {
+        self.performSegue(withIdentifier: Seagus.HomeToScanQR, sender: nil)
     }
 }
 
@@ -174,6 +190,19 @@ extension HomeViewController: FirebaseActions {
     }
 }
 
+extension HomeViewController: QRResultDelegate {
+    func onQRInfoProcessed(offer: Offer?) {
+        if let offer = offer {
+            NSLog("Launching Offer")
+            isTriggeredFromQR = true
+            self.capturedOffer = offer
+            self.performSegue(withIdentifier: Seagus.HomeToViewOffer, sender: nil)
+        } else {
+            self.present(self.popupAlerts.createAlert(title: FieldErrorCaptions.scannerOfferNotValidTitle, message: FieldErrorCaptions.scannerOfferNotValidDescription).addDefaultAction(title: "OK").displayAlert(), animated: true)
+        }
+    }
+}
+
 extension HomeViewController: NetworkListener {
     func onNetworkChanged(connected: Bool, onMobileData: Bool) {
         DispatchQueue.main.async {
@@ -203,6 +232,7 @@ extension HomeViewController : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        isTriggeredFromQR = false
         selectedIndex = indexPath.row
         performSegue(withIdentifier: Seagus.HomeToViewOffer, sender: nil)
     }

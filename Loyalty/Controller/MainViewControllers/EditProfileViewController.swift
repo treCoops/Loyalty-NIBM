@@ -43,10 +43,10 @@ class EditProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.imagePicker = ImagePicker(presentationController: self, delegate: self)
-        loadData()
-        setTextDelegates()
         networkChecker.delegate = self
         firebaseOP.delegate = self
+        loadData()
+        setTextDelegates()
         progressHUD = ProgressHUD(view: view)
     }
     
@@ -56,6 +56,7 @@ class EditProfileViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         networkChecker.delegate = self
+        firebaseOP.delegate = self
         //set tap gesture for the UIImageView [UserInteraction should be enabled]
         let gesture = UITapGestureRecognizer(target: self, action:  #selector(self.onPickImageClicked))
         self.imgProfile.addGestureRecognizer(gesture)

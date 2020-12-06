@@ -26,6 +26,7 @@ struct Seagus {
     static var vendorToViewOffer = "vendorToViewOffer"
     static var HomeToSearch = "HomeToSearch"
     static var HomeToProfile = "HomeToProfile"
+    static var HomeToScanQR = "HomeToScanQR"
     static var HomeToSingleCategory = "HomeToSingleCategory"
     static var SearchToVendor = "SearchToVendor"
     static var ViewOfferToValidationDone = "ViewOfferToValidationDone"
@@ -52,7 +53,6 @@ struct XIBIdentifier {
     
     static var XIB_VENDOR_CELL = "ReuseableCellVendor"
     static var XIB_VENDOR = "VendorTableViewCell"
-    
 }
 
 //Captions for the Errors (Validation Errors, Response Errors)

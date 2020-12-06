@@ -32,16 +32,17 @@ class SingleCategoryViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        networkChecker.delegate = self
-        firebaseOP.delegate = self
         progressHUD = ProgressHUD(view: view)
         setUpRefreshControl()
         registerNib()
+        networkChecker.delegate = self
+        firebaseOP.delegate = self
         getVendorList()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         networkChecker.delegate = self
+        firebaseOP.delegate = self
     }
     
     override func viewDidDisappear(_ animated: Bool) {

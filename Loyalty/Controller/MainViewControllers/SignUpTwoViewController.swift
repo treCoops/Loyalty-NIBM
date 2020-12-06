@@ -38,13 +38,15 @@ class SignUpTwoViewController: UIViewController {
         super.viewDidLoad()
         viewParent.roundView()
         setTextFieldDelegates()
-        self.imagePicker = ImagePicker(presentationController: self, delegate: self)
-        firebaseOP.delegate = self
-        progressHUD = ProgressHUD(view: view)
         networkChecker.delegate = self
+        firebaseOP.delegate = self
+        self.imagePicker = ImagePicker(presentationController: self, delegate: self)
+        progressHUD = ProgressHUD(view: view)
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        firebaseOP.delegate = self
+        networkChecker.delegate = self
         txtName.text = user.name
         //set tap gesture for the UIImageView [UserInteraction should be enabled]
         let gesture = UITapGestureRecognizer(target: self, action:  #selector(self.onPickImageClicked))

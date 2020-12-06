@@ -28,15 +28,16 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         registerNIB()
+        progressHUD = ProgressHUD(view: view)
         networkChecker.delegate = self
         firebaseOP.delegate = self
-        progressHUD = ProgressHUD(view: view)
         setUpRefreshControl()
         getVendorList()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         networkChecker.delegate = self
+        firebaseOP.delegate = self
     }
     
     override func viewDidDisappear(_ animated: Bool) {

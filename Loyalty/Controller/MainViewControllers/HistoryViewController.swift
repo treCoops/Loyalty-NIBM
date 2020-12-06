@@ -24,14 +24,13 @@ class HistoryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         registerNib()
-        networkChecker.delegate = self
-        firebaseOP.delegate = self
         progressHUD = ProgressHUD(view: view)
         user = SessionManager.getUserSesion()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         networkChecker.delegate = self
+        firebaseOP.delegate = self
         loadClaimedOffers()
     }
     

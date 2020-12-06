@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -29,13 +29,13 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vendor Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T5B-dF-dqP">
-                                <rect key="frame" x="70" y="5" width="232" height="17"/>
+                                <rect key="frame" x="73" y="8" width="229" height="17"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vendor Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qwf-uV-AOT">
-                                <rect key="frame" x="70" y="27" width="232" height="15"/>
+                                <rect key="frame" x="73" y="30" width="229" height="15"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -44,12 +44,12 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Qwf-uV-AOT" firstAttribute="top" secondItem="T5B-dF-dqP" secondAttribute="bottom" constant="5" id="J1m-Jx-67m"/>
-                            <constraint firstItem="Qwf-uV-AOT" firstAttribute="leading" secondItem="U7c-M4-fgi" secondAttribute="trailing" constant="5" id="Pj7-Ch-RxC"/>
+                            <constraint firstItem="Qwf-uV-AOT" firstAttribute="leading" secondItem="U7c-M4-fgi" secondAttribute="trailing" constant="8" id="Pj7-Ch-RxC"/>
                             <constraint firstItem="U7c-M4-fgi" firstAttribute="leading" secondItem="KRF-8F-YSR" secondAttribute="leading" constant="5" id="jAF-Gp-Flr"/>
                             <constraint firstAttribute="height" constant="80" id="kfA-yp-Khf"/>
-                            <constraint firstItem="T5B-dF-dqP" firstAttribute="leading" secondItem="U7c-M4-fgi" secondAttribute="trailing" constant="5" id="r1R-Sr-lSj"/>
+                            <constraint firstItem="T5B-dF-dqP" firstAttribute="leading" secondItem="U7c-M4-fgi" secondAttribute="trailing" constant="8" id="r1R-Sr-lSj"/>
                             <constraint firstAttribute="trailing" secondItem="T5B-dF-dqP" secondAttribute="trailing" constant="10" id="ua2-hC-evf"/>
-                            <constraint firstItem="T5B-dF-dqP" firstAttribute="top" secondItem="KRF-8F-YSR" secondAttribute="top" constant="5" id="vh5-Pg-hr6"/>
+                            <constraint firstItem="T5B-dF-dqP" firstAttribute="top" secondItem="KRF-8F-YSR" secondAttribute="top" constant="8" id="vh5-Pg-hr6"/>
                             <constraint firstItem="U7c-M4-fgi" firstAttribute="top" secondItem="KRF-8F-YSR" secondAttribute="top" constant="5" id="wdq-V3-uyM"/>
                             <constraint firstAttribute="trailing" secondItem="Qwf-uV-AOT" secondAttribute="trailing" constant="10" id="yZT-IU-W1j"/>
                         </constraints>

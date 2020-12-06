@@ -34,6 +34,7 @@ class SignInViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        firebaseOP.delegate = self
         networkChecker.delegate = self
     }
 }

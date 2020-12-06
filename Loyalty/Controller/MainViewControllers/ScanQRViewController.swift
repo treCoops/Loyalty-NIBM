@@ -8,11 +8,15 @@
 
 import UIKit
 import AVFoundation
+import SKToast
 
 class ScanQRViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     var captureSession: AVCaptureSession!
     var previewLayer: AVCaptureVideoPreviewLayer!
     var popupAlerts = PopupAlerts.instance
+    @IBOutlet weak var captureView: UIView!
+    
+    var delegate: QRResultDelegate?
     
     //Set recognized types to QR codes
     var supportedBarcodeTypes: [AVMetadataObject.ObjectType] = [.qr]
@@ -20,7 +24,7 @@ class ScanQRViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     var launchedFromOfferClaim: Bool = false
     var offerClaimCallback: ((Bool)->())?
     var offer: Offer?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupIO()
@@ -31,6 +35,10 @@ class ScanQRViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
         //start the camera session if its not running
         if (captureSession?.isRunning == false) {
             captureSession.startRunning()
+        }
+        
+        if launchedFromOfferClaim {
+            SKToast.show(withMessage: "Please re-scan the QR code.")
         }
     }
 
@@ -44,12 +52,12 @@ class ScanQRViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     }
     
     //prepare to move to next viewController
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == Seagus.ScanQRToViewOffer {
-            let destVC = segue.destination as! OfferViewController
-            destVC.offer = offer
-        }
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == Seagus.ScanQRToViewOffer {
+//            let destVC = segue.destination as! OfferViewController
+//            destVC.offer = offer
+//        }
+//    }
 }
 
 //MARK: - Interface Actions
@@ -66,23 +74,27 @@ extension ScanQRViewController {
     //validate the scnned QR code data to check whether it's a valid offer
     func validateAndViewOffer(qrCode: String){
         //optional bind the data retrieved from helper
-        if let offer = DataModelHelper.requestOfferDataFromOfferIF(offerID: qrCode) {
+        if let offer = DataModelHelper.requestOfferDataFromOfferID(offerID: qrCode) {
             if (captureSession?.isRunning == true) {
                 captureSession.stopRunning()
             }
             
             if launchedFromOfferClaim {
+                NSLog("Offer Validated")
                 self.dismiss(animated: true, completion: nil)
                 self.offerClaimCallback?(true)
                 return
             }
             
-            self.dismiss(animated: true, completion: {
-                self.performSegue(withIdentifier: Seagus.ScanQRToViewOffer, sender: nil)
-                self.offer = offer
+            dismiss(animated: true, completion: {
+                self.delegate?.onQRInfoProcessed(offer: offer)
             })
+            
         } else {
-            self.present(self.popupAlerts.createAlert(title: FieldErrorCaptions.scannerOfferNotValidTitle, message: FieldErrorCaptions.scannerOfferNotValidDescription).addDefaultAction(title: "OK").displayAlert(), animated: true)
+            
+            self.dismiss(animated: true, completion: {
+                self.delegate?.onQRInfoProcessed(offer: nil)
+            })
         }
     }
     //setup camera HW inorder to start capturing QR codes
@@ -130,9 +142,9 @@ extension ScanQRViewController {
 
         //Setup the preview layer and add the preview layer to the root View
         previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-        previewLayer.frame = view.layer.bounds
+        previewLayer.frame = captureView.layer.bounds
         previewLayer.videoGravity = .resizeAspectFill
-        view.layer.addSublayer(previewLayer)
+        captureView.layer.addSublayer(previewLayer)
 
         //start the session
         captureSession.startRunning()
@@ -162,8 +174,6 @@ extension ScanQRViewController {
             AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
             found(code: stringValue)
         }
-
-        dismiss(animated: true)
     }
 
 //    override var prefersStatusBarHidden: Bool {
@@ -173,5 +183,9 @@ extension ScanQRViewController {
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .portrait
     }
+}
+
+protocol QRResultDelegate {
+    func onQRInfoProcessed(offer: Offer?)
 }
 

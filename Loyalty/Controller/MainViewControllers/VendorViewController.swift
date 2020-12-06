@@ -38,16 +38,17 @@ class VendorViewController: UIViewController {
         super.viewDidLoad()
         imgLogo.squareImageView()
         registerNib()
+        setUpRefreshControl()
+        progressHUD = ProgressHUD(view: view)
         networkChecker.delegate = self
         firebaseOP.delegate = self
-        progressHUD = ProgressHUD(view: view)
-        setUpRefreshControl()
         loadVendorData()
         getOfferList()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         networkChecker.delegate = self
+        firebaseOP.delegate = self
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -112,6 +113,7 @@ extension VendorViewController {
             self.present(self.popupAlerts.displayNetworkLostAlert(), animated: true)
             return
         }
+        
         firebaseOP.getAllOffers()
     }
 }
@@ -145,15 +147,15 @@ extension VendorViewController : UITableViewDelegate, UITableViewDataSource {
 
 extension VendorViewController: FirebaseActions {
     func onOffersLoaded() {
-        refreshControl.endRefreshing()
+        self.refreshControl.endRefreshing()
         self.getOfferList()
     }
     func onOffersLoadFailedWithError(error: Error) {
-        refreshControl.endRefreshing()
+        self.refreshControl.endRefreshing()
         SKToast.show(withMessage: error.localizedDescription)
     }
     func onOffersLoadFailedWithError(error: String) {
-        refreshControl.endRefreshing()
+        self.refreshControl.endRefreshing()
         SKToast.show(withMessage: error)
     }
 }

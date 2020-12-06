@@ -112,7 +112,7 @@ class DataModelHelper {
     }
     
     //fetch offer details based on offerID
-    static func requestOfferDataFromOfferIF(offerID key: String) -> Offer? {
+    static func requestOfferDataFromOfferID(offerID key: String) -> Offer? {
         let request: NSFetchRequest<Offer> = Offer.fetchRequest()
         //set predicate to filter out with a specific offer
         request.predicate = NSPredicate(format: "key = %@", key)

@@ -29,8 +29,6 @@ class OfferViewController: UIViewController {
         btnGetOffer.isHidden = true
         btnGetOffer.isEnabled = false
         progressHUD = ProgressHUD(view: view)
-        networkChecker.delegate = self
-        firebaseOP.delegate = self
         user = SessionManager.getUserSesion()
         if !networkChecker.isReachable {
             self.present(self.popupAlerts.displayNetworkLostAlert(), animated: true)
@@ -38,12 +36,15 @@ class OfferViewController: UIViewController {
         }
         
         progressHUD.displayProgressHUD()
+        networkChecker.delegate = self
+        firebaseOP.delegate = self
         loadOfferData()
         checkOfferElegilility()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         networkChecker.delegate = self
+        firebaseOP.delegate = self
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

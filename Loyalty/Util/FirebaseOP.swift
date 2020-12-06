@@ -416,7 +416,7 @@ class FirebaseOP {
                 self.delegate?.onClaimOfferFailedWithError(error: FieldErrorCaptions.offerClaimErrDescription)
                 NSLog(error.localizedDescription)
             } else {
-                ref.child("offers").child(offer.key!).child("claimedUsers").setValue(user.nic!) {
+                self.getDBReference().child("offers").child(offer.key!).child("claimedUsers").childByAutoId().setValue(user.nic!){
                     (error:Error?, ref:DatabaseReference) in
                     if let error = error {
                         self.delegate?.onClaimOfferFailedWithError(error: FieldErrorCaptions.offerClaimErrDescription)

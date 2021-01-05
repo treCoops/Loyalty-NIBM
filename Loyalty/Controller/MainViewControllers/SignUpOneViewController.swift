@@ -24,6 +24,7 @@ class SignUpOneViewController: UIViewController {
         super.viewDidLoad()
         
         viewParent.roundView()
+        setTextFieldDelegates()
         progressHUD = ProgressHUD(view: view)
         networkChecker.delegate = self
     }

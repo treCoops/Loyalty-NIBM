@@ -599,7 +599,7 @@
                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zi0-ht-L0G">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zi0-ht-L0G">
                                 <rect key="frame" x="5" y="298" width="365" height="359"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <connections>
@@ -710,7 +710,7 @@
                                     <constraint firstAttribute="height" constant="1" id="i4h-6O-Aoa"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="D91-01-MYB">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="D91-01-MYB">
                                 <rect key="frame" x="10" y="332" width="355" height="335"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <connections>
@@ -1477,7 +1477,7 @@
                                     <outlet property="delegate" destination="BKN-Ng-ifM" id="jwB-Rl-sK7"/>
                                 </connections>
                             </searchBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hHx-z1-atM">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hHx-z1-atM">
                                 <rect key="frame" x="10" y="110" width="355" height="547"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <connections>
@@ -1500,7 +1500,6 @@
                             <constraint firstItem="VoD-aF-aEP" firstAttribute="trailing" secondItem="hHx-z1-atM" secondAttribute="trailing" constant="10" id="qdG-A7-xYn"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="6TW-3r-WY8"/>
                     <connections>
                         <outlet property="tableViewVendors" destination="hHx-z1-atM" id="iAT-UR-0WT"/>
                         <segue destination="Gba-jK-M4N" kind="show" identifier="singleCategoryToVendor" id="ewC-PU-p3w"/>
@@ -1911,7 +1910,7 @@
                                     <action selector="backPressed:" destination="hUq-2X-hPJ" eventType="touchUpInside" id="z52-A1-io9"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GFg-LD-3mu">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GFg-LD-3mu">
                                 <rect key="frame" x="10" y="113" width="355" height="544"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <connections>
@@ -2304,10 +2303,10 @@
     </designables>
     <inferredMetricsTieBreakers>
         <segue reference="UXa-Wg-ekm"/>
-        <segue reference="qPL-gL-BXx"/>
-        <segue reference="2ce-4c-jjW"/>
-        <segue reference="6gV-bK-mla"/>
-        <segue reference="ewC-PU-p3w"/>
+        <segue reference="tAb-Zi-Rhl"/>
+        <segue reference="eQ6-4U-TXa"/>
+        <segue reference="YOV-IY-3KW"/>
+        <segue reference="EbX-na-0hH"/>
         <segue reference="EaW-eZ-MY1"/>
     </inferredMetricsTieBreakers>
     <resources>
